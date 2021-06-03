@@ -1,0 +1,37 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "Front End Capstone - Grand Canyon",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "build": "npx webpack -w",
+    "linter": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HRRFE3-GrandCanyon/FEC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HRRFE3-GrandCanyon/FEC/issues"
+  },
+  "homepage": "https://github.com/HRRFE3-GrandCanyon/FEC#readme",
+  "dependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.27.0",
+    "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  }
+}
