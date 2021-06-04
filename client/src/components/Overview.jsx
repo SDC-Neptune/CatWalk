@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Overview = () => {
+const Overview = ({productId}) => {
 
-  return (<h1>Overview</h1>);
+  return (<h1>{productId}</h1>);
 };
 
 export default Overview;
