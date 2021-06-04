@@ -1,5 +1,4 @@
 import React from 'react';
-// import RelatedProductCard from './RelatedProductCard.jsx';
 import RelatedProductsCarousel from './RelatedProductsCarousel.jsx';
 
 const RelatedProducts = () => {
