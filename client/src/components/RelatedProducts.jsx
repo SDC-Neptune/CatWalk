@@ -1,8 +1,15 @@
 import React from 'react';
+// import RelatedProductCard from './RelatedProductCard.jsx';
+import RelatedProductsCarousel from './RelatedProductsCarousel.jsx';
 
 const RelatedProducts = () => {
 
-  return (<h1>RelatedProducts</h1>);
+  return (
+    <div>
+      <RelatedProductsCarousel />
+      <RelatedProductsCarousel />
+    </div>
+  );
 };
 
 export default RelatedProducts;

@@ -2,3 +2,103 @@
   width: 1200px;
   margin: auto;
 }
+
+/* OVERVIEW */
+
+.overview {
+  border-style: solid;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 10px;
+}
+
+
+.col1-overview {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.col2-overview {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+.image-gallery {
+  border-style: dashed;
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-image {
+  max-height: 600px;
+  max-width: 600px;
+  position: relative;
+  margin: auto;
+}
+
+.main-image:hover {
+  cursor: pointer;
+}
+
+
+.social {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+}
+
+.overview-arrows {
+  position: relative;
+  height: 85px;
+  margin: auto 0;
+}
+
+.overview-arrows:hover {
+  cursor: pointer;
+}
+
+.left {
+  margin-left: 100px;
+}
+
+.right {
+  margin-right: 50px;
+}
+
+/* SECTION NAME */
+
+.product-info > * {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.related-products-compare {
+  position: absolute;
+  top: 10px;
+  left: 275px;
+  z-index: 2;
+  font-size: 1.2rem;
+  color: dodgerblue;
+}
+
+.related-products-compare:hover {
+  cursor: pointer;
+}
+
+.arrow {
+  height: 85px;
+  margin: auto 0;
+  border: 1px solid black;
+}
+
+.rp-carousel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

@@ -10,7 +10,7 @@ class StyleSelector extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="col2-overview">
         <h2>Style Selector</h2>
       </div>
     );

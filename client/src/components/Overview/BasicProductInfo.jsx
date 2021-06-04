@@ -1,20 +1,22 @@
 import React from 'react';
 
-class ProductInfo extends React.Component {
+class BasicProductInfo extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       stars: 5,
       category: 'Jackets',
-      title: 'Camo Onesie'
+      title: 'Camo Onesie',
     };
   }
 
   render() {
     return (
-      <div>
-        <div>{this.state.stars} *****</div>
+      <div className="col2-overview">
+        <div >{this.state.stars} *****
+          <a href="">Read all reviews</a>
+        </div>
         <div>{this.state.category}</div>
         <div>{this.state.title}</div>
       </div>
@@ -23,4 +25,4 @@ class ProductInfo extends React.Component {
 
 }
 
-export default ProductInfo;
+export default BasicProductInfo;

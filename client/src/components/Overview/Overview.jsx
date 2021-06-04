@@ -1,5 +1,6 @@
 import React from 'react';
-import ProductInfo from './ProductInfo.jsx';
+import BasicProductInfo from './BasicProductInfo.jsx';
+import DescriptiveProductInfo from './DescriptiveProductInfo.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import StyleSelector from './StyleSelector.jsx';
 
@@ -23,10 +24,11 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div>
-        <ProductInfo productId={this.props.productId}/>
+      <div className="overview">
         <ImageGallery styleId={this.state.styleId}/>
+        <BasicProductInfo productId={this.props.productId}/>
         <StyleSelector styleHandler={this.updateStyleId}/>
+        <DescriptiveProductInfo productId={this.props.productId}/>
       </div>
     );
   }
