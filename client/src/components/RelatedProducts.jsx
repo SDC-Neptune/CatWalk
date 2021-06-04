@@ -1,14 +1,13 @@
 import React from 'react';
-import RelatedProductCard from './RelatedProductCard.jsx';
+// import RelatedProductCard from './RelatedProductCard.jsx';
+import RelatedProductsCarousel from './RelatedProductsCarousel.jsx';
 
 const RelatedProducts = () => {
 
   return (
-    <div style={{display: 'flex'}}>
-      <RelatedProductCard />
-      <RelatedProductCard />
-      <RelatedProductCard />
-      <RelatedProductCard />
+    <div>
+      <RelatedProductsCarousel />
+      <RelatedProductsCarousel />
     </div>
   );
 };

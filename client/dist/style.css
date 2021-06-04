@@ -30,3 +30,9 @@
   margin: auto 0;
   border: 1px solid black;
 }
+
+.rp-carousel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
