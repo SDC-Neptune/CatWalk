@@ -2,3 +2,37 @@
   width: 1200px;
   margin: auto;
 }
+
+.product-info > * {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.related-products-compare {
+  position: absolute;
+  top: 10px;
+  left: 275px;
+  z-index: 2;
+  font-size: 1.2rem;
+  color: dodgerblue;
+}
+
+.related-products-compare:hover {
+  cursor: pointer;
+}
+
+.arrow {
+  height: 85px;
+  margin: auto 0;
+  border: 1px solid black;
+}
+
+.rp-carousel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
