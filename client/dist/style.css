@@ -24,3 +24,9 @@
 .related-products-compare:hover {
   cursor: pointer;
 }
+
+.arrow {
+  height: 85px;
+  margin: auto 0;
+  border: 1px solid black;
+}
