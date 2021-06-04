@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './components/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers.jsx';
@@ -7,12 +7,14 @@ import RelatedProducts from './components/RelatedProducts.jsx';
 
 const App = () => {
 
+  const [productId, setProductId] = useState('19089');
+
   return (
     <div>
-      <Overview/>
-      <RelatedProducts/>
-      <QuestionsAnswers/>
-      <RatingsReviews/>
+      <Overview productId={productId}/>
+      <RelatedProducts productId={productId}/>
+      <QuestionsAnswers productId={productId}/>
+      <RatingsReviews productId={productId}/>
     </div>);
 };
 
