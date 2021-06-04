@@ -6,8 +6,8 @@ const RelatedProducts = () => {
 
   return (
     <div>
-      <RelatedProductsCarousel />
-      <RelatedProductsCarousel />
+      <RelatedProductsCarousel title='YOUR OUTFIT' />
+      <RelatedProductsCarousel title='RELATED PRODUCTS' />
     </div>
   );
 };
