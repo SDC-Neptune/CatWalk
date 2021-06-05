@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar QuestionsAnswers = function QuestionsAnswers() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"QuestionsAnswers\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsAnswers);\n\n//# sourceURL=webpack://fec/./client/src/components/QuestionsAnswers.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _questions_answers_ViewContainer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./questions_answers/ViewContainer.jsx */ \"./client/src/components/questions_answers/ViewContainer.jsx\");\n\n\n\nvar QuestionsAnswers = function QuestionsAnswers(_ref) {\n  var productId = _ref.productId;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"QuestionsAnswers\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_questions_answers_ViewContainer_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {\n    productId: productId\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsAnswers);\n\n//# sourceURL=webpack://fec/./client/src/components/QuestionsAnswers.jsx?");
 
 /***/ }),
 
@@ -87,6 +87,56 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _RelatedProductCard_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RelatedProductCard.jsx */ \"./client/src/components/RelatedProductCard.jsx\");\n/* harmony import */ var _ArrowRight_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ArrowRight.jsx */ \"./client/src/components/ArrowRight.jsx\");\n/* harmony import */ var _ArrowLeft_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ArrowLeft.jsx */ \"./client/src/components/ArrowLeft.jsx\");\n\n\n\n\n\nvar RelatedProductsCarousel = function RelatedProductsCarousel() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"rp-carousel\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ArrowLeft_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_RelatedProductCard_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_RelatedProductCard_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_RelatedProductCard_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ArrowRight_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RelatedProductsCarousel);\n\n//# sourceURL=webpack://fec/./client/src/components/RelatedProductsCarousel.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/questions_answers/Answer.jsx":
+/*!************************************************************!*\
+  !*** ./client/src/components/questions_answers/Answer.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Answer = function Answer(_ref) {\n  var productId = _ref.productId;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"txtQA\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"strong\", null, \"A:\"), \"This is hardcoded answer data\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"txtQA\"\n  }, \"By USER_NAME on FORMATTED_DATE\"));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Answer);\n\n//# sourceURL=webpack://fec/./client/src/components/questions_answers/Answer.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/questions_answers/Question.jsx":
+/*!**************************************************************!*\
+  !*** ./client/src/components/questions_answers/Question.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Answer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Answer.jsx */ \"./client/src/components/questions_answers/Answer.jsx\");\n\n\n\nvar Question = function Question(_ref) {\n  var productId = _ref.productId;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"txtQA\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"strong\", null, \"Q:\"), \" This is hardcoded question data\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"Helpful? \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"u\", null, \"Yes\"), \" \"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"25\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Answer_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"Helpful? \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"u\", null, \"Yes\"), \" \"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"5\"));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Question);\n\n//# sourceURL=webpack://fec/./client/src/components/questions_answers/Question.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/questions_answers/QuestionsView.jsx":
+/*!*******************************************************************!*\
+  !*** ./client/src/components/questions_answers/QuestionsView.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Question_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question.jsx */ \"./client/src/components/questions_answers/Question.jsx\");\n\n\n\nvar QuestionsView = function QuestionsView(_ref) {\n  var productId = _ref.productId;\n  console.log(productId);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Question_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", null, \"See more answered questions\"));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsView);\n\n//# sourceURL=webpack://fec/./client/src/components/questions_answers/QuestionsView.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/questions_answers/Search.jsx":
+/*!************************************************************!*\
+  !*** ./client/src/components/questions_answers/Search.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Search = function Search() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"form\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", null, \"Have a question? \"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    placeholder: 'Search Questions'\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);\n\n//# sourceURL=webpack://fec/./client/src/components/questions_answers/Search.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/questions_answers/ViewContainer.jsx":
+/*!*******************************************************************!*\
+  !*** ./client/src/components/questions_answers/ViewContainer.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Search_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Search.jsx */ \"./client/src/components/questions_answers/Search.jsx\");\n/* harmony import */ var _QuestionsView_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionsView.jsx */ \"./client/src/components/questions_answers/QuestionsView.jsx\");\n\n\n\n\nvar ViewContainer = function ViewContainer(_ref) {\n  var productId = _ref.productId;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Search_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsView_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {\n    productId: productId\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ViewContainer);\n\n//# sourceURL=webpack://fec/./client/src/components/questions_answers/ViewContainer.jsx?");
 
 /***/ }),
 

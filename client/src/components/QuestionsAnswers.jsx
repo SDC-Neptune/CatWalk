@@ -1,8 +1,14 @@
 import React from 'react';
+import ViewContainer from './questions_answers/ViewContainer.jsx';
 
-const QuestionsAnswers = () => {
+const QuestionsAnswers = ({productId}) => {
 
-  return (<h1>QuestionsAnswers</h1>);
+  return (
+    <div>
+      <h1>QuestionsAnswers</h1>
+      <ViewContainer productId={productId}/>
+    </div>
+  );
 
 
 };
