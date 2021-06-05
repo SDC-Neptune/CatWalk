@@ -13,9 +13,8 @@ class DescriptiveProductInfo extends React.Component {
   render() {
     return (
       <div className="descriptive-info">
-        <div>Slogan: {this.state.slogan}</div>
-        <div>Description: {this.state.description}</div>
-        <h3>Share</h3>
+        <div className="slogan">{this.state.slogan}</div>
+        <div className="description">{this.state.description}</div>
         <img className="social" src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"></img>
         <img className="social" src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"></img>
         <img className="social" src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"></img>
