@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Overview from './components/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers.jsx';
 import RatingsReviews from './components/RatingsReviews.jsx';
-import RelatedProducts from './components/RelatedProducts.jsx';
+import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 

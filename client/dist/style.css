@@ -6,6 +6,7 @@
 .product-info > * {
   margin-top: 3px;
   margin-bottom: 3px;
+  padding: 3px;
 }
 
 .image-container {
@@ -15,9 +16,9 @@
 .related-products-compare {
   position: absolute;
   top: 10px;
-  left: 275px;
+  left: 255px;
   z-index: 2;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   color: dodgerblue;
 }
 
@@ -35,4 +36,33 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.rp-card {
+  border: 1px solid black;
+  margin-right: 20px;
+}
+
+.add-to-outfit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  height: 565px;
+  width: 300px;
+  border: 1px solid black;
+}
+
+.add-to-outfit {
+  font-size: 1.4rem;
+}
+
+.add-icon:hover {
+  cursor: pointer;
+}
+
+.card-container {
+  width: 1000px;
+  overflow: hidden;
+  display: flex;
 }

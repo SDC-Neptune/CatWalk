@@ -1,13 +1,12 @@
 import React from 'react';
-// import RelatedProductCard from './RelatedProductCard.jsx';
 import RelatedProductsCarousel from './RelatedProductsCarousel.jsx';
 
 const RelatedProducts = () => {
 
   return (
     <div>
-      <RelatedProductsCarousel />
-      <RelatedProductsCarousel />
+      <RelatedProductsCarousel title='RELATED PRODUCTS' />
+      <RelatedProductsCarousel title='YOUR OUTFIT' />
     </div>
   );
 };
