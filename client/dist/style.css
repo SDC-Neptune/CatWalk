@@ -10,7 +10,7 @@
 .product-info > * {
   margin-top: 3px;
   margin-bottom: 3px;
-  padding: 3px;
+  padding: 3px 12px;
 }
 
 .image-container {
@@ -46,7 +46,7 @@
   border: 1px solid black;
   margin-right: 15px;
   /* margin-left: 15px; */
-  height: 577px;
+  height: 527px;
 }
 
 .add-to-outfit-card {
@@ -54,7 +54,7 @@
   flex-direction: column;
   align-items: center;
   justify-content:center;
-  height: 577px;
+  height: 527px;
   width: 300px;
   border: 1px solid black;
 }
@@ -123,4 +123,8 @@
 
 .modal-header > div:nth-child(2) {
   cursor: pointer;
+}
+
+.related-product-image {
+  width: 300px;
 }
