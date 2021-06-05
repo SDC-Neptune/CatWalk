@@ -40,6 +40,7 @@
 
 .rp-card {
   border: 1px solid black;
+  margin-right: 20px;
 }
 
 .add-to-outfit-card {
@@ -58,4 +59,10 @@
 
 .add-icon:hover {
   cursor: pointer;
+}
+
+.card-container {
+  width: 1000px;
+  overflow: hidden;
+  display: flex;
 }
