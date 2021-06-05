@@ -12,7 +12,7 @@ class DescriptiveProductInfo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="descriptive-info">
         <div>Slogan: {this.state.slogan}</div>
         <div>Description: {this.state.description}</div>
         <h3>Share</h3>

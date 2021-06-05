@@ -13,7 +13,7 @@ class BasicProductInfo extends React.Component {
 
   render() {
     return (
-      <div className="col2-overview">
+      <div className="basic-info">
         <div >{this.state.stars} *****
           <a href="">Read all reviews</a>
         </div>
