@@ -14,11 +14,16 @@ class BasicProductInfo extends React.Component {
   render() {
     return (
       <div className="basic-info">
-        <div >{this.state.stars} *****
-          <a href="">Read all reviews</a>
+        <div className="overview-rating">
+          <span className="fa fa-star checked"></span>
+          <span className="fa fa-star checked"></span>
+          <span className="fa fa-star checked"></span>
+          <span className="fa fa-star checked"></span>
+          <span className="fa fa-star checked"></span>
         </div>
-        <div>{this.state.category}</div>
-        <div>{this.state.title}</div>
+        <a href=""> Read all reviews</a>
+        <h2>{this.state.category.toUpperCase()}</h2>
+        <h1>{this.state.title}</h1>
       </div>
     );
   }

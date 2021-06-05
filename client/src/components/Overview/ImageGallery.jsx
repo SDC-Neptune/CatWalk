@@ -6,6 +6,7 @@ class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      img: "https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
     };
   }
 
@@ -13,17 +14,19 @@ class ImageGallery extends React.Component {
     return (
       <div className="image-gallery">
         <div className="thumbnails">
-          <i className="fa fa-angle-up fa-3x thumbnail-arrows"></i>
-          <img src="https://cdn.shopify.com/s/files/1/2495/5044/products/oca-low-red-canvas-sneaker.slideshow1_1f09ae39-2cf4-458a-974a-1673f9f61291.jpg?v=1610695036" className="thumbnail"></img>
-          <img src="https://cdn.shopify.com/s/files/1/2495/5044/products/oca-low-red-canvas-sneaker.slideshow1_1f09ae39-2cf4-458a-974a-1673f9f61291.jpg?v=1610695036" className="thumbnail"></img>
-          <img src="https://cdn.shopify.com/s/files/1/2495/5044/products/oca-low-red-canvas-sneaker.slideshow1_1f09ae39-2cf4-458a-974a-1673f9f61291.jpg?v=1610695036" className="thumbnail"></img>
-          <img src="https://cdn.shopify.com/s/files/1/2495/5044/products/oca-low-red-canvas-sneaker.slideshow1_1f09ae39-2cf4-458a-974a-1673f9f61291.jpg?v=1610695036" className="thumbnail"></img>
-          <img src="https://cdn.shopify.com/s/files/1/2495/5044/products/oca-low-red-canvas-sneaker.slideshow1_1f09ae39-2cf4-458a-974a-1673f9f61291.jpg?v=1610695036" className="thumbnail"></img>
-          <i className="fa fa-angle-down fa-3x thumbnail-arrows"></i>
+          <i class="thumbnail-arrows up t1"></i>
+          <img src={this.state.img} className="thumbnail t2"></img>
+          <img src={this.state.img} className="thumbnail t3"></img>
+          <img src={this.state.img} className="thumbnail t4"></img>
+          <img src={this.state.img} className="thumbnail t5"></img>
+          <img src={this.state.img} className="thumbnail t6"></img>
+          <img src={this.state.img} className="thumbnail t7"></img>
+          <img src={this.state.img} className="thumbnail t8"></img>
+          <i class="thumbnail-arrows down t9"></i>
         </div>
-        <i className="fa fa-angle-left fa-5x overview-arrows"></i>
-        <img src="https://cdn.shopify.com/s/files/1/2495/5044/products/oca-low-red-canvas-sneaker.slideshow1_1f09ae39-2cf4-458a-974a-1673f9f61291.jpg?v=1610695036" className="main-image"></img>
-        <i className="fa fa-angle-right fa-5x overview-arrows"></i>
+        <i className="fa fa-angle-left fa-5x main-image-arrows left"></i>
+        <img src={this.state.img} className="main-image"></img>
+        <i className="fa fa-angle-right fa-5x main-image-arrows right"></i>
       </div>
     );
   }
