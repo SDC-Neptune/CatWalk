@@ -7,6 +7,289 @@
   margin: auto;
 }
 
+/* OVERVIEW */
+
+.overview {
+  border-bottom: solid lightgray;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-column-gap: 60px;
+  grid-row-gap: 10px;
+  margin-bottom: 10px;
+  max-height: 650px;
+}
+
+.image-gallery {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 2fr 1fr 6fr 1fr;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row: 1 / span 2;
+}
+
+.basic-info {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.style-selector {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.style-row {
+  display: flex;
+  width: 100%;
+}
+
+.style-option {
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+}
+
+.style-option:hover {
+  cursor: pointer;
+}
+
+.selected-style {
+  text-align: center;
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 30px;
+  width: 12px;
+  border-bottom: 7px solid black;
+  border-right: 7px solid black;
+  position: relative;
+  top: -20px;
+  left: 50px;
+}
+
+.descriptive-info {
+  grid-column: 1 / span 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.main-image {
+  max-width: 95%;
+  max-height: 95%;
+  height: auto;
+  width: auto;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.main-image-arrows {
+  height: 85px;
+  margin: auto 0;
+}
+
+.main-image-arrows:hover {
+  cursor: pointer;
+}
+
+.main-image:hover {
+  cursor: pointer;
+}
+
+.thumbnails {
+  margin-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-right: 10px;
+  max-width: 120px;
+  max-height: 500px;
+  margin-left: 10px;
+  justify-self: center;
+  justify-content: center;
+}
+
+.thumbnail {
+  margin-top: 10px;
+  max-width: 100px;
+  max-height: 40px;
+  justify-self: center;
+  width: auto;
+  height: auto;
+}
+
+.t1 {
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.t2 {
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.t3 {
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.t4 {
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.t5 {
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.t6 {
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+.t7 {
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+.t8 {
+  grid-row-start: 8;
+  grid-row-end: 8;
+}
+
+.t9 {
+  grid-row-start: 9;
+  grid-row-end: 9;
+}
+
+.thumbnail-arrows {
+  height: 15px;
+  width: 15px;
+  margin: auto;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 0px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  height: 25px;
+  width: 25px;
+
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  height: 25px;
+  width: 25px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  margin-top: 10px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.thumbnail:hover, .thumbnail-arrows:hover{
+  cursor: pointer;
+}
+
+.overview-rating {
+  margin-top: 30px;
+}
+
+.cart {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  grid-template-columns: 10px;
+  max-width: 70%
+}
+
+.select-size {
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column: 1 / span 3;
+}
+
+.choose-quantity {
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column: 4 / span 2;
+}
+
+.add-to-bag {
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column: 1 / span 4;
+}
+
+.favourite {
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column: 5 / span 1;
+}
+
+.slogan {
+  font-family: cursive;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  position: relative;
+  left: 240px;
+  top: -40px;
+  max-width: 300px;
+
+}
+
+.description {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  position: relative;
+  left: 50px;
+  top: -20px;
+}
+
+.social {
+  position: relative;
+  left: 50px;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+}
+
+.social:hover {
+  cursor: pointer;
+}
+
+h3 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+/* SECTION NAME */
+
 .product-info > * {
   margin-top: 3px;
   margin-bottom: 3px;
