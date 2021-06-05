@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ArrowRight = () => {
+const ArrowRight = ({handleNextClick}) => {
   return (
-    <div className="arrow">
+    <div className="arrow" onClick={handleNextClick}>
       <i className="fa fa-angle-right fa-5x"></i>
     </div>
   );
