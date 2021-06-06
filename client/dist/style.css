@@ -17,7 +17,7 @@
   grid-column-gap: 60px;
   grid-row-gap: 10px;
   margin-bottom: 10px;
-  max-height: 650px;
+  max-height: 700px;
 }
 
 .image-gallery {
@@ -47,7 +47,7 @@
 .style-image {
   width: 70px;
   height: 70px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 100%;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,6 @@
   position: relative;
   top: -65px;
   left: -80px;
-  z-index: 2;
 }
 
 .selected-style-unchecked {
@@ -284,6 +283,7 @@
 
 .social {
   position: relative;
+  top: -115px;
   left: 50px;
   width: 40px;
   height: 40px;
@@ -297,6 +297,18 @@
 h3 {
   margin: 0;
   margin-bottom: 10px;
+}
+
+.original-price-strikethrough {
+  text-decoration: line-through;
+}
+
+.sale-price-popup {
+  color: red;
+}
+
+.no-sale-message {
+  color: white;
 }
 
 /* SECTION NAME */
