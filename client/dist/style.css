@@ -422,3 +422,49 @@ h3 {
 .related-product-image {
   width: 300px;
 }
+
+/*------- RATINGS AND REVIEWS ---------*/
+
+.rating {
+  font-size: 35pt;
+  font-weight: bold;
+  display: inline-block;
+  padding-right: 15px;
+}
+
+.star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 20px;
+  height: 25px;
+  width: 100px;
+  position: relative;
+  text-shadow: 0px 1px 0 #a2a2a2;
+  display: inline-block;
+  top: -20px;
+}
+
+.reviewBarText {
+  font-size: 13pt;
+  text-decoration: underline;
+}
+
+progress {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+  width: 220px;
+  height: 13px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress::-webkit-progress-value {
+  background: black;
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
