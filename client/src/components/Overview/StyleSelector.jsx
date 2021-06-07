@@ -67,7 +67,7 @@ class StyleSelector extends React.Component {
             <h3 className="no-sale-message">.</h3>
           </div>
         }
-        <h3>STYLE > {this.state.selectedStyleName}</h3>
+        <h3>STYLE > {this.props.productStyles.results[this.props.styleIndex].name}</h3>
         {this.stylesToRows(this.props.productStyles.results).map((row, index) => {
           if (row[0].photos[0].thumbnail_url === null) {
             return null;
