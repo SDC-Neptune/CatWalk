@@ -15,7 +15,6 @@ class DescriptiveProductInfo extends React.Component {
 
     axios.get('/api/product', { params: { id: this.props.productId } })
       .then((productInfo) => {
-        console.log('productInfo: ', productInfo);
         this.setState({
           slogan: productInfo.data.slogan,
           description: productInfo.data.description

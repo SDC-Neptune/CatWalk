@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 
 class ImageGallery extends React.Component {
 
@@ -8,10 +8,12 @@ class ImageGallery extends React.Component {
     this.state = {
       img: "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
     };
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+
   }
 
   componentDidMount() {
-
   }
 
   render() {
