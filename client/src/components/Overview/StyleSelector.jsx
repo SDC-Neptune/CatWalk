@@ -16,7 +16,6 @@ class StyleSelector extends React.Component {
     };
     this.stylesToRows = this.stylesToRows.bind(this);
     this.updateStyleState = this.updateStyleState.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   updateStyleState(selected, styleId, originalPrice, salePrice, styleName, event) {
@@ -26,12 +25,10 @@ class StyleSelector extends React.Component {
       salePrice: salePrice,
       selectedStyleName: styleName
     })
-    this.props.styleHandler(styleId)
+    this.props.styleHandler(selected)
   }
 
-
   stylesToRows(styles) {
-
     var rows = [];
     function innerFunction(row, position) {
         if (position === styles.length) {
@@ -47,31 +44,16 @@ class StyleSelector extends React.Component {
             innerFunction(row, position + 1);
         }
     };
-
     innerFunction([], 0)
     return rows;
   };
 
-  componentDidMount() {
-
-    axios.get(`/products/${this.props.productId}/styles`)
-      .then((styles) => {
-        return this.stylesToRows(styles.data.results);
-      })
-      .then((sortedStyles) => {
-        this.setState({
-          styles: sortedStyles,
-          originalPrice: sortedStyles[0][0].original_price,
-          salePrice: sortedStyles[0][0].sale_price,
-          selectedStyleName: sortedStyles[0][0].name
-        });
-      })
-      .catch((error) => {
-        console.log('error: ', error);
-      });
-  }
-
   render() {
+
+    if (!this.props.productStyles.results) {
+      return <div></div>
+    }
+
     return (
       <div className="style-selector">
         {this.state.salePrice &&
@@ -87,7 +69,7 @@ class StyleSelector extends React.Component {
           </div>
         }
         <h3>STYLE > {this.state.selectedStyleName}</h3>
-        {this.state.styles.map((row, index) => {
+        {this.stylesToRows(this.props.productStyles.results).map((row, index) => {
           if (row[0].photos[0].thumbnail_url === null) {
             return null;
           }
@@ -166,7 +148,7 @@ class StyleSelector extends React.Component {
         <AddToCart />
       </div>
     );
-  }
+}
 
 }
 

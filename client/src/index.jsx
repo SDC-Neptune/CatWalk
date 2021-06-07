@@ -10,6 +10,7 @@ const App = () => {
 
   const [productId, setProductId] = useState('19089');
   const [productInfo, setProductInfo] = useState([]);
+  const [productStyles, setProductStyles] = useState([]);
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -19,14 +20,15 @@ const App = () => {
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
       .then(({data}) => {
-        console.log(data);
         setProductInfo(data);
       });
   };
 
   const getProductStyles = (id) => {
     axios.get(`/products/${productId}/styles`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => {
+        setProductStyles(data);
+      });
   };
 
   const getRelatedProducts = (id) => {
@@ -86,7 +88,7 @@ const App = () => {
 
   return (
     <div>
-      <Overview productId={productId} productInfo={productInfo}/>
+      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
       <RelatedProducts productId={productId}/>
       <QuestionsAnswers productId={productId}/>
       <RatingsReviews productId={productId}/>

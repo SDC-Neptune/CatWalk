@@ -8,6 +8,10 @@ const BasicProductInfo = (props) => {
     e.preventDefault();
   };
 
+  if (!props.productInfo) {
+    return <div></div>;
+  }
+
   return (
     <div className="basic-info">
       <div className="overview-rating">

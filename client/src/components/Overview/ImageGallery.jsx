@@ -6,17 +6,17 @@ class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      img: "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+      img: "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+      thumbnailIndex: 0
     };
-
-    this.componentDidMount = this.componentDidMount.bind(this);
-
-  }
-
-  componentDidMount() {
   }
 
   render() {
+
+    if (!this.props.productStyles.results) {
+      return <div></div>;
+    }
+
     return (
       <div className="image-gallery">
         <div className="thumbnails">
@@ -31,7 +31,7 @@ class ImageGallery extends React.Component {
           <i className="thumbnail-arrows down t9"></i>
         </div>
         <i className="thumbnail-arrows left"></i>
-        <img src={this.state.img} className="main-image"></img>
+        <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.thumbnailIndex].url} className="main-image"></img>
         <i className="thumbnail-arrows right"></i>
       </div>
     );
