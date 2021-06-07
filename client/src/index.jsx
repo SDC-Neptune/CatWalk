@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers.jsx';
-import RatingsReviews from './components/RatingsReviews.jsx';
+import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
