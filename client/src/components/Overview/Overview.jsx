@@ -10,10 +10,10 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      styleId: '103466'
+      styleId: ''
     };
 
-    this.updateStyleId.bind(this);
+    this.updateStyleId = this.updateStyleId.bind(this);
   }
 
   updateStyleId(id) {
@@ -27,7 +27,7 @@ class Overview extends React.Component {
       <div className="overview">
         <ImageGallery styleId={this.state.styleId}/>
         <BasicProductInfo productId={this.props.productId}/>
-        <StyleSelector styleHandler={this.updateStyleId}/>
+        <StyleSelector styleHandler={this.updateStyleId} productId={this.props.productId}/>
         <DescriptiveProductInfo productId={this.props.productId}/>
       </div>
     );

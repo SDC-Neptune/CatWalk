@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 
 class BasicProductInfo extends React.Component {
 
@@ -6,9 +8,24 @@ class BasicProductInfo extends React.Component {
     super(props);
     this.state = {
       stars: 5,
-      category: 'Jackets',
-      title: 'Camo Onesie',
+      category: '',
+      title: '',
     };
+  }
+
+  componentDidMount() {
+
+    axios.get('/api/product', { params: { id: this.props.productId } })
+      .then((productInfo) => {
+        console.log('productInfo: ', productInfo);
+        this.setState({
+          category: productInfo.data.category,
+          title: productInfo.data.name
+        });
+      })
+      .catch((error) => {
+        console.log('error: ', error);
+      });
   }
 
   render() {
