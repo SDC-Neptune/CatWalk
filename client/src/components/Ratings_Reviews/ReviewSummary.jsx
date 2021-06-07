@@ -21,12 +21,12 @@ const RatingsReviews = () => {
           overflow: 'hidden',
         }}
         ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div className="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
       </div>
       <div>
         100% of reviews recommend this product
       </div>
-      <div class='test'>
+      <div className='test'>
         <span className='reviewBarText'>5 stars</span> <progress value="70" max="100"></progress>
         <br/>
         <span className='reviewBarText'>4 stars</span> <progress value="33" max="100"></progress>
