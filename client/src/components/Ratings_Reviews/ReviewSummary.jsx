@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Stars from './Stars.jsx';
 
 const RatingsReviews = () => {
 
-  const [rating, setRating] = useState(4.2);
-  const [percentage, setPercent] = useState(85);
   const [recommend, setRecommed] = useState(100);
   const [fiveStar, setfiveStar] = useState(55);
   const [fourStar, setfourStar] = useState(0);
@@ -16,22 +15,10 @@ const RatingsReviews = () => {
 
   return (
     <div>
-      <font className="rating"> {rating} </font>
-      <div className="star-ratings-css">
-        <div className="star-ratings-css-top" style={{
-          color: 'black',
-          width: percentage,
-          padding: 0,
-          position: 'absolute',
-          'zindex': 1,
-          display: 'block',
-          top: 0,
-          left: 0,
-          overflow: 'hidden',
-        }}
-        ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div className="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      </div>
+      <font className="rating"> {
+
+      } </font>
+      <Stars/>
       <div>
         {recommend}% of reviews recommend this product
       </div>
