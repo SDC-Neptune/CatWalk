@@ -14,7 +14,7 @@ const RatingsReviews = () => {
           width: percentage,
           padding: 0,
           position: 'absolute',
-          'z-index': 1,
+          'zindex': 1,
           display: 'block',
           top: 0,
           left: 0,
