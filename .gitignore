@@ -1,7 +1,3 @@
 node_modules
 server/config.js
-<<<<<<< HEAD
-client/dist/bundle.js
-=======
 client/dist/bundles.js
->>>>>>> 09ab1f8f044a351ea25c3f5b06835eb5b45ee406
