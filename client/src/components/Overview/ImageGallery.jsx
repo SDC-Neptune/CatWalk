@@ -10,6 +10,10 @@ class ImageGallery extends React.Component {
     };
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="image-gallery">
