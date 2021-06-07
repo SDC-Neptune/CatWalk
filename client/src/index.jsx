@@ -9,6 +9,7 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
+  const [productInfo, setProductInfo] = useState([]);
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -17,7 +18,10 @@ const App = () => {
 
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => {
+        console.log(data);
+        setProductInfo(data);
+      });
   };
 
   const getProductStyles = (id) => {
@@ -41,7 +45,7 @@ const App = () => {
   };
 
   const getQuestionsList = (id) => {
-    axios.get('/qa/questions?product_id=${id}')
+    axios.get(`/qa/questions?product_id=${id}`)
       .then(({data}) => console.log(data));
   };
 
@@ -82,7 +86,7 @@ const App = () => {
 
   return (
     <div>
-      <Overview productId={productId}/>
+      <Overview productId={productId} productInfo={productInfo}/>
       <RelatedProducts productId={productId}/>
       <QuestionsAnswers productId={productId}/>
       <RatingsReviews productId={productId}/>

@@ -26,9 +26,9 @@ class Overview extends React.Component {
     return (
       <div className="overview">
         <ImageGallery styleId={this.state.styleId}/>
-        <BasicProductInfo productId={this.props.productId}/>
+        <BasicProductInfo productId={this.props.productId} productInfo={this.props.productInfo}/>
         <StyleSelector styleHandler={this.updateStyleId} productId={this.props.productId}/>
-        <DescriptiveProductInfo productId={this.props.productId}/>
+        <DescriptiveProductInfo productId={this.props.productId} productInfo={this.props.productInfo}/>
       </div>
     );
   }

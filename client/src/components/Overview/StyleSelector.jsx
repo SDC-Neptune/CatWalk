@@ -54,7 +54,7 @@ class StyleSelector extends React.Component {
 
   componentDidMount() {
 
-    axios.get('/api/styles', { params: { id: this.props.productId } })
+    axios.get(`/products/${this.props.productId}/styles`)
       .then((styles) => {
         return this.stylesToRows(styles.data.results);
       })

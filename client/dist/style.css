@@ -300,6 +300,19 @@ h3 {
   margin-bottom: 10px;
 }
 
+.original-price-strikethrough {
+  text-decoration: line-through;
+}
+
+.sale-price-popup {
+  color: red;
+}
+
+.no-sale-message {
+  color: white;
+}
+
+
 /* Related Products */
 
 .product-info > * {
