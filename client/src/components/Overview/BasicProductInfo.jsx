@@ -11,13 +11,13 @@ class BasicProductInfo extends React.Component {
       category: '',
       title: '',
     };
+    this.redirectToReviews = this.redirectToReviews.bind(this);
   }
 
   componentDidMount() {
 
     axios.get('/api/product', { params: { id: this.props.productId } })
       .then((productInfo) => {
-        console.log('productInfo: ', productInfo);
         this.setState({
           category: productInfo.data.category,
           title: productInfo.data.name
@@ -26,6 +26,13 @@ class BasicProductInfo extends React.Component {
       .catch((error) => {
         console.log('error: ', error);
       });
+  }
+
+  redirectToReviews(e) {
+    e.preventDefault();
+
+    // to be updated
+
   }
 
   render() {
@@ -38,7 +45,7 @@ class BasicProductInfo extends React.Component {
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>
         </div>
-        <a href=""> Read all reviews</a>
+        <a href="" onClick={this.redirectToReviews}> Read all reviews</a>
         <h2>{this.state.category.toUpperCase()}</h2>
         <h1>{this.state.title}</h1>
       </div>
