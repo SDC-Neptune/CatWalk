@@ -1,13 +1,30 @@
 import React from 'react';
+import axios from 'axios';
 
 class DescriptiveProductInfo extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      slogan: 'Blend in to your crowd',
-      description: 'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.'
+      slogan: '',
+      description: ''
     };
+  }
+
+  componentDidMount() {
+
+    axios.get('/api/product', { params: { id: this.props.productId } })
+      .then((productInfo) => {
+        console.log('productInfo: ', productInfo);
+        this.setState({
+          slogan: productInfo.data.slogan,
+          description: productInfo.data.description
+        });
+      })
+      .catch((error) => {
+        console.log('error: ', error);
+      });
+
   }
 
   render() {
