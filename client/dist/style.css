@@ -288,7 +288,7 @@ h3 {
   margin-bottom: 10px;
 }
 
-/* SECTION NAME */
+/* Related Products */
 
 .product-info > * {
   margin-top: 3px;
@@ -325,25 +325,28 @@ h3 {
   margin-bottom: 20px;
 }
 
-.rp-card {
+.rp-card, .yo-card {
   border: 1px solid black;
   margin-right: 15px;
-  /* margin-left: 15px; */
   height: 527px;
 }
 
 .add-to-outfit-card {
+  flex-basis: 300px;
+  padding-left: 87.5px;
+  padding-right: 87.5px;
+  margin-right: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content:center;
   height: 527px;
-  width: 300px;
   border: 1px solid black;
 }
 
 .add-to-outfit {
   font-size: 1.4rem;
+  width: 125px !important;
 }
 
 .add-icon:hover {
@@ -357,22 +360,24 @@ h3 {
 }
 
 .modal-overlay {
-  background-color: black;
-  opacity: .92;
-  position: absolute;
-  top:0;
-  left:0;
-  height:100%;
+  background-color: rgba(0, 0, 0, 0.561);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom:0;
+  height: auto;
   width: 100%;
   z-index: 10;
 }
 
 .modal {
   width: 960px;
-  background-color: white;
+  background-color: #ffffff;
   z-index: 11;
-  margin: 100px auto 0;
+  margin: 250px auto 0;
   padding: 25px;
+  height: 500px;
 }
 
 .prod-compare-titles {
@@ -402,6 +407,7 @@ h3 {
 .modal-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .modal-header > div:nth-child(2) {

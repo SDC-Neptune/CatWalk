@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
-const RelatedProductCard = ({setModalOpen}) => {
+const YourOutfitCard = () => {
 
-  const compareClickHandler = () => {
-    setModalOpen(true);
+  const removeClickHandler = () => {
+    console.log('remove me');
   };
 
   return (
-    <div className="rp-card">
+    <div className="yo-card">
       <div className="image-container">
         <img className="related-product-image" src="https://images.unsplash.com/photo-1549831243-a69a0b3d39e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80" />
-        <i className="fas fa-star related-products-compare" onClick={compareClickHandler} ></i>
+        <i className="fas fa-ban related-products-compare" onClick={removeClickHandler}></i>
       </div>
       <div className="product-info">
         <h5 className="product-category">JACKETS</h5>
@@ -29,4 +29,4 @@ const RelatedProductCard = ({setModalOpen}) => {
   );
 };
 
-export default RelatedProductCard;
+export default YourOutfitCard;
