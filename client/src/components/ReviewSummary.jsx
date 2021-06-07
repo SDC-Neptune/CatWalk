@@ -7,9 +7,9 @@ const RatingsReviews = () => {
 
   return (
     <div>
-      <font class="rating"> {rating} </font>
-      <div class="star-ratings-css">
-        <div class="star-ratings-css-top" style={{
+      <font className="rating"> {rating} </font>
+      <div className="star-ratings-css">
+        <div className="star-ratings-css-top" style={{
           color: 'black',
           width: percentage,
           padding: 0,
@@ -27,15 +27,15 @@ const RatingsReviews = () => {
         100% of reviews recommend this product
       </div>
       <div class='test'>
-        <span class='reviewBarText'>5 stars</span> <progress value="70" max="100"></progress>
+        <span className='reviewBarText'>5 stars</span> <progress value="70" max="100"></progress>
         <br/>
-        <span class='reviewBarText'>4 stars</span> <progress value="33" max="100"></progress>
+        <span className='reviewBarText'>4 stars</span> <progress value="33" max="100"></progress>
         <br/>
-        <span class='reviewBarText'>3 stars</span> <progress value="99" max="100"></progress>
+        <span className='reviewBarText'>3 stars</span> <progress value="99" max="100"></progress>
         <br/>
-        <span class='reviewBarText'>2 stars</span> <progress value="8" max="100"></progress>
+        <span className='reviewBarText'>2 stars</span> <progress value="8" max="100"></progress>
         <br/>
-        <span class='reviewBarText'>1 stars</span> <progress value="0" max="100"></progress>
+        <span className='reviewBarText'>1 stars</span> <progress value="0" max="100"></progress>
       </div>
       <div >
         Size
