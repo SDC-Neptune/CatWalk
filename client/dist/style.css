@@ -267,9 +267,9 @@
   font-weight: 800;
   margin-bottom: 10px;
   position: relative;
-  left: 240px;
-  top: -40px;
-  max-width: 300px;
+  left: 50px;
+  top: -20px;
+  max-width: 500px;
 
 }
 
@@ -278,13 +278,14 @@
   font-size: 20px;
   position: relative;
   left: 50px;
-  top: -20px;
+  top: -30px;
+  max-width: 700px;
 }
 
 .social {
   position: relative;
-  top: -115px;
-  left: 50px;
+  top: -60px;
+  left: 920px;
   width: 40px;
   height: 40px;
   padding: 5px;

@@ -25,6 +25,25 @@ app.get('/api/styles', function (req, res) {
       res.json(error);
     });
 
+});
+
+app.get('/api/product', function (req, res) {
+
+  let options = {
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }
+  };
+
+  var productId = req.query.id;
+
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${productId}`, options)
+    .then((product) => {
+      res.json(product.data);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
 
 });
 

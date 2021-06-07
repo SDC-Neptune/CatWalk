@@ -10,7 +10,7 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      styleId: '103466'
+      styleId: ''
     };
 
     this.updateStyleId = this.updateStyleId.bind(this);
