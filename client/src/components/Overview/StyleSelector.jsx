@@ -53,18 +53,17 @@ class StyleSelector extends React.Component {
     if (!this.props.productStyles.results) {
       return <div></div>
     }
-
     return (
       <div className="style-selector">
         {this.state.salePrice &&
           <div>
-            <h3 className="original-price-strikethrough">Original Price: ${this.state.originalPrice}</h3>
-            <h3 className="sale-price-popup">Sale Price: ${this.state.salePrice}</h3>
+            <h3 className="original-price-strikethrough">Original Price: ${this.props.productStyles.results[this.props.styleIndex].original_price}</h3>
+            <h3 className="sale-price-popup">Sale Price: ${this.props.productStyles.results[this.props.styleIndex].sale_price}</h3>
           </div>
         }
         {!this.state.salePrice &&
           <div>
-            <h3>Price: ${this.state.originalPrice}</h3>
+            <h3>Price: ${this.props.productStyles.results[this.props.styleIndex].original_price}</h3>
             <h3 className="no-sale-message">.</h3>
           </div>
         }

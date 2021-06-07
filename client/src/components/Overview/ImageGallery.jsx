@@ -7,7 +7,11 @@ class ImageGallery extends React.Component {
     super(props);
     this.state = {
       img: "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-      thumbnailIndex: 0
+      mainImageThumbnailIndex: 0,
+      firstThumbnailIndex: 0,
+      lastThumbnailIndex: 6,
+      firstThumbnailVisible: true,
+      lastThumbnailVisible: false
     };
   }
 
@@ -20,18 +24,16 @@ class ImageGallery extends React.Component {
     return (
       <div className="image-gallery">
         <div className="thumbnails">
-          <i className="thumbnail-arrows up t1"></i>
-          <img src={this.state.img} className="thumbnail t2"></img>
-          <img src={this.state.img} className="thumbnail t3"></img>
-          <img src={this.state.img} className="thumbnail t4"></img>
-          <img src={this.state.img} className="thumbnail t5"></img>
-          <img src={this.state.img} className="thumbnail t6"></img>
-          <img src={this.state.img} className="thumbnail t7"></img>
-          <img src={this.state.img} className="thumbnail t8"></img>
-          <i className="thumbnail-arrows down t9"></i>
+          {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up t1"></i>}
+          {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index) => {
+            if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex) {
+              return <img className="thumbnail" src={urlObj.thumbnail_url}></img>;
+            }
+          })}
+          {!this.state.lastThumbnailVisible && <i className="thumbnail-arrows down t9"></i>}
         </div>
         <i className="thumbnail-arrows left"></i>
-        <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.thumbnailIndex].url} className="main-image"></img>
+        <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image"></img>
         <i className="thumbnail-arrows right"></i>
       </div>
     );

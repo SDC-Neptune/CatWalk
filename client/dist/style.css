@@ -144,41 +144,6 @@
   grid-row-end: 1;
 }
 
-.t2 {
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.t3 {
-  grid-row-start: 3;
-  grid-row-end: 3;
-}
-
-.t4 {
-  grid-row-start: 4;
-  grid-row-end: 4;
-}
-
-.t5 {
-  grid-row-start: 5;
-  grid-row-end: 5;
-}
-
-.t6 {
-  grid-row-start: 6;
-  grid-row-end: 6;
-}
-
-.t7 {
-  grid-row-start: 7;
-  grid-row-end: 7;
-}
-
-.t8 {
-  grid-row-start: 8;
-  grid-row-end: 8;
-}
-
 .t9 {
   grid-row-start: 9;
   grid-row-end: 9;
