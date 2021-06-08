@@ -61,7 +61,7 @@ const App = () => {
 
   const getCart = () => {
     axios.get('/cart')
-      .then(({data}) => console.log(data));
+      .then(({data}) => console.log('cart:', data));
   };
 
   // Add a Review

@@ -9,6 +9,10 @@ class AddToCart extends React.Component {
   }
 
   render() {
+
+    console.log('cart productStyles: ', this.props.productStyles.results);
+    console.log('cart styleId: ', this.props.styleId);
+
     return (
       <div className="cart">
         <select className="select-size">
@@ -19,7 +23,7 @@ class AddToCart extends React.Component {
           <option value="D">D</option>;
         </select>
         <select className="choose-quantity">
-          <option value="quantity">Quantity</option>;
+          <option value="quantity">-</option>;
           <option value="1">1</option>;
           <option value="2">2</option>;
           <option value="3">3</option>;

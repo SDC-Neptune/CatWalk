@@ -10,7 +10,7 @@ class StyleSelector extends React.Component {
       styles: [],
       selectedStyle: '00',
       selectedStyleName: '',
-      styleId: '',
+      styleId: '103466',
       originalPrice: 0,
       salePrice: null
     };
@@ -21,6 +21,7 @@ class StyleSelector extends React.Component {
   updateStyleState(selected, styleId, originalPrice, salePrice, styleName, event) {
     this.setState({
       selectedStyle: selected,
+      styleId: styleId,
       originalPrice: originalPrice,
       salePrice: salePrice,
       selectedStyleName: styleName
@@ -51,7 +52,7 @@ class StyleSelector extends React.Component {
   render() {
 
     if (!this.props.productStyles.results) {
-      return <div></div>
+      return <div></div>;
     }
     return (
       <div className="style-selector">
@@ -144,7 +145,7 @@ class StyleSelector extends React.Component {
             )
           }
         })}
-        <AddToCart />
+        <AddToCart productStyles={this.props.productStyles} styleId={this.state.styleId}/>
       </div>
     );
 }
