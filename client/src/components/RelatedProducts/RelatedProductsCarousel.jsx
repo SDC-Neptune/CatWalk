@@ -5,11 +5,15 @@ import ArrowRight from './ArrowRight.jsx';
 import ArrowLeft from './ArrowLeft.jsx';
 import RelatedProductAddToOutfitCard from './RelatedProductAddToOutfitCard.jsx';
 
-const RelatedProductsCarousel = ({ title, setModalOpen }) => {
+const RelatedProductsCarousel = ({
+  title,
+  setModalOpen,
+  setProductId,
+  allRelatedProductsDetails,
+  setAllRelatedProductsDetails
+}) => {
   const [currentCard, setCurrentCard] = useState(1);
   const [currentCardOutfit, setCurrentCardOutfit] = useState(1);
-
-  // document.querySelectorAll('.rp .rp-card') will be the length of the relatedproducts state array
 
   const handleNextClick = () => {
     if (document.querySelectorAll('.rp .rp-card').length - currentCard > 2) {
@@ -45,6 +49,10 @@ const RelatedProductsCarousel = ({ title, setModalOpen }) => {
     }
   };
 
+  const goToNewProduct = () => {
+    console.log('I was clicked, go get the new product');
+  };
+
   return (title !== 'YOUR OUTFIT') ?
     (
       <>
@@ -52,16 +60,16 @@ const RelatedProductsCarousel = ({ title, setModalOpen }) => {
         <div className="rp-carousel rp">
           <ArrowLeft handlePrevClick={handlePrevClick} />
           <div className="card-container">
-            <RelatedProductCard setModalOpen={setModalOpen}/>
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
-            <RelatedProductCard />
+            {allRelatedProductsDetails.map(item => (
+              <RelatedProductCard
+                setProductId={setProductId}
+                goToNewProduct={goToNewProduct}
+                key={item.id}
+                setModalOpen={setModalOpen}
+                item={item}
+                setAllRelatedProductsDetails={setAllRelatedProductsDetails}
+              />
+            ))}
           </div>
           <ArrowRight handleNextClick={handleNextClick} />
         </div>
