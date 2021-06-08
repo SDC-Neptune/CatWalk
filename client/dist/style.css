@@ -435,11 +435,20 @@ h3 {
 
 /*------- RATINGS AND REVIEWS ---------*/
 
+.reviewTest {
+  display: flex;
+}
+
 .rating {
   font-size: 35pt;
   font-weight: bold;
-  display: inline-block;
+  flex: 0 1 auto;
   padding-right: 15px;
+}
+
+.summaryStar {
+  flex: 1 1 auto;
+  margin-bottom: 30px;
 }
 
 .star-ratings-css {
@@ -450,8 +459,6 @@ h3 {
   width: 100px;
   position: relative;
   text-shadow: 0px 1px 0 #a2a2a2;
-  display: inline-block;
-  top: -20px;
 }
 
 .reviewBarText {
@@ -529,10 +536,29 @@ progress::-webkit-progress-value {
 
 .reviewDetail {
   flex: 1 1 auto;
-  padding-left: 20px;
+  padding: 10px 10px 10px 20px;
+
 }
 
 .reviewSummary {
   flex: 0 1 auto;
-  padding-right: 20px;
+  padding: 10px 20px 10px 10px;
+  margin: 3px;
+  border: solid rgba(0, 128, 0, 0.521);;
+}
+
+.singleReview {
+  border-bottom: solid rgba(0, 128, 0, 0.521);
+  margin: 5px;
+  padding: 15px;
+  display: flex;
+}
+
+.indivStar {
+  flex: 1 1 auto;
+}
+
+.user {
+  flex: 1 1 auto;
+  text-align: right;
 }

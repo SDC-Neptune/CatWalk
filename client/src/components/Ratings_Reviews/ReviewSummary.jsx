@@ -28,8 +28,11 @@ const RatingsReviews = ({data}) => {
 
   return (
     <div className='reviewSummary'>
-      <font className="rating"> {rating} </font>
-      <Stars number={rating * 20}/>
+      <div className='reviewTest'>
+        <font className="rating"> {rating} </font>
+        <div className='summaryStar'><Stars number={rating * 20} /></div>
+      </div>
+
       <div>
         {Math.round(Number(data.recommended.true) / (Number(data.recommended.true) + Number(data.recommended.false)) * 100, 0)}% of reviews recommend this product
       </div>

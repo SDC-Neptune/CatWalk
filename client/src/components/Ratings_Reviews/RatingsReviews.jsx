@@ -144,7 +144,7 @@ const RatingsReviews = ({productId}) => {
   }, []);
 
   return (
-    <div>
+    <div className='ratings_reviews'>
       <h3>RATINGS & REVIEWS</h3>
       <div className='parentReview'>
         <ReviewSummary data={data}/>

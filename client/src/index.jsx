@@ -104,6 +104,7 @@ const App = () => {
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
       <QuestionsAnswers questionData={questionData}/>
+      <br></br>
       <RatingsReviews productId={productId}/>
     </div>);
 };
