@@ -6,9 +6,9 @@ const DescriptiveProductInfo = (props) => (
   <div className="descriptive-info">
     <div className="slogan">{props.productInfo.slogan}</div>
     <div className="description">{props.productInfo.description}</div>
-    <img className="social" src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"></img>
-    <img className="social" src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"></img>
-    <img className="social" src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"></img>
+    <i className="fab fa-facebook fa-2x social" onClick={()=> window.open('http://www.facebook.com', '_blank')}></i>
+    <i className="fab fa-twitter fa-2x social" onClick={()=> window.open('http://www.twitter.com', '_blank')}></i>
+    <i className="fab fa-pinterest fa-2x social" onClick={()=> window.open('http://www.pinterest.com', '_blank')}></i>
   </div>
 
 );

@@ -18,24 +18,35 @@ class ImageGallery extends React.Component {
     this.nextThumbnailClick = this.nextThumbnailClick.bind(this);
     this.previousMainClick = this.previousMainClick.bind(this);
     this.nextMainClick = this.nextMainClick.bind(this);
+    this.clickOnThumbnail = this.clickOnThumbnail.bind(this);
+  }
+
+  clickOnThumbnail(index) {
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
+
+    this.setState({
+      mainImageThumbnailIndex: index,
+      numberOfThumbnails: countOfThumbnails
+    });
   }
 
   nextThumbnailClick() {
-
     var currentFirst = this.state.firstThumbnailIndex;
     var currentLast = this.state.lastThumbnailIndex;
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
 
     this.setState({
       firstThumbnailIndex: currentFirst + 1,
       lastThumbnailIndex: currentLast + 1,
       firstThumbnailVisible: false,
+      numberOfThumbnails: countOfThumbnails
     });
   }
 
   previousThumbnailClick() {
-
     var currentFirst = Math.max(0, this.state.firstThumbnailIndex);
     var currentLast = this.state.lastThumbnailIndex;
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
 
     if (currentFirst === 0 || currentFirst - 1 === 0) {
       var willFirstBecomeVisible = true;
@@ -45,13 +56,15 @@ class ImageGallery extends React.Component {
 
     if (currentFirst === 0) {
       this.setState({
-        firstThumbnailVisible: true
+        firstThumbnailVisible: true,
+        numberOfThumbnails: countOfThumbnails
       });
     } else {
       this.setState({
         firstThumbnailIndex: currentFirst - 1,
         lastThumbnailIndex: currentLast - 1,
-        firstThumbnailVisible: willFirstBecomeVisible
+        firstThumbnailVisible: willFirstBecomeVisible,
+        numberOfThumbnails: countOfThumbnails
       });
     }
   }
@@ -60,15 +73,18 @@ class ImageGallery extends React.Component {
     var currentFirst = this.state.firstThumbnailIndex;
     var currentLast = this.state.lastThumbnailIndex;
     var mainImageIndex = this.state.mainImageThumbnailIndex;
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
 
     if (this.state.lastThumbnailIndex - this.state.firstThumbnailIndex < 6) {
       this.setState({
-        mainImageThumbnailIndex: mainImageIndex - 1
+        mainImageThumbnailIndex: mainImageIndex - 1,
+        numberOfThumbnails: countOfThumbnails
       });
     // if previous main image is in thumbnail list currently
     } else if (this.state.mainImageThumbnailIndex - 1 >= this.state.firstThumbnailIndex && this.state.mainImageThumbnailIndex - 1 <= this.state.lastThumbnailIndex) {
       this.setState({
-        mainImageThumbnailIndex: mainImageIndex - 1
+        mainImageThumbnailIndex: mainImageIndex - 1,
+        numberOfThumbnails: countOfThumbnails
       });
     // if previous main image is still behind first thumbnail
     } else if (this.state.mainImageThumbnailIndex - 1 < this.state.firstThumbnailIndex) {
@@ -76,7 +92,8 @@ class ImageGallery extends React.Component {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex - 1,
         firstThumbnailIndex: mainImageIndex - 1,
-        lastThumbnailIndex: currentLast - distance
+        lastThumbnailIndex: currentLast - distance,
+        numberOfThumbnails: countOfThumbnails
       });
     //if previous main image is in front of last thumbnail
     } else if (this.state.mainImageThumbnailIndex - 1 > this.state.lastThumbnailIndex) {
@@ -84,13 +101,13 @@ class ImageGallery extends React.Component {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex - 1,
         firstThumbnailIndex: currentFirst + distance,
-        lastThumbnailIndex: mainImageIndex - 1
+        lastThumbnailIndex: mainImageIndex - 1,
+        numberOfThumbnails: countOfThumbnails
       });
     }
   }
 
   nextMainClick() {
-
     var mainImageIndex = this.state.mainImageThumbnailIndex;
     var currentFirst = this.state.firstThumbnailIndex;
     var currentLast = this.state.lastThumbnailIndex;
@@ -127,7 +144,6 @@ class ImageGallery extends React.Component {
         numberOfThumbnails: countOfThumbnails
       });
     }
-
   }
 
   render() {
@@ -142,8 +158,10 @@ class ImageGallery extends React.Component {
           {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible t1" onClick={this.previousThumbnailClick}></i>}
           {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible t1"></i>}
           {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
-            if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex) {
-              return <img className="thumbnail" src={urlObj.thumbnail_url} key={index}></img>;
+            if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex && index !== this.state.mainImageThumbnailIndex) {
+              return <img className="thumbnail" src={urlObj.thumbnail_url} key={index} onClick={this.clickOnThumbnail.bind(this, index)}></img>;
+            } else if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex && index === this.state.mainImageThumbnailIndex) {
+              return <img className="thumbnail current-tn" src={urlObj.thumbnail_url} key={index} onClick={this.clickOnThumbnail.bind(this, index)}></img>;
             } else if (index > this.state.lastThumbnailIndex && index === array.length - 1) {
               return <i className="thumbnail-arrows down-is-visible t9" onClick={this.nextThumbnailClick} key={index}></i>;
             }

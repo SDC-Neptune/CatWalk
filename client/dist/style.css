@@ -60,6 +60,7 @@
 
 .style-option-inline {
   display: inline-block;
+  position: relative;
 }
 
 .selected-style-checked {
@@ -69,9 +70,9 @@
   width: 12px;
   border-bottom: 7px solid dodgerblue;
   border-right: 7px solid dodgerblue;
-  position: relative;
-  top: -65px;
-  left: -80px;
+  position: absolute;
+  top: 2px;
+  left: 65px;
 }
 
 .selected-style-unchecked {
@@ -79,12 +80,11 @@
   transform: rotate(45deg);
   height: 30px;
   width: 12px;
-  border-bottom: 7px solid white;
-  border-right: 7px solid white;
-  position: relative;
-  top: -65px;
-  left: -80px;
-  z-index: 2;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 2px;
+  left: 65px;
 }
 
 .descriptive-info {
@@ -148,6 +148,10 @@
 .t9 {
   grid-row-start: 9;
   grid-row-end: 9;
+}
+
+.current-tn {
+  border: 5px solid dodgerblue;
 }
 
 .thumbnail-arrows {
@@ -272,6 +276,18 @@
   width: 40px;
   height: 40px;
   padding: 5px;
+}
+
+.fa-facebook {
+  color: #3B5998;
+}
+
+.fa-twitter {
+  color: #00ACEE
+}
+
+.fa-pinterest {
+  color: #E60023
 }
 
 .social:hover {

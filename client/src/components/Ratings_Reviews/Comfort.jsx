@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const Comfort = ({chars}) => {
+
   return (
+
     <div>
       <b>Comfort</b>
       <div>
