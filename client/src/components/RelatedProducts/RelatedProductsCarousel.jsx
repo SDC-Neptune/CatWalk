@@ -16,7 +16,7 @@ const RelatedProductsCarousel = ({
 }) => {
   const [currentCard, setCurrentCard] = useState(1);
   const [currentCardOutfit, setCurrentCardOutfit] = useState(1);
-  const [outfitList, setOutfitList] = useState([]);
+  const [outfitList, setOutfitList] = useState(JSON.parse(localStorage.getItem('yourOutfitList')) || []);
 
   const handleNextClick = () => {
     if (document.querySelectorAll('.rp .rp-card').length - currentCard > 2) {

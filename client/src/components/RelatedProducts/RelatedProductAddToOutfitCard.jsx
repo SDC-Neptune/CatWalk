@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect } from 'react';
 
 const RelatedProductAddToOutfitCard = ({ curData, outfitList, setOutfitList }) => {
 
@@ -8,6 +8,10 @@ const RelatedProductAddToOutfitCard = ({ curData, outfitList, setOutfitList }) =
       setOutfitList(prev => [...prev, curData]);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('yourOutfitList', JSON.stringify(outfitList));
+  }, [outfitList]);
 
   return (
     <div className="add-to-outfit-card">
