@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
 }
 
 #app {
@@ -443,10 +444,6 @@ h3 {
 
 /*------- RATINGS AND REVIEWS ---------*/
 
-.ratings_reviews {
-  font-family: 'Rubik', sans-serif;
-}
-
 .reviewTest {
   display: flex;
 }
@@ -523,7 +520,7 @@ progress::-webkit-progress-value {
 }
 
 .parent {
-  width: 220px;
+  width: 260px;
   font-size: 10pt;
   display: flex;
 }
