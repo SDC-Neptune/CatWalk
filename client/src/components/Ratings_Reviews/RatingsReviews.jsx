@@ -143,10 +143,6 @@ const RatingsReviews = ({productId}) => {
     getAllReviewsMeta();
   }, []);
 
-  if (1 === 1) {
-    return <div></div>;
-  } // ND ADDED TO ENABLE TESTING ON OWN. ND TO REMOVE.
-
   return (
     <div className='ratings_reviews'>
       <h3>RATINGS & REVIEWS</h3>
