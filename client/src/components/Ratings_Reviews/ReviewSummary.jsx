@@ -45,10 +45,8 @@ const RatingsReviews = ({data}) => {
         <span className='reviewBarText'>1 stars</span> <progress value={(Number(data.ratings['1']) / totalStars) * 100} max={totalStars}></progress><span>{data.ratings['1']}</span>
       </div>
       <br></br>
-      {size && <Size chars={data}/>}
       <div >
         {comfort && <Comfort chars={data}/>}
-        <br></br>
         {width && <Width chars={data}/>}
         <br></br>
         {quality && <Quality chars={data}/>}
