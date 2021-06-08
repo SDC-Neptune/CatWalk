@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers.jsx';
-import RatingsReviews from './components/RatingsReviews.jsx';
+import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
+<<<<<<< HEAD
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
+=======
+  const [productInfo, setProductInfo] = useState([]);
+  const [productStyles, setProductStyles] = useState([]);
+>>>>>>> 9cf87b7b39092e6c7e4c24e2c947a1e3752de1e9
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -20,12 +25,16 @@ const App = () => {
 
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => {
+        setProductInfo(data);
+      });
   };
 
   const getProductStyles = (id) => {
     axios.get(`/products/${productId}/styles`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => {
+        setProductStyles(data);
+      });
   };
 
   const getRelatedProducts = (id) => {
@@ -85,6 +94,7 @@ const App = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <Overview productId={productId}/>
       <RelatedProducts
         productId={productId}
@@ -95,6 +105,10 @@ const App = () => {
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
+=======
+      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
+      <RelatedProducts productId={productId}/>
+>>>>>>> 9cf87b7b39092e6c7e4c24e2c947a1e3752de1e9
       <QuestionsAnswers productId={productId}/>
       <RatingsReviews productId={productId}/>
     </div>);
