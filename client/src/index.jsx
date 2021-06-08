@@ -36,7 +36,7 @@ const App = () => {
 
   const getRelatedProducts = (id) => {
     axios.get(`/products/${productId}/related`)
-      .then(({data}) => setAllRelatedProducts(data));
+      .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
   const getAllReviews = (id) => {
@@ -79,8 +79,8 @@ const App = () => {
 
   useEffect(() => {
     // getAllProducts();
-    // getProduct(productId);
-    // getProductStyles(productId);
+    getProduct(productId);
+    getProductStyles(productId);
     getRelatedProducts(productId);
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
