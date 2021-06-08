@@ -16,7 +16,6 @@ class StyleSelector extends React.Component {
     };
     this.stylesToRows = this.stylesToRows.bind(this);
     this.updateStyleState = this.updateStyleState.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   updateStyleState(selected, styleId, originalPrice, salePrice, styleName, event) {
@@ -26,12 +25,10 @@ class StyleSelector extends React.Component {
       salePrice: salePrice,
       selectedStyleName: styleName
     })
-    this.props.styleHandler(styleId)
+    this.props.styleHandler(selected)
   }
 
-
   stylesToRows(styles) {
-
     var rows = [];
     function innerFunction(row, position) {
         if (position === styles.length) {
@@ -47,47 +44,31 @@ class StyleSelector extends React.Component {
             innerFunction(row, position + 1);
         }
     };
-
     innerFunction([], 0)
     return rows;
   };
 
-  componentDidMount() {
-
-    axios.get('/api/styles', { params: { id: this.props.productId } })
-      .then((styles) => {
-        return this.stylesToRows(styles.data.results);
-      })
-      .then((sortedStyles) => {
-        this.setState({
-          styles: sortedStyles,
-          originalPrice: sortedStyles[0][0].original_price,
-          salePrice: sortedStyles[0][0].sale_price,
-          selectedStyleName: sortedStyles[0][0].name
-        });
-      })
-      .catch((error) => {
-        console.log('error: ', error);
-      });
-  }
-
   render() {
+
+    if (!this.props.productStyles.results) {
+      return <div></div>
+    }
     return (
       <div className="style-selector">
         {this.state.salePrice &&
           <div>
-            <h3 className="original-price-strikethrough">Original Price: ${this.state.originalPrice}</h3>
-            <h3 className="sale-price-popup">Sale Price: ${this.state.salePrice}</h3>
+            <h3 className="original-price-strikethrough">Original Price: ${this.props.productStyles.results[this.props.styleIndex].original_price}</h3>
+            <h3 className="sale-price-popup">Sale Price: ${this.props.productStyles.results[this.props.styleIndex].sale_price}</h3>
           </div>
         }
         {!this.state.salePrice &&
           <div>
-            <h3>Price: ${this.state.originalPrice}</h3>
+            <h3>Price: ${this.props.productStyles.results[this.props.styleIndex].original_price}</h3>
             <h3 className="no-sale-message">.</h3>
           </div>
         }
-        <h3>STYLE > {this.state.selectedStyleName}</h3>
-        {this.state.styles.map((row, index) => {
+        <h3>STYLE > {this.props.productStyles.results[this.props.styleIndex].name}</h3>
+        {this.stylesToRows(this.props.productStyles.results).map((row, index) => {
           if (row[0].photos[0].thumbnail_url === null) {
             return null;
           }
@@ -166,7 +147,7 @@ class StyleSelector extends React.Component {
         <AddToCart />
       </div>
     );
-  }
+}
 
 }
 

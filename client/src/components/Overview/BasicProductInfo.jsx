@@ -2,56 +2,32 @@ import React from 'react';
 import axios from 'axios';
 
 
-class BasicProductInfo extends React.Component {
+const BasicProductInfo = (props) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      stars: 5,
-      category: '',
-      title: '',
-    };
-    this.redirectToReviews = this.redirectToReviews.bind(this);
-  }
-
-  componentDidMount() {
-
-    axios.get('/api/product', { params: { id: this.props.productId } })
-      .then((productInfo) => {
-        this.setState({
-          category: productInfo.data.category,
-          title: productInfo.data.name
-        });
-      })
-      .catch((error) => {
-        console.log('error: ', error);
-      });
-  }
-
-  redirectToReviews(e) {
+  const redirectToReviews = (e) => {
     e.preventDefault();
+  };
 
-    // to be updated
-
+  if (!props.productInfo) {
+    return <div></div>;
   }
 
-  render() {
-    return (
-      <div className="basic-info">
-        <div className="overview-rating">
-          <span className="fa fa-star checked"></span>
-          <span className="fa fa-star checked"></span>
-          <span className="fa fa-star checked"></span>
-          <span className="fa fa-star checked"></span>
-          <span className="fa fa-star checked"></span>
-        </div>
-        <a href="" onClick={this.redirectToReviews}> Read all reviews</a>
-        <h2>{this.state.category.toUpperCase()}</h2>
-        <h1>{this.state.title}</h1>
+  return (
+    <div className="basic-info">
+      <div className="overview-rating">
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
       </div>
-    );
-  }
+      <a href="" onClick={redirectToReviews}> Read all reviews</a>
+      <h2>{`${props.productInfo.category}`.toUpperCase()}</h2>
+      <h1>{props.productInfo.name}</h1>
+    </div>
+  );
 
-}
+};
+
 
 export default BasicProductInfo;

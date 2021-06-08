@@ -6,33 +6,152 @@ class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      img: "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+      mainImageThumbnailIndex: 0,
+      firstThumbnailIndex: 0,
+      lastThumbnailIndex: 6,
+      firstThumbnailVisible: true,
+      lastThumbnailVisible: true,
+      numberOfThumbnails: undefined
     };
 
-    this.componentDidMount = this.componentDidMount.bind(this);
-
+    this.previousThumbnailClick = this.previousThumbnailClick.bind(this);
+    this.nextThumbnailClick = this.nextThumbnailClick.bind(this);
+    this.previousMainClick = this.previousMainClick.bind(this);
+    this.nextMainClick = this.nextMainClick.bind(this);
   }
 
-  componentDidMount() {
+  nextThumbnailClick() {
+
+    var currentFirst = this.state.firstThumbnailIndex;
+    var currentLast = this.state.lastThumbnailIndex;
+
+    this.setState({
+      firstThumbnailIndex: currentFirst + 1,
+      lastThumbnailIndex: currentLast + 1,
+      firstThumbnailVisible: false,
+    });
+  }
+
+  previousThumbnailClick() {
+
+    var currentFirst = Math.max(0, this.state.firstThumbnailIndex);
+    var currentLast = this.state.lastThumbnailIndex;
+
+    if (currentFirst === 0 || currentFirst - 1 === 0) {
+      var willFirstBecomeVisible = true;
+    } else {
+      var willFirstBecomeVisible = false;
+    }
+
+    if (currentFirst === 0) {
+      this.setState({
+        firstThumbnailVisible: true
+      });
+    } else {
+      this.setState({
+        firstThumbnailIndex: currentFirst - 1,
+        lastThumbnailIndex: currentLast - 1,
+        firstThumbnailVisible: willFirstBecomeVisible
+      });
+    }
+  }
+
+  previousMainClick() {
+    var currentFirst = this.state.firstThumbnailIndex;
+    var currentLast = this.state.lastThumbnailIndex;
+    var mainImageIndex = this.state.mainImageThumbnailIndex;
+
+    if (this.state.lastThumbnailIndex - this.state.firstThumbnailIndex < 6) {
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex - 1
+      });
+    // if previous main image is in thumbnail list currently
+    } else if (this.state.mainImageThumbnailIndex - 1 >= this.state.firstThumbnailIndex && this.state.mainImageThumbnailIndex - 1 <= this.state.lastThumbnailIndex) {
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex - 1
+      });
+    // if previous main image is still behind first thumbnail
+    } else if (this.state.mainImageThumbnailIndex - 1 < this.state.firstThumbnailIndex) {
+      var distance = this.state.firstThumbnailIndex - (this.state.mainImageThumbnailIndex - 1);
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex - 1,
+        firstThumbnailIndex: mainImageIndex - 1,
+        lastThumbnailIndex: currentLast - distance
+      });
+    //if previous main image is in front of last thumbnail
+    } else if (this.state.mainImageThumbnailIndex - 1 > this.state.lastThumbnailIndex) {
+      var distance = (this.state.mainImageThumbnailIndex - 1) - this.state.lastThumbnailIndex;
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex - 1,
+        firstThumbnailIndex: currentFirst + distance,
+        lastThumbnailIndex: mainImageIndex - 1
+      });
+    }
+  }
+
+  nextMainClick() {
+
+    var mainImageIndex = this.state.mainImageThumbnailIndex;
+    var currentFirst = this.state.firstThumbnailIndex;
+    var currentLast = this.state.lastThumbnailIndex;
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
+
+    // if less than 7 thumbnails on screen
+    if (this.state.lastThumbnailIndex - this.state.firstThumbnailIndex < 6) {
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex + 1,
+        numberOfThumbnails: countOfThumbnails
+      });
+    // if next main image is in thumbnail list currently
+    } else if (this.state.mainImageThumbnailIndex + 1 >= this.state.firstThumbnailIndex && this.state.mainImageThumbnailIndex + 1 <= this.state.lastThumbnailIndex) {
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex + 1,
+        numberOfThumbnails: countOfThumbnails
+      });
+    // if next main image is still behind first thumbnail
+    } else if (this.state.mainImageThumbnailIndex + 1 < this.state.firstThumbnailIndex) {
+      var distance = this.state.firstThumbnailIndex - (this.state.mainImageThumbnailIndex + 1);
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex + 1,
+        firstThumbnailIndex: mainImageIndex + 1,
+        lastThumbnailIndex: currentLast - distance,
+        numberOfThumbnails: countOfThumbnails
+      }); //if next main image is in front of last thumbnail
+    } else if (this.state.mainImageThumbnailIndex + 1 > this.state.lastThumbnailIndex) {
+      var distance = (this.state.mainImageThumbnailIndex + 1) - this.state.lastThumbnailIndex;
+      this.setState({
+        mainImageThumbnailIndex: mainImageIndex + 1,
+        firstThumbnailIndex: currentFirst + distance,
+        lastThumbnailIndex: mainImageIndex + 1,
+        firstThumbnailVisible: false,
+        numberOfThumbnails: countOfThumbnails
+      });
+    }
+
   }
 
   render() {
+
+    if (!this.props.productStyles.results) {
+      return <div></div>;
+    }
+
     return (
       <div className="image-gallery">
         <div className="thumbnails">
-          <i className="thumbnail-arrows up t1"></i>
-          <img src={this.state.img} className="thumbnail t2"></img>
-          <img src={this.state.img} className="thumbnail t3"></img>
-          <img src={this.state.img} className="thumbnail t4"></img>
-          <img src={this.state.img} className="thumbnail t5"></img>
-          <img src={this.state.img} className="thumbnail t6"></img>
-          <img src={this.state.img} className="thumbnail t7"></img>
-          <img src={this.state.img} className="thumbnail t8"></img>
-          <i className="thumbnail-arrows down t9"></i>
+          {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible t1" onClick={this.previousThumbnailClick}></i>}
+          {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible t1"></i>}
+          {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
+            if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex) {
+              return <img className="thumbnail" src={urlObj.thumbnail_url} key={index}></img>;
+            } else if (index > this.state.lastThumbnailIndex && index === array.length - 1) {
+              return <i className="thumbnail-arrows down-is-visible t9" onClick={this.nextThumbnailClick} key={index}></i>;
+            }
+          })}
         </div>
-        <i className="thumbnail-arrows left"></i>
-        <img src={this.state.img} className="main-image"></img>
-        <i className="thumbnail-arrows right"></i>
+        {this.state.mainImageThumbnailIndex !== 0 && <i className="thumbnail-arrows left" onClick={this.previousMainClick}></i>}
+        <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image"></img>
+        {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="thumbnail-arrows right" onClick={this.nextMainClick}></i>}
       </div>
     );
   }
