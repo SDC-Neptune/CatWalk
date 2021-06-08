@@ -462,12 +462,14 @@ progress {
    appearance: none;
   width: 220px;
   height: 13px;
+  padding-right: 5px;
 }
 
 progress::-webkit-progress-bar {
   background-color: rgb(196, 193, 193);
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+
 }
 
 progress::-webkit-progress-value {
@@ -480,7 +482,7 @@ progress::-webkit-progress-value {
     /* Reset the default appearance */
     -webkit-appearance: none;
     appearance: none;
-   width: 220px;
+   width: 260px;
    height: 8px;
    background-color: rgb(196, 193, 193);
    border-radius: 2px;

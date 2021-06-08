@@ -30,15 +30,15 @@ const App = () => {
       .then(({data}) => console.log(data));
   };
 
-  const getAllReviews = (id) => {
-    axios.get(`/reviews/?product_id=${id}`)
-      .then(({data}) => console.log(data));
-  };
+  // const getAllReviews = (id) => {
+  //   axios.get(`/reviews/?product_id=${id}`)
+  //     .then(({data}) => console.log(data));
+  // };
 
-  const getAllReviewsMeta = (id) => {
-    axios.get(`/reviews/meta/?product_id=${id}`)
-      .then(({data}) => console.log(data));
-  };
+  // const getAllReviewsMeta = (id) => {
+  //   axios.get(`/reviews/meta/?product_id=${id}`)
+  //     .then(({data}) => console.log(data));
+  // };
 
   const getQuestionsList = (id) => {
     axios.get('/qa/questions?product_id=${id}')
@@ -73,8 +73,8 @@ const App = () => {
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
-    getAllReviews(productId);
-    getAllReviewsMeta(productId);
+    // getAllReviews(productId);
+    // getAllReviewsMeta(productId);
     getQuestionsList(productId);
     getAnswersList(productId); // empty list
     getCart(); //empty list
