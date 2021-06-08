@@ -1,9 +1,10 @@
 import React from 'react';
 
-const RatingsReviews = () => {
+const RatingsReviews = ({detail}) => {
 
   return (
-    <div>
+    <div className='reviewDetail'>
+      <h3>{detail.count} reviews, sorted by <span>relevance</span></h3>
 
 
     </div>

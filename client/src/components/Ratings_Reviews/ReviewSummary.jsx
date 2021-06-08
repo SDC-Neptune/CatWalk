@@ -27,7 +27,7 @@ const RatingsReviews = ({data}) => {
   });
 
   return (
-    <div>
+    <div className='reviewSummary'>
       <font className="rating"> {rating} </font>
       <Stars number={rating * 20}/>
       <div>

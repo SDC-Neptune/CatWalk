@@ -522,3 +522,17 @@ progress::-webkit-progress-value {
   text-align: right;
   flex: 1 1 auto;
 }
+
+.parentReview {
+  display: flex;
+}
+
+.reviewDetail {
+  flex: 1 1 auto;
+  padding-left: 20px;
+}
+
+.reviewSummary {
+  flex: 0 1 auto;
+  padding-right: 20px;
+}
