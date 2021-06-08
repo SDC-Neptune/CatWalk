@@ -95,8 +95,8 @@ const App = () => {
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}
-        allRelatedProductsDetails={allRelatedProductsDetails}
         allRelatedProducts={allRelatedProducts}
+        allRelatedProductsDetails={allRelatedProductsDetails}
         setAllRelatedProductsDetails={setAllRelatedProductsDetails}
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}

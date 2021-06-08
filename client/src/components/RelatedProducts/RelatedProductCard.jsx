@@ -5,7 +5,6 @@ const RelatedProductCard = ({
   item,
   setProductId,
   setModalOpen,
-  goToNewProduct,
   setAllRelatedProductsDetails
 }) => {
 
@@ -15,7 +14,6 @@ const RelatedProductCard = ({
   };
 
   const newProductClickHandler = (e) => {
-    goToNewProduct();
     setAllRelatedProductsDetails([]);
     setProductId(item.id);
   };
