@@ -48,6 +48,7 @@ const RelatedProducts = ({
         title='RELATED PRODUCTS'
         setModalOpen={setModalOpen}
         setProductId={setProductId}
+        finalData={finalData}
         allRelatedProductsDetails={allRelatedProductsDetails}
         setAllRelatedProductsDetails={setAllRelatedProductsDetails}
       />

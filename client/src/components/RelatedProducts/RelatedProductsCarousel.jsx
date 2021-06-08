@@ -7,6 +7,7 @@ import RelatedProductAddToOutfitCard from './RelatedProductAddToOutfitCard.jsx';
 
 const RelatedProductsCarousel = ({
   title,
+  finalData,
   setModalOpen,
   setProductId,
   allRelatedProductsDetails,
@@ -60,11 +61,11 @@ const RelatedProductsCarousel = ({
         <div className="rp-carousel rp">
           <ArrowLeft handlePrevClick={handlePrevClick} />
           <div className="card-container">
-            {allRelatedProductsDetails.map(item => (
+            {finalData.map((item, index) => (
               <RelatedProductCard
                 setProductId={setProductId}
                 goToNewProduct={goToNewProduct}
-                key={item.id}
+                key={index}
                 setModalOpen={setModalOpen}
                 item={item}
                 setAllRelatedProductsDetails={setAllRelatedProductsDetails}
