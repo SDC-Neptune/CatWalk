@@ -84,7 +84,12 @@ const RelatedProductsCarousel = ({
               setOutfitList={setOutfitList}
             />
             {outfitList.map((item, index) => (
-              <YourOutfitCard key={index} />
+              <YourOutfitCard
+                key={index}
+                item={item}
+                outfitList={outfitList}
+                setOutfitList={setOutfitList}
+              />
             ))}
           </div>
           <ArrowRight handleNextClick={handleNextClickOutfit} />
