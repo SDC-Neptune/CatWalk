@@ -59,6 +59,7 @@
 
 .style-option-inline {
   display: inline-block;
+  position: relative;
 }
 
 .selected-style-checked {
@@ -68,9 +69,9 @@
   width: 12px;
   border-bottom: 7px solid dodgerblue;
   border-right: 7px solid dodgerblue;
-  position: relative;
-  top: -65px;
-  left: -80px;
+  position: absolute;
+  top: 2px;
+  left: 65px;
 }
 
 .selected-style-unchecked {
@@ -78,12 +79,11 @@
   transform: rotate(45deg);
   height: 30px;
   width: 12px;
-  border-bottom: 7px solid white;
-  border-right: 7px solid white;
-  position: relative;
-  top: -65px;
-  left: -80px;
-  z-index: 2;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 2px;
+  left: 65px;
 }
 
 .descriptive-info {

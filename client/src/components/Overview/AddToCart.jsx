@@ -5,7 +5,6 @@ class AddToCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      random: ''
     };
     this.updateSize = this.updateSize.bind(this);
     this.removeDuplicateSizes = this.removeDuplicateSizes.bind(this);
@@ -39,16 +38,32 @@ class AddToCart extends React.Component {
       return <div></div>;
     }
 
+    if (this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).length === 0) {
+      return (
+        <div className="cart">
+          <select disabled value="" className="select-size" onChange={this.updateSize}>
+            <option value="">OUT OF STOCK</option>
+          </select>
+          <select disabled value="" className="choose-quantity">
+            <option disabled value="">-</option>
+          </select>
+          <button className="add-to-bag">Add To Bag</button>
+          <button className="favourite">Star</button>
+        </div>
+      );
+    }
+
     return (
       <div className="cart">
         <select className="select-size" onChange={this.updateSize}>
-          <option value="">Select Size</option>
+          {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).length !== 0 &&
+            <option value="">Select Size</option>}
           {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).map((sku, index) => {
             return <option key={index} value={sku.size}>{sku.size}</option>;
           })}
         </select>
         <select className="choose-quantity">
-          <option value="">-</option>
+          <option disabled value="">-</option>
           {this.props.quantity > 0 && this.props.quantities.map((quantity) => {
             return <option key={quantity} value={quantity}>{quantity}</option>;
           })}
