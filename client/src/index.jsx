@@ -9,14 +9,11 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
-<<<<<<< HEAD
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
-=======
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
->>>>>>> 9cf87b7b39092e6c7e4c24e2c947a1e3752de1e9
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -94,8 +91,7 @@ const App = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <Overview productId={productId}/>
+      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}
@@ -105,10 +101,6 @@ const App = () => {
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
-=======
-      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
-      <RelatedProducts productId={productId}/>
->>>>>>> 9cf87b7b39092e6c7e4c24e2c947a1e3752de1e9
       <QuestionsAnswers productId={productId}/>
       <RatingsReviews productId={productId}/>
     </div>);
