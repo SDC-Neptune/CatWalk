@@ -40,14 +40,13 @@ const App = () => {
       .then(({data}) => console.log(data));
   };
 
-  const getQuestionsList = (id) => {
-    axios.get('/qa/questions?product_id=${id}')
-      .then(({data}) => console.log(data));
-  };
+  const [questionData, setQuestions] = useState([]);
 
-  const getAnswersList = (id) => {
-    axios.get(`/qa/questions/${id}/answers`)
-      .then(({data}) => console.log(data));
+  const getQuestionsList = (id) => {
+    axios.get(`/qa/questions?product_id=${id}`)
+      .then(({data}) =>
+        setQuestions(data.results)
+      );
   };
 
   const getCart = () => {
@@ -76,7 +75,6 @@ const App = () => {
     getAllReviews(productId);
     getAllReviewsMeta(productId);
     getQuestionsList(productId);
-    getAnswersList(productId); // empty list
     getCart(); //empty list
   }, []);
 
@@ -84,7 +82,7 @@ const App = () => {
     <div>
       <Overview productId={productId}/>
       <RelatedProducts productId={productId}/>
-      <QuestionsAnswers productId={productId}/>
+      <QuestionsAnswers questionData={questionData}/>
       <RatingsReviews productId={productId}/>
     </div>);
 };
