@@ -297,6 +297,11 @@ h3 {
 
 /* Related Products */
 
+.related-products-component {
+  /* background-color: plum; */
+  padding: 15px;
+}
+
 .product-info > * {
   margin-top: 3px;
   margin-bottom: 3px;
@@ -324,6 +329,7 @@ h3 {
   height: 85px;
   margin: auto;
   border: 1px solid black;
+  background-color: #fff;
 }
 
 .rp-carousel {
@@ -336,6 +342,7 @@ h3 {
   border: 1px solid black;
   margin-right: 15px;
   height: 527px;
+  background-color: #fff;
 }
 
 .add-to-outfit-card {
@@ -349,6 +356,7 @@ h3 {
   justify-content:center;
   height: 527px;
   border: 1px solid black;
+  background-color: #fff;
 }
 
 .add-to-outfit {
@@ -381,7 +389,7 @@ h3 {
 .modal {
   width: 960px;
   background-color: #ffffff;
-  z-index: 11;
+  /* z-index: 10; */
   margin: 250px auto 0;
   padding: 25px;
   height: 500px;
