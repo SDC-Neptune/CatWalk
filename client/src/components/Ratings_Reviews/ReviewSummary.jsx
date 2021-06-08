@@ -1,24 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import Stars from './Stars.jsx';
+import axios from 'axios';
 
-const RatingsReviews = () => {
+const RatingsReviews = ({id}) => {
+  const [rating, setRating] = useState(1);
+  const [recommend, setRecommed] = useState(1);
+  const [fiveStar, setfiveStar] = useState(null);
+  const [fourStar, setfourStar] = useState(null);
+  const [threeStar, sethreeStar] = useState(null);
+  const [twoStar, settwoStar] = useState(null);
+  const [oneStar, setoneStar] = useState(null);
+  const [totalStars, setTotalStars] = useState(1);
 
-  const [recommend, setRecommed] = useState(100);
-  const [fiveStar, setfiveStar] = useState(55);
-  const [fourStar, setfourStar] = useState(0);
-  const [threeStar, sethreeStar] = useState(20);
-  const [twoStar, settwoStar] = useState(6);
-  const [oneStar, setoneStar] = useState(1);
-  const [totalStars, setTotalStars] = useState(
-    (fiveStar + fourStar + threeStar + twoStar + oneStar)
-  );
+  const getAllReviewsMeta = () => {
+    axios.get(`/reviews/meta/?product_id=${id}`)
+      .then(({data}) => {
+        setfiveStar(Number(data.ratings['5']));
+        setfourStar(Number(data.ratings['4']));
+        sethreeStar(Number(data.ratings['3']));
+        settwoStar(Number(data.ratings['2']));
+        setoneStar(Number(data.ratings['1']));
+        setRecommed(() => {
+          let yesRec = Number(data.recommended.true);
+          let noRec = Number(data.recommended.false);
+          return Math.round(yesRec / (yesRec + noRec) * 100, 0);
+        });
+      })
+      .then(() => {
+        setTotalStars(fiveStar + fourStar + threeStar + twoStar + oneStar);
+      })
+      .then(() => {
+        setRating( Math.round(((1 * oneStar) + (2 * twoStar) + (3 * threeStar) + (4 * fourStar) + (5 * fiveStar)) / totalStars * 10) / 10);
+      })
+      .catch((err) => {
+        console.log('ERROR!:', err);
+      });
+  };
+
+  useEffect(() => {
+    getAllReviewsMeta();
+  }, [oneStar, twoStar, threeStar, fourStar, fiveStar, totalStars]);
 
   return (
     <div>
-      <font className="rating"> {
-
-      } </font>
-      <Stars/>
+      <font className="rating"> {rating <= 5 ? rating : 0} </font>
+      <Stars number={rating * 20}/>
       <div>
         {recommend}% of reviews recommend this product
       </div>
@@ -38,7 +64,7 @@ const RatingsReviews = () => {
         <div>
           <b>Size</b>
           <div>
-            <input className='feedbackChars' type="range" min="0" max="5" value="2.5" name="tooSmall"></input>
+            <input className='feedbackChars'readOnly type="range" min="0" max="5" value="2.5" name="size"></input>
             <div className='parent'><span className='r1'>Too small</span> <span className='r2'>Perfect</span> <span className='r3'>Too wide</span></div>
           </div>
         </div>
@@ -46,7 +72,7 @@ const RatingsReviews = () => {
         <div>
           <b>Comfort</b>
           <div>
-            <input className='feedbackChars' type="range" min="0" max="5" value="2.7" name="poor"></input>
+            <input className='feedbackChars' readOnly type="range" min="0" max="5" value="2.7" name="comfort"></input>
             <div className='parent'><span className='r1'>Uncomfortable</span> <span className='r2'>OK</span> <span className='r3'>Perfect</span></div>
           </div>
         </div>
@@ -54,7 +80,7 @@ const RatingsReviews = () => {
         <div>
           <b>Width</b>
           <div>
-            <input className='feedbackChars' type="range" min="0" max="5" value="2" name="poor"></input>
+            <input className='feedbackChars'readOnly type="range" min="0" max="5" value="2" name="width"></input>
             <div className='parent'><span className='r1'>Too narrow</span> <span className='r2'>Perfect</span> <span className='r3'>Too wide</span></div>
           </div>
         </div>
@@ -62,7 +88,7 @@ const RatingsReviews = () => {
         <div>
           <b>Quality</b>
           <div>
-            <input className='feedbackChars' type="range" min="0" max="5" value="4" name="poor"></input>
+            <input className='feedbackChars'readOnly type="range" min="0" max="5" value="4" name="quality"></input>
             <div className='parent'><span className='r1'>Poor</span> <span className='r2'>OK</span> <span className='r3'>Perfect</span></div>
           </div>
         </div>
@@ -70,7 +96,7 @@ const RatingsReviews = () => {
         <div>
           <b>Fit</b>
           <div>
-            <input className='feedbackChars' type="range" min="0" max="5" value="1.3" name="poor"></input>
+            <input className='feedbackChars' readOnly type="range" min="0" max="5" value="1.3" name="fit"></input>
             <div className='parent'><span className='r1'>Too tight</span> <span className='r2'>Perfect</span> <span className='r3'>Too loose</span></div>
           </div>
         </div>
@@ -78,7 +104,7 @@ const RatingsReviews = () => {
         <div>
           <b>Length</b>
           <div>
-            <input className='feedbackChars' type="range" min="0" max="5" value="4.9" name="poor"></input>
+            <input className='feedbackChars' readOnly type="range" min="0" max="5" value="4.9" name="length"></input>
             <div className='parent'><span className='r1'>Runs short</span> <span className='r2'>Perfect</span> <span className='r3'>Runs Long</span></div>
           </div>
         </div>

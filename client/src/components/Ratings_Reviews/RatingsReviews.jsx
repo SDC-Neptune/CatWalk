@@ -2,12 +2,12 @@ import React from 'react';
 import ReviewSummary from './ReviewSummary.jsx';
 import ReviewDetail from './ReviewDetail.jsx';
 
-const RatingsReviews = () => {
+const RatingsReviews = ({productId}) => {
 
   return (
     <div>
       <h3>RATINGS & REVIEWS</h3>
-      <ReviewSummary/>
+      <ReviewSummary id={productId}/>
       <ReviewDetail/>
     </div>
   );

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-const Stars = () => {
+const Stars = ({number}) => {
   const [percentage, setPercent] = useState(85);
+
+  useEffect(() => {
+    setPercent(number);
+  });
 
   return (
     <div className="star-ratings-css">
       <div className="star-ratings-css-top" style={{
         color: 'black',
-        width: percentage,
+        width: `${percentage}%`,
         padding: 0,
         position: 'absolute',
         'zindex': 1,
