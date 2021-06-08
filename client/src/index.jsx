@@ -36,7 +36,7 @@ const App = () => {
 
   const getRelatedProducts = (id) => {
     axios.get(`/products/${productId}/related`)
-      .then(({data}) => setAllRelatedProducts(data));
+      .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
   // const getAllReviews = (id) => {
@@ -97,8 +97,8 @@ const App = () => {
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}
-        allRelatedProductsDetails={allRelatedProductsDetails}
         allRelatedProducts={allRelatedProducts}
+        allRelatedProductsDetails={allRelatedProductsDetails}
         setAllRelatedProductsDetails={setAllRelatedProductsDetails}
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}

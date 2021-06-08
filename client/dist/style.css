@@ -310,6 +310,8 @@ h3 {
 
 .image-container {
   position: relative;
+  width: 300px;
+  height: 400px;
 }
 
 .related-products-compare {
@@ -431,6 +433,12 @@ h3 {
 
 .related-product-image {
   width: 300px;
+  height: 400px;
+}
+
+.original-price-related-product {
+  color: red;
+  text-decoration: line-through;
 }
 
 /*------- RATINGS AND REVIEWS ---------*/
