@@ -39,15 +39,15 @@ const App = () => {
       .then(({data}) => setAllRelatedProducts(data));
   };
 
-  const getAllReviews = (id) => {
-    axios.get(`/reviews/?product_id=${id}`)
-      .then(({data}) => console.log(data));
-  };
+  // const getAllReviews = (id) => {
+  //   axios.get(`/reviews/?product_id=${id}`)
+  //     .then(({data}) => console.log(data));
+  // };
 
-  const getAllReviewsMeta = (id) => {
-    axios.get(`/reviews/meta/?product_id=${id}`)
-      .then(({data}) => console.log(data));
-  };
+  // const getAllReviewsMeta = (id) => {
+  //   axios.get(`/reviews/meta/?product_id=${id}`)
+  //     .then(({data}) => console.log(data));
+  // };
 
   const [questionData, setQuestions] = useState([]);
 
@@ -89,6 +89,7 @@ const App = () => {
     // getAnswersList(productId); // empty list
     // getCart(); //empty list
   }, [productId]);
+
 
   return (
     <div>
