@@ -79,8 +79,8 @@ const App = () => {
 
   useEffect(() => {
     // getAllProducts();
-    // getProduct(productId);
-    // getProductStyles(productId);
+    getProduct(productId);
+    getProductStyles(productId);
     getRelatedProducts(productId);
 
     // getAllReviews(productId);
@@ -104,6 +104,7 @@ const App = () => {
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
       <QuestionsAnswers questionData={questionData}/>
+      <br></br>
       <RatingsReviews productId={productId}/>
     </div>);
 };

@@ -435,11 +435,24 @@ h3 {
 
 /*------- RATINGS AND REVIEWS ---------*/
 
+.ratings_reviews {
+  font-family: 'Rubik', sans-serif;
+}
+
+.reviewTest {
+  display: flex;
+}
+
 .rating {
   font-size: 35pt;
   font-weight: bold;
-  display: inline-block;
+  flex: 0 1 auto;
   padding-right: 15px;
+}
+
+.summaryStar {
+  flex: 1 1 auto;
+  margin-bottom: 15px;
 }
 
 .star-ratings-css {
@@ -450,8 +463,6 @@ h3 {
   width: 100px;
   position: relative;
   text-shadow: 0px 1px 0 #a2a2a2;
-  display: inline-block;
-  top: -20px;
 }
 
 .reviewBarText {
@@ -521,4 +532,71 @@ progress::-webkit-progress-value {
 .r3 {
   text-align: right;
   flex: 1 1 auto;
+}
+
+.parentReview {
+  display: flex;
+}
+
+.reviewDetail {
+  flex: 1 1 auto;
+  padding: 10px 10px 10px 20px;
+
+}
+
+.reviewSummary {
+  flex: 0 1 auto;
+  padding: 10px 20px 10px 10px;
+  margin: 3px;
+  border: solid rgba(0, 128, 0, 0.521);;
+}
+
+.singleReview {
+  border-bottom: solid rgba(0, 128, 0, 0.521);
+  margin: 5px;
+  padding: 15px;
+}
+
+.srHeader {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.indivStar {
+  flex: 1 1 auto;
+}
+
+.user {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.helpful {
+  padding-right: 10px;
+  border-right: solid rgba(0, 128, 0, 0.521);
+}
+
+.report {
+  padding-left: 10px;
+}
+
+.reviewButton {
+  display:inline-block;
+  padding:0.5em 3em;
+  border:0.16em solid rgba(0, 128, 0, 0.39);
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  color:rgba(0, 128, 0, 0.521);
+  text-align:center;
+  transition: all 0.15s;
+}
+.reviewButton:hover{
+  color:rgba(0, 128, 0);
+  font-weight: bolder;
+  border-color:black;
+}
+.reviewButton:active{
+  color:black;
+  border-color:#BBBBBB;
 }
