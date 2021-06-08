@@ -11,6 +11,7 @@ class ImageGallery extends React.Component {
       lastThumbnailIndex: 6,
       firstThumbnailVisible: true,
       lastThumbnailVisible: true,
+      numberOfThumbnails: undefined
     };
 
     this.previousThumbnailClick = this.previousThumbnailClick.bind(this);
@@ -20,13 +21,14 @@ class ImageGallery extends React.Component {
   }
 
   nextThumbnailClick() {
+
     var currentFirst = this.state.firstThumbnailIndex;
     var currentLast = this.state.lastThumbnailIndex;
 
     this.setState({
       firstThumbnailIndex: currentFirst + 1,
       lastThumbnailIndex: currentLast + 1,
-      firstThumbnailVisible: false
+      firstThumbnailVisible: false,
     });
   }
 
@@ -49,12 +51,9 @@ class ImageGallery extends React.Component {
       this.setState({
         firstThumbnailIndex: currentFirst - 1,
         lastThumbnailIndex: currentLast - 1,
-        lastThumbnailVisible: false,
         firstThumbnailVisible: willFirstBecomeVisible
       });
     }
-
-
   }
 
   previousMainClick() {
@@ -85,8 +84,7 @@ class ImageGallery extends React.Component {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex - 1,
         firstThumbnailIndex: currentFirst + distance,
-        lastThumbnailIndex: mainImageIndex - 1,
-        lastThumbnailVisible: false
+        lastThumbnailIndex: mainImageIndex - 1
       });
     }
   }
@@ -96,16 +94,19 @@ class ImageGallery extends React.Component {
     var mainImageIndex = this.state.mainImageThumbnailIndex;
     var currentFirst = this.state.firstThumbnailIndex;
     var currentLast = this.state.lastThumbnailIndex;
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
 
     // if less than 7 thumbnails on screen
     if (this.state.lastThumbnailIndex - this.state.firstThumbnailIndex < 6) {
       this.setState({
-        mainImageThumbnailIndex: mainImageIndex + 1
+        mainImageThumbnailIndex: mainImageIndex + 1,
+        numberOfThumbnails: countOfThumbnails
       });
     // if next main image is in thumbnail list currently
     } else if (this.state.mainImageThumbnailIndex + 1 >= this.state.firstThumbnailIndex && this.state.mainImageThumbnailIndex + 1 <= this.state.lastThumbnailIndex) {
       this.setState({
-        mainImageThumbnailIndex: mainImageIndex + 1
+        mainImageThumbnailIndex: mainImageIndex + 1,
+        numberOfThumbnails: countOfThumbnails
       });
     // if next main image is still behind first thumbnail
     } else if (this.state.mainImageThumbnailIndex + 1 < this.state.firstThumbnailIndex) {
@@ -113,7 +114,8 @@ class ImageGallery extends React.Component {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex + 1,
         firstThumbnailIndex: mainImageIndex + 1,
-        lastThumbnailIndex: currentLast - distance
+        lastThumbnailIndex: currentLast - distance,
+        numberOfThumbnails: countOfThumbnails
       }); //if next main image is in front of last thumbnail
     } else if (this.state.mainImageThumbnailIndex + 1 > this.state.lastThumbnailIndex) {
       var distance = (this.state.mainImageThumbnailIndex + 1) - this.state.lastThumbnailIndex;
@@ -121,7 +123,8 @@ class ImageGallery extends React.Component {
         mainImageThumbnailIndex: mainImageIndex + 1,
         firstThumbnailIndex: currentFirst + distance,
         lastThumbnailIndex: mainImageIndex + 1,
-        firstThumbnailVisible: false
+        firstThumbnailVisible: false,
+        numberOfThumbnails: countOfThumbnails
       });
     }
 
@@ -148,7 +151,7 @@ class ImageGallery extends React.Component {
         </div>
         {this.state.mainImageThumbnailIndex !== 0 && <i className="thumbnail-arrows left" onClick={this.previousMainClick}></i>}
         <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image"></img>
-        <i className="thumbnail-arrows right" onClick={this.nextMainClick}></i>
+        {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="thumbnail-arrows right" onClick={this.nextMainClick}></i>}
       </div>
     );
   }
