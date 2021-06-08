@@ -9,6 +9,9 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
+  const [allRelatedProducts, setAllRelatedProducts] = useState([]);
+  const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
+  const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -27,7 +30,7 @@ const App = () => {
 
   const getRelatedProducts = (id) => {
     axios.get(`/products/${productId}/related`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => setAllRelatedProducts(data));
   };
 
   const getAllReviews = (id) => {
@@ -41,7 +44,7 @@ const App = () => {
   };
 
   const getQuestionsList = (id) => {
-    axios.get('/qa/questions?product_id=${id}')
+    axios.get(`/qa/questions?product_id=${id}`)
       .then(({data}) => console.log(data));
   };
 
@@ -69,21 +72,29 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    getAllProducts();
-    getProduct(productId);
-    getProductStyles(productId);
+    // getAllProducts();
+    // getProduct(productId);
+    // getProductStyles(productId);
     getRelatedProducts(productId);
-    getAllReviews(productId);
-    getAllReviewsMeta(productId);
-    getQuestionsList(productId);
-    getAnswersList(productId); // empty list
-    getCart(); //empty list
-  }, []);
+    // getAllReviews(productId);
+    // getAllReviewsMeta(productId);
+    // getQuestionsList(productId);
+    // getAnswersList(productId); // empty list
+    // getCart(); //empty list
+  }, [productId]);
 
   return (
     <div>
       <Overview productId={productId}/>
-      <RelatedProducts productId={productId}/>
+      <RelatedProducts
+        productId={productId}
+        setProductId={setProductId}
+        allRelatedProductsDetails={allRelatedProductsDetails}
+        allRelatedProducts={allRelatedProducts}
+        setAllRelatedProductsDetails={setAllRelatedProductsDetails}
+        allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
+        setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
+      />
       <QuestionsAnswers productId={productId}/>
       <RatingsReviews productId={productId}/>
     </div>);
