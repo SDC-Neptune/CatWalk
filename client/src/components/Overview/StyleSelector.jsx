@@ -10,7 +10,7 @@ class StyleSelector extends React.Component {
       styles: [],
       selectedStyle: '00',
       selectedStyleName: '',
-      styleId: '103466',
+      styleId: '',
       originalPrice: 0,
       salePrice: null
     };
@@ -145,7 +145,7 @@ class StyleSelector extends React.Component {
             )
           }
         })}
-        <AddToCart productStyles={this.props.productStyles} styleId={this.state.styleId}/>
+        <AddToCart productStyles={this.props.productStyles} styleIndex={this.props.styleIndex}/>
       </div>
     );
 }
