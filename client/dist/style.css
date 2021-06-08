@@ -149,6 +149,10 @@
   grid-row-end: 9;
 }
 
+.current-tn {
+  border: 5px solid dodgerblue;
+}
+
 .thumbnail-arrows {
   height: 15px;
   width: 15px;
