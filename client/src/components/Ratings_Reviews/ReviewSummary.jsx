@@ -32,10 +32,11 @@ const RatingsReviews = ({data}) => {
         <font className="rating"> {rating} </font>
         <div className='summaryStar'><Stars number={rating * 20} /></div>
       </div>
-
+      <br></br>
       <div>
         {Math.round(Number(data.recommended.true) / (Number(data.recommended.true) + Number(data.recommended.false)) * 100, 0)}% of reviews recommend this product
       </div>
+      <br></br>
       <div className='test'>
         <span className='reviewBarText'>5 stars</span> <progress value={(Number(data.ratings['5']) / totalStars) * 100} max={totalStars}></progress><span>{data.ratings['5']}</span>
         <br/>

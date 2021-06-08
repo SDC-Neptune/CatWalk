@@ -435,6 +435,10 @@ h3 {
 
 /*------- RATINGS AND REVIEWS ---------*/
 
+.ratings_reviews {
+  font-family: 'Rubik', sans-serif;
+}
+
 .reviewTest {
   display: flex;
 }
@@ -448,7 +452,7 @@ h3 {
 
 .summaryStar {
   flex: 1 1 auto;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .star-ratings-css {
@@ -551,7 +555,11 @@ progress::-webkit-progress-value {
   border-bottom: solid rgba(0, 128, 0, 0.521);
   margin: 5px;
   padding: 15px;
+}
+
+.srHeader {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .indivStar {
@@ -561,4 +569,34 @@ progress::-webkit-progress-value {
 .user {
   flex: 1 1 auto;
   text-align: right;
+}
+
+.helpful {
+  padding-right: 10px;
+  border-right: solid rgba(0, 128, 0, 0.521);
+}
+
+.report {
+  padding-left: 10px;
+}
+
+.reviewButton {
+  display:inline-block;
+  padding:0.5em 3em;
+  border:0.16em solid rgba(0, 128, 0, 0.39);
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  color:rgba(0, 128, 0, 0.521);
+  text-align:center;
+  transition: all 0.15s;
+}
+.reviewButton:hover{
+  color:rgba(0, 128, 0);
+  font-weight: bolder;
+  border-color:black;
+}
+.reviewButton:active{
+  color:black;
+  border-color:#BBBBBB;
 }
