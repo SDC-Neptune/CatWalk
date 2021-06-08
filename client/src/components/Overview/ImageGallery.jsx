@@ -22,8 +22,11 @@ class ImageGallery extends React.Component {
   }
 
   clickOnThumbnail(index) {
+    var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
+
     this.setState({
-      mainImageThumbnailIndex: index
+      mainImageThumbnailIndex: index,
+      numberOfThumbnails: countOfThumbnails
     });
   }
 

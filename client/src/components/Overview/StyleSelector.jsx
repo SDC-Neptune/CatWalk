@@ -54,6 +54,7 @@ class StyleSelector extends React.Component {
     if (!this.props.productStyles.results) {
       return <div></div>;
     }
+
     return (
       <div className="style-selector">
         {this.state.salePrice &&
@@ -145,7 +146,7 @@ class StyleSelector extends React.Component {
             )
           }
         })}
-        <AddToCart productStyles={this.props.productStyles} styleIndex={this.props.styleIndex}/>
+        <AddToCart productStyles={this.props.productStyles} styleIndex={this.props.styleIndex} fetchQuantitiesHandler={this.props.fetchQuantitiesHandler} quantity={this.props.quantity} quantities={this.props.quantities}/>
       </div>
     );
 }
