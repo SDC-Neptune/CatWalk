@@ -8,7 +8,7 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19089');
+  const [productId, setProductId] = useState('19091');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
@@ -61,7 +61,7 @@ const App = () => {
 
   const getCart = () => {
     axios.get('/cart')
-      .then(({data}) => console.log(data));
+      .then(({data}) => console.log('cart:', data));
   };
 
   // Add a Review
