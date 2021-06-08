@@ -278,6 +278,18 @@
   padding: 5px;
 }
 
+.fa-facebook {
+  color: #3B5998;
+}
+
+.fa-twitter {
+  color: #00ACEE
+}
+
+.fa-pinterest {
+  color: #E60023
+}
+
 .social:hover {
   cursor: pointer;
 }
