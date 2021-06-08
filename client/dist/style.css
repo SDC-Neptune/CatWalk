@@ -321,7 +321,7 @@ h3 {
   left: 255px;
   z-index: 2;
   font-size: 1.8rem;
-  color: dodgerblue;
+  color: rgba(0, 128, 0, 0.678);
 }
 
 .related-products-compare:hover {
@@ -331,8 +331,12 @@ h3 {
 .arrow {
   height: 85px;
   margin: auto;
-  border: 1px solid black;
+  color: rgba(0, 128, 0, 0.521);
   background-color: #fff;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }
 
 .rp-carousel {
@@ -363,12 +367,18 @@ h3 {
 }
 
 .add-to-outfit {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  text-align: center;
   width: 125px !important;
+}
+
+.add-icon {
+  color: rgba(0, 128, 0, 0.521);
 }
 
 .add-icon:hover {
   cursor: pointer;
+  color:rgba(0, 88, 0, 0.678);
 }
 
 .card-container {
@@ -435,6 +445,10 @@ h3 {
 .related-product-image {
   width: 300px;
   height: 400px;
+}
+
+.related-product-image:hover {
+  cursor: pointer;
 }
 
 .original-price-related-product {
