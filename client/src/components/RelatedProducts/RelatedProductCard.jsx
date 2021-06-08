@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const RelatedProductCard = ({
   item,
   setProductId,
@@ -32,8 +31,10 @@ const RelatedProductCard = ({
         <h5 className="product-category">{item.category}</h5>
         <h3 className="product-name">{item.name}</h3>
         <p className="product-price">
-          ${item.currentPrice}
-          <span className="original-price-related-product">  {item.originalPrice === item.currentPrice ? '' : '$' + item.originalPrice}</span>
+          ${item.originalPrice}
+          <span className="original-price-related-product">
+            {item.currentPrice !== null ? '$' + item.currentPrice : ''}
+          </span>
         </p>
         <div style={{display: 'flex', marginBottom: '15px'}}>
           <i className="fas fa-star"></i>

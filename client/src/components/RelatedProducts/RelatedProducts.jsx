@@ -23,10 +23,10 @@ const RelatedProducts = ({
         obj.id = data.id;
         obj.name = data.name;
         obj.category = data.category;
-        obj.currentPrice = data.default_price;
         axios.get(`/products/${productId}/styles`)
           .then(({data}) => {
             obj.originalPrice = data.results[0].original_price;
+            obj.currentPrice = data.results[0].sale_price;
             obj.img = data.results[0].photos[0].url;
           });
       });
@@ -45,12 +45,12 @@ const RelatedProducts = ({
           obj.id = data.id;
           obj.name = data.name;
           obj.category = data.category;
-          obj.currentPrice = data.default_price;
 
           setAllRelatedProductsDetails(previous => [...previous, data]);
           axios.get(`/products/${item}/styles`)
             .then(({data}) => {
               obj.originalPrice = data.results[0].original_price;
+              obj.currentPrice = data.results[0].sale_price;
               obj.img = data.results[0].photos[0].url;
               setAllRelatedProductsStylesDetails(previous => [...previous, data]);
             });
