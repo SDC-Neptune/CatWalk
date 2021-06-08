@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers.jsx';
-import RatingsReviews from './components/RatingsReviews.jsx';
+import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
+  const [allRelatedProducts, setAllRelatedProducts] = useState([]);
+  const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
+  const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
+  const [productInfo, setProductInfo] = useState([]);
+  const [productStyles, setProductStyles] = useState([]);
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -17,17 +22,21 @@ const App = () => {
 
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => {
+        setProductInfo(data);
+      });
   };
 
   const getProductStyles = (id) => {
     axios.get(`/products/${productId}/styles`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => {
+        setProductStyles(data);
+      });
   };
 
   const getRelatedProducts = (id) => {
     axios.get(`/products/${productId}/related`)
-      .then(({data}) => console.log(data));
+      .then(({data}) => setAllRelatedProducts(data));
   };
 
   const getAllReviews = (id) => {
@@ -41,6 +50,7 @@ const App = () => {
   };
 
   const [questionData, setQuestions] = useState([]);
+
 
   const getQuestionsList = (id) => {
     axios.get(`/qa/questions?product_id=${id}`)
@@ -68,20 +78,30 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    getAllProducts();
-    getProduct(productId);
-    getProductStyles(productId);
+    // getAllProducts();
+    // getProduct(productId);
+    // getProductStyles(productId);
     getRelatedProducts(productId);
-    getAllReviews(productId);
-    getAllReviewsMeta(productId);
-    getQuestionsList(productId);
-    getCart(); //empty list
-  }, []);
+
+    // getAllReviews(productId);
+    // getAllReviewsMeta(productId);
+    // getQuestionsList(productId);
+    // getAnswersList(productId); // empty list
+    // getCart(); //empty list
+  }, [productId]);
 
   return (
     <div>
-      <Overview productId={productId}/>
-      <RelatedProducts productId={productId}/>
+      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
+      <RelatedProducts
+        productId={productId}
+        setProductId={setProductId}
+        allRelatedProductsDetails={allRelatedProductsDetails}
+        allRelatedProducts={allRelatedProducts}
+        setAllRelatedProductsDetails={setAllRelatedProductsDetails}
+        allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
+        setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
+      />
       <QuestionsAnswers questionData={questionData}/>
       <RatingsReviews productId={productId}/>
     </div>);
