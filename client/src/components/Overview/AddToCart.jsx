@@ -36,8 +36,9 @@ class AddToCart extends React.Component {
         document.getElementById('no-selected-size-message').remove();
       }
 
-      // submit post request to cart
+      // submit post request to cart. //send message saying it was successful
       console.log('I will now submit a post request');
+      // clear inputs?
 
     }
 
