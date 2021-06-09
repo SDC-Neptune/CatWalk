@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers.jsx';
+import SalesArea from './components/SalesArea.jsx';
+import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
@@ -93,6 +95,7 @@ const App = () => {
 
   return (
     <div>
+      <Navbar />
       <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
       <RelatedProducts
         productId={productId}
@@ -103,6 +106,7 @@ const App = () => {
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
+      <SalesArea />
       <QuestionsAnswers questionData={questionData}/>
       <br></br>
       <RatingsReviews productId={productId}/>
