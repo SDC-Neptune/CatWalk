@@ -10,7 +10,7 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19091');
+  const [productId, setProductId] = useState('19089');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
@@ -82,13 +82,13 @@ const App = () => {
 
   useEffect(() => {
     // getAllProducts();
-    // getProduct(productId);
-    // getProductStyles(productId);
-    // getRelatedProducts(productId);
+    getProduct(productId);
+    getProductStyles(productId);
+    getRelatedProducts(productId);
 
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
-    getQuestionsList(productId);
+    // getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);

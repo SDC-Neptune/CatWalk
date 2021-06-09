@@ -37,9 +37,12 @@ const RelatedProductCard = ({
         <h5 className="product-category">{item.category}</h5>
         <h3 className="product-name">{item.name}</h3>
         <p className="product-price">
-          ${item.originalPrice}
+          {item.currentPrice !== null ? '$' + item.currentPrice : '$' + item.originalPrice}
           <span className="original-price-related-product">
-            {item.currentPrice !== null ? '$' + item.currentPrice : ''}
+            {
+              (item.currentPrice === null || parseInt(item.originalPrice) < parseInt(item.currentPrice))
+                ? ''
+                : ' $' + item.originalPrice}
           </span>
         </p>
         <div style={{display: 'flex', marginBottom: '15px'}}>
