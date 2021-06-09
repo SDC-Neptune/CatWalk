@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 
 const RatingsReviews = ({detail}) => {
-  const [test, setTest] = useState(detail.results.length > 2 ? true : false);
+  const [moreReview, setMoreReview] = useState(detail.results.length > 2 ? true : false);
+  const [noReview, setNoReview] = useState(detail.results.length === 0 ? true : false);
+  const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
 
   const [count, setCount] = useState(() => {
     if (detail.results.length <= 2) {
@@ -33,16 +35,20 @@ const RatingsReviews = ({detail}) => {
   };
 
   useEffect(() => {
-    setTest(detail.results.length === count.length ? false : true);
+    setMoreReview(detail.results.length === count.length ? false : true);
+    setNoReview(detail.results.length > 0 ? false : true);
+
   }, [count]);
 
   return (
     <div className='reviewDetail'>
       <h3>{detail.count} reviews, sorted by <span><u>relevance</u> ⇓ </span></h3>
       <div className='allSingleReviews'>
+        {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
         {count}
       </div>
-      {test && <button className='reviewButton' onClick={addReviews}>MORE REVIEWS</button>}<button className='reviewButton'>ADD A REVIEW + </button>
+      {moreReview && <button className='reviewButton' onClick={addReviews}>MORE REVIEWS</button>}
+      {isReview && <button className='reviewButton'>ADD A REVIEW + </button>}
     </div>
   );
 };
