@@ -14,10 +14,30 @@ const RelatedProducts = ({
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [finalData, setFinalData] = useState([]);
-
-  const d = [];
+  const [curData, setCurData] = useState([]);
 
   useEffect(() => {
+    let obj = {};
+    axios.get(`/products/${productId}`)
+      .then(({data}) => {
+        obj.id = data.id;
+        obj.name = data.name;
+        obj.category = data.category;
+        axios.get(`/products/${productId}/styles`)
+          .then(({data}) => {
+            obj.originalPrice = data.results[0].original_price;
+            obj.currentPrice = data.results[0].sale_price;
+            obj.img = data.results[0].photos[0].url;
+          });
+      });
+    setCurData(obj);
+  }, [productId]);
+
+
+
+
+  useEffect(() => {
+    const tempRelatedData = [];
     allRelatedProducts.forEach((item) => {
       let obj = {};
       axios.get(`/products/${item}`)
@@ -25,20 +45,19 @@ const RelatedProducts = ({
           obj.id = data.id;
           obj.name = data.name;
           obj.category = data.category;
-          obj.currentPrice = data.default_price;
 
           setAllRelatedProductsDetails(previous => [...previous, data]);
           axios.get(`/products/${item}/styles`)
             .then(({data}) => {
-              // const filteredData = data.results[0];
               obj.originalPrice = data.results[0].original_price;
+              obj.currentPrice = data.results[0].sale_price;
               obj.img = data.results[0].photos[0].url;
               setAllRelatedProductsStylesDetails(previous => [...previous, data]);
             });
         });
-      d.push(obj);
+      tempRelatedData.push(obj);
     });
-    setFinalData(d);
+    setFinalData(tempRelatedData);
   }, [allRelatedProducts]);
 
   return (
@@ -48,10 +67,16 @@ const RelatedProducts = ({
         title='RELATED PRODUCTS'
         setModalOpen={setModalOpen}
         setProductId={setProductId}
+        finalData={finalData}
+        curData={curData}
         allRelatedProductsDetails={allRelatedProductsDetails}
         setAllRelatedProductsDetails={setAllRelatedProductsDetails}
       />
-      <RelatedProductsCarousel title='YOUR OUTFIT' />
+      <RelatedProductsCarousel
+        title='YOUR OUTFIT'
+        setProductId={setProductId}
+        curData={curData}
+      />
     </div>
   );
 };

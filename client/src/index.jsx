@@ -8,7 +8,7 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19089');
+  const [productId, setProductId] = useState('19091');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
@@ -36,7 +36,7 @@ const App = () => {
 
   const getRelatedProducts = (id) => {
     axios.get(`/products/${productId}/related`)
-      .then(({data}) => setAllRelatedProducts(data));
+      .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
   // const getAllReviews = (id) => {
@@ -61,7 +61,7 @@ const App = () => {
 
   const getCart = () => {
     axios.get('/cart')
-      .then(({data}) => console.log(data));
+      .then(({data}) => console.log('cart:', data));
   };
 
   // Add a Review
@@ -79,9 +79,15 @@ const App = () => {
 
   useEffect(() => {
     // getAllProducts();
+<<<<<<< HEAD
     // getProduct(productId);
     // getProductStyles(productId);
     // getRelatedProducts(productId);
+=======
+    getProduct(productId);
+    getProductStyles(productId);
+    getRelatedProducts(productId);
+>>>>>>> 8f95b8490387e836230f4e9c4064ffe62373561b
 
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
@@ -96,13 +102,14 @@ const App = () => {
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}
-        allRelatedProductsDetails={allRelatedProductsDetails}
         allRelatedProducts={allRelatedProducts}
+        allRelatedProductsDetails={allRelatedProductsDetails}
         setAllRelatedProductsDetails={setAllRelatedProductsDetails}
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
       <QuestionsAnswers questionData={questionData}/>
+      <br></br>
       <RatingsReviews productId={productId}/>
     </div>);
 };

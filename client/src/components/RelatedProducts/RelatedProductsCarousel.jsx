@@ -7,6 +7,8 @@ import RelatedProductAddToOutfitCard from './RelatedProductAddToOutfitCard.jsx';
 
 const RelatedProductsCarousel = ({
   title,
+  curData,
+  finalData,
   setModalOpen,
   setProductId,
   allRelatedProductsDetails,
@@ -14,6 +16,7 @@ const RelatedProductsCarousel = ({
 }) => {
   const [currentCard, setCurrentCard] = useState(1);
   const [currentCardOutfit, setCurrentCardOutfit] = useState(1);
+  const [outfitList, setOutfitList] = useState(JSON.parse(localStorage.getItem('yourOutfitList')) || []);
 
   const handleNextClick = () => {
     if (document.querySelectorAll('.rp .rp-card').length - currentCard > 2) {
@@ -49,10 +52,6 @@ const RelatedProductsCarousel = ({
     }
   };
 
-  const goToNewProduct = () => {
-    console.log('I was clicked, go get the new product');
-  };
-
   return (title !== 'YOUR OUTFIT') ?
     (
       <>
@@ -60,13 +59,12 @@ const RelatedProductsCarousel = ({
         <div className="rp-carousel rp">
           <ArrowLeft handlePrevClick={handlePrevClick} />
           <div className="card-container">
-            {allRelatedProductsDetails.map(item => (
+            {finalData.map((item, index) => (
               <RelatedProductCard
-                setProductId={setProductId}
-                goToNewProduct={goToNewProduct}
-                key={item.id}
-                setModalOpen={setModalOpen}
+                key={index}
                 item={item}
+                setProductId={setProductId}
+                setModalOpen={setModalOpen}
                 setAllRelatedProductsDetails={setAllRelatedProductsDetails}
               />
             ))}
@@ -80,10 +78,19 @@ const RelatedProductsCarousel = ({
         <div className="rp-carousel yo">
           <ArrowLeft handlePrevClick={handlePrevClickOutfit} />
           <div className="card-container">
-            <RelatedProductAddToOutfitCard />
-            <YourOutfitCard />
-            <YourOutfitCard />
-            <YourOutfitCard />
+            <RelatedProductAddToOutfitCard
+              curData={curData}
+              outfitList={outfitList}
+              setOutfitList={setOutfitList}
+            />
+            {outfitList.map((item, index) => (
+              <YourOutfitCard
+                key={index}
+                item={item}
+                outfitList={outfitList}
+                setOutfitList={setOutfitList}
+              />
+            ))}
           </div>
           <ArrowRight handleNextClick={handleNextClickOutfit} />
         </div>
