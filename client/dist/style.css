@@ -333,6 +333,10 @@ h3 {
   margin-bottom: 10px;
 }
 
+.overviewStar {
+  margin-bottom: 5px;
+}
+
 .original-price-strikethrough {
   text-decoration: line-through;
 }

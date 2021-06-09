@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Stars from '../Ratings_Reviews/Stars.jsx';
 
 
 const BasicProductInfo = (props) => {
+
+  if (!props.productInfo || !props.productReviews) {
+    return <div>Page still loading...</div>;
+  }
+
+  const [totalStars, setTotalStars] = useState(null);
+  const [rating, setRating] = useState(null);
 
   const redirectToReviews = (e) => {
     e.preventDefault();
   };
 
-  if (!props.productInfo) {
-    return <div></div>;
-  }
+  useEffect(() => {
+    setRating(Math.round((((1 * Number(props.productReviews.ratings['1']) || null)) + (2 * Number(props.productReviews.ratings['2']) || null) + (3 * Number(props.productReviews.ratings['3']) || null) + (4 * Number(props.productReviews.ratings['4']) || null) + (5 * Number(props.productReviews.ratings['5'])) || null) / totalStars * 10) / 10);
+
+    setTotalStars(Number(props.productReviews.ratings['5'] || null) + Number(props.productReviews.ratings['4'] || null) + Number(props.productReviews.ratings['3'] || null) + Number(props.productReviews.ratings['2'] || null) + Number(props.productReviews.ratings['1'] || null));
+  });
+
+  console.log('totalstars: ', totalStars);
+  console.log('rating: ', rating);
+  console.log('props.productReviews: ', props.productReviews);
 
   return (
     <div className="basic-info">
-      <div className="overview-rating">
-        <span className="fa fa-star checked"></span>
-        <span className="fa fa-star checked"></span>
-        <span className="fa fa-star checked"></span>
-        <span className="fa fa-star checked"></span>
-        <span className="fa fa-star checked"></span>
-      </div>
-      <a href="" onClick={redirectToReviews}> Read all reviews</a>
+      {Object.keys(props.productReviews.ratings).length > 0 &&
+      <div>
+        <div className='overviewStar'><Stars number={(rating) * 20}/></div>
+        <a href="" onClick={redirectToReviews}> Read all reviews</a>
+      </div>}
       <h2>{`${props.productInfo.category}`.toUpperCase()}</h2>
       <h1>{props.productInfo.name}</h1>
     </div>
