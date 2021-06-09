@@ -494,11 +494,17 @@ font-size: 1.2rem;
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
+  height: 2rem;
+  align-items: center;
+}
+
+.comparison-wrapper:nth-child(odd) {
+  background-color: var(--main-color);
 }
 
 .comparison-wrapper > div,
 .prod-compare-titles > h3 {
-  width: 120px;
+  width: 220px;
   text-align: center;
 }
 
