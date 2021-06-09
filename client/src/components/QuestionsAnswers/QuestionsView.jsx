@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Question from './Question.jsx';
 import AddQuestionModal from './AddQuestionModal.jsx';
-
+import AddAnswerModal from './AddAnswerModal.jsx';
 const QuestionsView = ({questionData}) => {
-  const [qModalOpen, setQModalOpen] = useState(true);
+  const [questionModalOpen, setQuestionModalOpen] = useState(false);
+  const [answerModalOpen, setAnswerModalOpen] = useState(false);
 
-  const modalHandler = (e) => {
-    console.log('Add question Button clicked');
+  const questionModalHandler = (e) => {
     e.stopPropagation();
-    setQModalOpen(true);
+    setQuestionModalOpen(true);
   };
 
   const sortQuestionsList = () => {
@@ -26,16 +26,17 @@ const QuestionsView = ({questionData}) => {
 
   return (
     <div className="qa-question">
-      <AddQuestionModal qModalOpen={qModalOpen} setQModalOpen={setQModalOpen} />
+      <AddQuestionModal questionModalOpen={questionModalOpen} setQuestionModalOpen={setQuestionModalOpen} />
+      <AddAnswerModal answerModalOpen={answerModalOpen} setAnswerModalOpen={setAnswerModalOpen} />
       { sortQuestionsList(),
       questionData.map((item) => {
         return <Question
           key={item.question_id}
           item={item}
-        />;
+        />
       })}
       <button className="qa-more-questions-btn">See more answered questions</button>
-      <button className="qa-add-question-btn" onClick={modalHandler}>Add a question</button>
+      <button className="qa-add-question-btn" onClick={questionModalHandler}>Add a question</button>
     </div>
   );
 };

@@ -5,9 +5,8 @@ import Answer from './Answer.jsx';
 
 const Question = ({item}) => {
 
-  const [answerData, setAnswers] = useState([]);
   const [answerCount, setAnswerCount] = useState(2);
-  const [showAnswers, setShowAnswers] = useState([]);
+  const [answerData, setAnswers] = useState([]);
 
   const getAnswersList = (id) => {
     axios.get(`/qa/questions/${id}/answers`)
@@ -17,6 +16,10 @@ const Question = ({item}) => {
   useEffect(() => {
     getAnswersList(item.question_id);
   });
+
+  const sortAnswersList = () => {
+    questionData = questionData.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
+  };
 
   return (
     <div>

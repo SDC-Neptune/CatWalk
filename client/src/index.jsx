@@ -51,7 +51,6 @@ const App = () => {
 
   const [questionData, setQuestions] = useState([]);
 
-
   const getQuestionsList = (id) => {
     axios.get(`/qa/questions?product_id=${id}`)
       .then(({data}) =>
@@ -59,10 +58,12 @@ const App = () => {
       );
   };
 
-  const getCart = () => {
-    axios.get('/cart')
-      .then(({data}) => console.log('cart:', data));
-  };
+
+
+  // const getCart = () => {
+  //   axios.get('/cart')
+  //     .then(({data}) => console.log('cart:', data));
+  // };
 
   // Add a Review
   // Mark Review as Helpful
@@ -79,20 +80,15 @@ const App = () => {
 
   useEffect(() => {
     // getAllProducts();
-<<<<<<< HEAD
     // getProduct(productId);
     // getProductStyles(productId);
     // getRelatedProducts(productId);
-=======
-    getProduct(productId);
-    getProductStyles(productId);
-    getRelatedProducts(productId);
->>>>>>> 8f95b8490387e836230f4e9c4064ffe62373561b
 
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
     getQuestionsList(productId);
-    getCart(); //empty list
+    // getAnswersList(questionData.question_id);
+    // getCart(); //empty list
   }, [productId]);
 
 

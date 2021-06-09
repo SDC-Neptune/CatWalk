@@ -7,7 +7,7 @@ const QuestionsAnswers = ({questionData}) => {
     <div className="qa-container">
       <h1>Questions & Answers</h1>
       < Search />
-      < QuestionsView questionData={questionData} />
+      < QuestionsView questionData={questionData}/>
     </div>
   );
 

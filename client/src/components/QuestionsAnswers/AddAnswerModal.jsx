@@ -1,20 +1,20 @@
 import React from 'react';
 
-const AddQuestionModal = ({ qModalOpen, setQModalOpen }) => {
+const AddAnswerModal = ({ answerModalOpen, setAnswerModalOpen }) => {
 
-  if (!qModalOpen) {
+  if (!answerModalOpen) {
     return null;
   }
 
   const closeModal = () => {
-    setQModalOpen(false);
+    setAnswerModalOpen(false);
   };
 
   return (
     <div className="modal-overlay qa-modal">
       <div className="modal qa-modal">
         <div className="modal-header qa-modal">
-          <div>Add a Question</div>
+          <div>Add an Answer</div>
           <div onClick={closeModal}>Close</div>
         </div>
       </div>
@@ -22,4 +22,4 @@ const AddQuestionModal = ({ qModalOpen, setQModalOpen }) => {
   );
 };
 
-export default AddQuestionModal;
+export default AddAnswerModal;
