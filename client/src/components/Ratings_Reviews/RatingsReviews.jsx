@@ -81,7 +81,7 @@ const RatingsReviews = ({productId}) => {
         'rating': 3,
         'summary': 'nice',
         'recommend': true,
-        'response': null,
+        'response': 'I am SO glad you love your shades',
         'body': 'ver nice',
         'date': '2021-06-07T00:00:00.000Z',
         'reviewer_name': 'bob',
@@ -120,7 +120,7 @@ const RatingsReviews = ({productId}) => {
 
   return (
     <div className='ratings_reviews'>
-      <h3>RATINGS & REVIEWS</h3>
+      <h2>RATINGS & REVIEWS</h2>
       <div className='parentReview'>
         <ReviewSummary data={data}/>
         <ReviewDetail detail={reviewDetailData}/>

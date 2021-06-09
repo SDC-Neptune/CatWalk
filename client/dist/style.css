@@ -667,9 +667,16 @@ progress::-webkit-progress-value {
   overflow-y: scroll;
 }
 
+.response {
+  background-color: rgb(205, 245, 205);
+  border: solid rgb(161, 219, 161);
+  border-width: 5px;
+  padding: 10px;
+}
+
 .helpful {
   padding-right: 10px;
-  border-right: solid rgba(0, 128, 0, 0.521);
+  border-right: solid rgba(0, 128, 0, 0.486);
 }
 
 .report {

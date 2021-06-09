@@ -4,6 +4,7 @@ import Recommend from './Recommend.jsx';
 
 const IndivReview = ({detail}) => {
   const [recommend, setRecommend] = useState(detail.recommend ? true : false);
+  const [isResponse, setIsResponse] = useState(detail.response ? true : false);
   const dateTimeFormat = new Date(detail.date);
 
 
@@ -14,11 +15,18 @@ const IndivReview = ({detail}) => {
         <div className='user'>☑️ {detail.reviewer_name}, {dateTimeFormat.toDateString().slice(4)}</div>
       </div>
 
-      <h3>{detail.summary}</h3>
+      <h2>{detail.summary}</h2>
       <p>
         {detail.body}
       </p>
       <div>{recommend && <Recommend/>}</div>
+      <br></br>
+      {isResponse && (<div className='response'>
+        <b>Reponse:</b>
+        <br></br>
+        <br></br>
+        {detail.response}
+      </div>)}
       <br></br>
       <span className='helpful'>Helpful? <u>Yes</u> ({detail.helpfulness}) </span> <span className='report'>Report</span>
     </div>
