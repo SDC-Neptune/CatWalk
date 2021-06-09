@@ -80,8 +80,8 @@ body {
   transform: rotate(45deg);
   height: 30px;
   width: 12px;
-  border-bottom: 7px solid dodgerblue;
-  border-right: 7px solid dodgerblue;
+  border-bottom: 7px solid rgb(48, 175, 48);
+  border-right: 7px solid rgb(48, 175, 48);
   position: absolute;
   top: 2px;
   left: 65px;
@@ -143,10 +143,8 @@ body {
 }
 
 .thumbnail {
-  margin-top: 10px;
   max-width: 100px;
   max-height: 70px;
-  justify-self: center;
   display: block;
   width: auto;
   height: auto;
@@ -156,26 +154,16 @@ body {
   margin-right: auto;
 }
 
-.t1 {
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-.t9 {
-  grid-row-start: 9;
-  grid-row-end: 9;
-}
-
 .current-tn {
-  border: 5px solid dodgerblue;
+  border: 5px solid var(--main-color);
 }
 
 .thumbnail-arrows {
   height: 15px;
   width: 15px;
-  margin: auto;
-  display: inline-block;
-  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .right {
@@ -183,8 +171,8 @@ body {
   -webkit-transform: rotate(-45deg);
   height: 25px;
   width: 25px;
-  border: solid black;
-  border-width: 0 3px 3px 0;
+  border: solid var(--main-color);
+  border-width: 0 7px 7px 0;
 }
 
 .left {
@@ -192,23 +180,23 @@ body {
   -webkit-transform: rotate(135deg);
   height: 25px;
   width: 25px;
-  border: solid black;
-  border-width: 0 3px 3px 0;
+  border: solid var(--main-color);
+  border-width: 0 7px 7px 0;
 }
 
 .up-is-visible {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
-  border: solid black;
-  border-width: 0 3px 3px 0;
+  border: solid var(--main-color);
+  border-width: 0 5px 5px 0;
 }
 
 .down-is-visible {
   margin-top: 10px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  border: solid black;
-  border-width: 0 3px 3px 0;
+  border: solid var(--main-color);
+  border-width: 0 5px 5px 0;
 }
 
 .up-is-not-visible {
@@ -253,21 +241,46 @@ body {
   grid-column: 4 / span 2;
 }
 
-.add-to-bag {
+.add-to-bag-button {
   grid-row-start: 2;
   grid-row-end: 2;
   grid-column: 1 / span 5;
 }
 
-.add-to-bag:hover, .select-size:hover, .choose-quantity:hover {
+.select-size, .choose-quantity, .add-to-bag-button {
+  padding:0.5em 3em;
+  border:0.16em solid rgba(0, 128, 0, 0.39);
+  color:rgba(0, 128, 0, 0.521);
+  text-align:center;
+}
+
+.select-size:hover, .choose-quantity:hover, .add-to-bag-button:hover {
+  color:rgba(0, 128, 0);
+  font-weight: bolder;
+  border-color:black;
+}
+
+.select-size:active, .choose-quantity:active, .add-to-bag-button:active {
+  color:black;
+  border-color:#BBBBBB;
+}
+
+.add-to-bag-button:hover, .select-size:hover, .choose-quantity:hover {
   cursor: pointer;
 }
 
-#no-selected-size-message {
+#no-selected-size-message, #added-to-cart-error-message {
   color: red;
   width: 150px;
   position: absolute;
-  margin-top: 70px;
+  margin-top: 120px;
+}
+
+#added-to-cart-success-message {
+  color: green;
+  width: 150px;
+  position: absolute;
+  margin-top: 120px;
 }
 
 .slogan {

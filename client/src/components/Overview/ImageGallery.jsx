@@ -155,8 +155,8 @@ class ImageGallery extends React.Component {
     return (
       <div className="image-gallery">
         <div className="thumbnails">
-          {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible t1" onClick={this.previousThumbnailClick}></i>}
-          {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible t1"></i>}
+          {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible" onClick={this.previousThumbnailClick}></i>}
+          {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible"></i>}
           {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
             if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex && index !== this.state.mainImageThumbnailIndex) {
               return <img className="thumbnail" src={urlObj.thumbnail_url} key={index} onClick={this.clickOnThumbnail.bind(this, index)}></img>;
@@ -167,9 +167,9 @@ class ImageGallery extends React.Component {
             }
           })}
         </div>
-        {this.state.mainImageThumbnailIndex !== 0 && <i className="thumbnail-arrows left" onClick={this.previousMainClick}></i>}
+        {this.state.mainImageThumbnailIndex !== 0 && <i className="main-image-arrows left" onClick={this.previousMainClick}></i>}
         <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image"></img>
-        {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="thumbnail-arrows right" onClick={this.nextMainClick}></i>}
+        {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="main-image-arrows right" onClick={this.nextMainClick}></i>}
       </div>
     );
   }

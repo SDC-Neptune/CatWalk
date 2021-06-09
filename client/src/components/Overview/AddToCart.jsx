@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class AddToCart extends React.Component {
 
@@ -36,10 +37,41 @@ class AddToCart extends React.Component {
         document.getElementById('no-selected-size-message').remove();
       }
 
-      // submit post request to cart. //send message saying it was successful
-      console.log('I will now submit a post request');
-      // clear inputs?
+      var index;
+      var skuObjValues = Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0);
+      var skuIds = Object.keys(this.props.productStyles.results[this.props.styleIndex].skus);
 
+      for (var k = 0; k < skuObjValues.length; k++) {
+        if (skuObjValues[k]['size'] === this.props.size) {
+          index = k;
+        }
+      }
+
+      var skuId = skuIds[index];
+
+      var options = {
+        'sku_id': skuIds,
+      };
+
+      axios.post('/cart', options)
+        .then((response) => {
+          var successMessage = document.createElement('h3');
+          successMessage.innerHTML = 'Added to cart!';
+          successMessage.id = 'added-to-cart-success-message';
+          document.getElementById('checkout-cart').append(successMessage);
+          setTimeout(function() {
+            document.getElementById('added-to-cart-success-message').remove();
+          }, 2000);
+        })
+        .catch((error) => {
+          var errorMessage = document.createElement('h3');
+          errorMessage.innerHTML = 'Unable to add to cart. Please try again';
+          errorMessage.id = 'added-to-cart-error-message';
+          document.getElementById('checkout-cart').append(errorMessage);
+          setTimeout(function() {
+            document.getElementById('added-to-cart-error-message').remove();
+          }, 2000);
+        });
     }
 
   }
@@ -115,7 +147,7 @@ class AddToCart extends React.Component {
             return <option key={quantity} value={quantity}>{quantity}</option>;
           })}
         </select>
-        <button className="add-to-bag" onClick={this.addToBag}>Add To Bag</button>
+        <button className="add-to-bag-button" onClick={this.addToBag}>Add To Bag</button>
       </div>
     );
   }
