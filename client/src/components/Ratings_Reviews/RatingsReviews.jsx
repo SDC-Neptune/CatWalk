@@ -7,7 +7,6 @@ import axios from 'axios';
 const RatingsReviews = ({productId}) => {
   const [data, setData] = useState();
   const [id, setProductId] = useState(productId);
-  console.log(id, productId);
 
   const [reviewDetailData, setReviewDetailData] = useState({
     'product': '19089',

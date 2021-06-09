@@ -5,6 +5,7 @@ import Answer from './Answer.jsx';
 
 const Question = ({item}) => {
 
+  const [answerCount, setAnswerCount] = useState(2);
   const [answerData, setAnswers] = useState([]);
 
   const getAnswersList = (id) => {
@@ -16,14 +17,17 @@ const Question = ({item}) => {
     getAnswersList(item.question_id);
   });
 
+  const sortAnswersList = () => {
+    questionData = questionData.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
+  };
+
   return (
     <div>
-      <h3 className="QnA-body"><strong>Q: </strong>{item.question_body}</h3>
-      <span>Helpful? <u> Yes </u>{item.question_helpfulness}</span>
-      <span>By: {item.asker_name}</span>
-      <div className="QnA-answer-container">
+      <h3 className="qa-question"><strong>Q: </strong>{item.question_body}</h3>
+      <span className="qa-r2">Helpful? <u>Yes </u>{item.question_helpfulness} </span>
+      <div className="qa-answer-container">
         <h3><strong>A:</strong></h3>
-        {answerData.map((answer) => {
+        {answerData.slice(0, answerCount).map((answer) => {
           return <Answer
             key={answer.answer_id}
             answer={answer}/>;
