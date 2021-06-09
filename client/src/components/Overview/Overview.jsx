@@ -69,7 +69,7 @@ class Overview extends React.Component {
       <div className="overview">
         <ImageGallery styleIndex={this.state.styleIndex} productStyles={this.props.productStyles}/>
         <BasicProductInfo productId={this.props.productId} productInfo={this.props.productInfo}/>
-        <StyleSelector styleHandler={this.updateStyleId} productStyles={this.props.productStyles} styleIndex={this.state.styleIndex} fetchQuantitiesHandler={this.fetchQuantities} quantity={this.state.quantity} quantities={this.state.quantities}/>
+        <StyleSelector styleHandler={this.updateStyleId} productStyles={this.props.productStyles} styleIndex={this.state.styleIndex} fetchQuantitiesHandler={this.fetchQuantities} quantity={this.state.quantity} quantities={this.state.quantities} size={this.state.size}/>
         <DescriptiveProductInfo productId={this.props.productId} productInfo={this.props.productInfo}/>
       </div>
     );
