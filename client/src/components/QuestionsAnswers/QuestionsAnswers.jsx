@@ -1,10 +1,10 @@
 import React from 'react';
-import Search from './questions_answers/Search.jsx';
-import QuestionsView from './questions_answers/QuestionsView.jsx';
-
+import Search from './Search.jsx';
+import QuestionsView from './QuestionsView.jsx';
 const QuestionsAnswers = ({questionData}) => {
+
   return (
-    <div className="QnA-container">
+    <div className="qa-container">
       <h1>Questions & Answers</h1>
       < Search />
       < QuestionsView questionData={questionData}/>

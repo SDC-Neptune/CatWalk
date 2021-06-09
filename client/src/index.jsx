@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
-import QuestionsAnswers from './components/QuestionsAnswers.jsx';
+import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
 import SalesArea from './components/SalesArea.jsx';
 import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
@@ -53,7 +53,6 @@ const App = () => {
 
   const [questionData, setQuestions] = useState([]);
 
-
   const getQuestionsList = (id) => {
     axios.get(`/qa/questions?product_id=${id}`)
       .then(({data}) =>
@@ -61,10 +60,12 @@ const App = () => {
       );
   };
 
-  const getCart = () => {
-    axios.get('/cart')
-      .then(({data}) => console.log('cart:', data));
-  };
+
+
+  // const getCart = () => {
+  //   axios.get('/cart')
+  //     .then(({data}) => console.log('cart:', data));
+  // };
 
   // Add a Review
   // Mark Review as Helpful
@@ -81,14 +82,14 @@ const App = () => {
 
   useEffect(() => {
     // getAllProducts();
-    getProduct(productId);
-    getProductStyles(productId);
-    getRelatedProducts(productId);
+    // getProduct(productId);
+    // getProductStyles(productId);
+    // getRelatedProducts(productId);
 
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
-    // getQuestionsList(productId);
-    // getAnswersList(productId); // empty list
+    getQuestionsList(productId);
+    // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);
 
