@@ -34,8 +34,6 @@ const RelatedProducts = ({
   }, [productId]);
 
 
-
-
   useEffect(() => {
     const tempRelatedData = [];
     allRelatedProducts.forEach((item) => {
