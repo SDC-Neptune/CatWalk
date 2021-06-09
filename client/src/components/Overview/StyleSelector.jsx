@@ -146,7 +146,7 @@ class StyleSelector extends React.Component {
             )
           }
         })}
-        <AddToCart productStyles={this.props.productStyles} styleIndex={this.props.styleIndex} fetchQuantitiesHandler={this.props.fetchQuantitiesHandler} quantity={this.props.quantity} quantities={this.props.quantities} size={this.props.size}/>
+        <AddToCart productStyles={this.props.productStyles} styleIndex={this.props.styleIndex} fetchQuantitiesHandler={this.props.fetchQuantitiesHandler} quantity={this.props.quantity} quantities={this.props.quantities} size={this.props.size} resetQuantityAndSizeHandler={this.props.resetQuantityAndSizeHandler}/>
       </div>
     );
 }

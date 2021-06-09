@@ -50,7 +50,7 @@ class AddToCart extends React.Component {
       var skuId = skuIds[index];
 
       var options = {
-        'sku_id': skuIds,
+        'sku_id': skuId,
       };
 
       axios.post('/cart', options)
@@ -59,16 +59,18 @@ class AddToCart extends React.Component {
           successMessage.innerHTML = 'Added to cart!';
           successMessage.id = 'added-to-cart-success-message';
           document.getElementById('checkout-cart').append(successMessage);
-          setTimeout(function() {
+          setTimeout(() => {
             document.getElementById('added-to-cart-success-message').remove();
           }, 2000);
+          document.getElementById('select').value = '';
+          this.props.resetQuantityAndSizeHandler();
         })
         .catch((error) => {
           var errorMessage = document.createElement('h3');
-          errorMessage.innerHTML = 'Unable to add to cart. Please try again';
+          errorMessage.innerHTML = 'Unable to add to cart';
           errorMessage.id = 'added-to-cart-error-message';
           document.getElementById('checkout-cart').append(errorMessage);
-          setTimeout(function() {
+          setTimeout(() => {
             document.getElementById('added-to-cart-error-message').remove();
           }, 2000);
         });
@@ -141,7 +143,7 @@ class AddToCart extends React.Component {
             return <option key={index} value={sku.size}>{sku.size}</option>;
           })}
         </select>
-        <select className="choose-quantity" onChange={this.updateSelectedQuantity}>
+        <select className="choose-quantity" id="select-quantity" onChange={this.updateSelectedQuantity}>
           <option disabled value="">-</option>
           {this.props.quantity > 0 && this.props.quantities.map((quantity) => {
             return <option key={quantity} value={quantity}>{quantity}</option>;
