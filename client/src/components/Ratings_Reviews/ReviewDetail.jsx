@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
-//import AddMoreReviewsButton from './AddMoreReviewsButton.jsx';
 
 const RatingsReviews = ({detail}) => {
   const [test, setTest] = useState(detail.results.length > 2 ? true : false);
