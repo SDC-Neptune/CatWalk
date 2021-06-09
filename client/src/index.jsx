@@ -10,7 +10,7 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19091');
+  const [productId, setProductId] = useState('19089');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
@@ -48,7 +48,7 @@ const App = () => {
   // };
 
   const getAllReviewsMeta = (id) => {
-    axios.get(`/reviews/meta/?product_id=${id}`)
+    axios.get(`${id}`)
       .then(({data}) => {
         setProductReviews(data);
       });
