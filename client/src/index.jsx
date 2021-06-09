@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
-import QuestionsAnswers from './components/QuestionsAnswers.jsx';
+import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
@@ -81,13 +81,12 @@ const App = () => {
     // getAllProducts();
     // getProduct(productId);
     // getProductStyles(productId);
-    getRelatedProducts(productId);
+    // getRelatedProducts(productId);
 
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
-    // getQuestionsList(productId);
-    // getAnswersList(productId); // empty list
-    // getCart(); //empty list
+    getQuestionsList(productId);
+    getCart(); //empty list
   }, [productId]);
 
 

@@ -6,6 +6,8 @@ import Answer from './Answer.jsx';
 const Question = ({item}) => {
 
   const [answerData, setAnswers] = useState([]);
+  const [answerCount, setAnswerCount] = useState(2);
+  const [showAnswers, setShowAnswers] = useState([]);
 
   const getAnswersList = (id) => {
     axios.get(`/qa/questions/${id}/answers`)
@@ -18,12 +20,11 @@ const Question = ({item}) => {
 
   return (
     <div>
-      <h3 className="QnA-body"><strong>Q: </strong>{item.question_body}</h3>
-      <span>Helpful? <u> Yes </u>{item.question_helpfulness}</span>
-      <span>By: {item.asker_name}</span>
-      <div className="QnA-answer-container">
+      <h3 className="qa-question"><strong>Q: </strong>{item.question_body}</h3>
+      <span className="qa-r2">Helpful? <u>Yes </u>{item.question_helpfulness} </span>
+      <div className="qa-answer-container">
         <h3><strong>A:</strong></h3>
-        {answerData.map((answer) => {
+        {answerData.slice(0, answerCount).map((answer) => {
           return <Answer
             key={answer.answer_id}
             answer={answer}/>;
