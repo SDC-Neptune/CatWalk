@@ -1,7 +1,19 @@
+:root {
+  /* --main-color: rgba(0, 34, 128, 0.678); */
+  /* --main-color: rgba(0, 81, 128, 0.521);
+  --main-color: rgba(128, 0, 11, 0.521); */
+  --main-color: rgba(0, 128, 0, 0.521);
+}
+
+body {
+  margin: 0 !important;
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Rubik', sans-serif;
 }
+
 
 #app {
   width: 1200px;
@@ -19,6 +31,7 @@
   grid-row-gap: 10px;
   margin-bottom: 10px;
   max-height: 700px;
+  padding-top: 80px;
 }
 
 .image-gallery {
@@ -314,6 +327,49 @@ h3 {
 
 /* Related Products */
 
+.navbar {
+  background-color: rgb(125, 185, 125);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 1200px;
+  z-index: 4;
+}
+
+.logo {
+  font-size: 2rem;
+  padding-left: 50px;
+}
+
+.search-area {
+  padding-right: 50px;
+}
+
+.search-area > * {
+font-size: 1.2rem;
+}
+
+.sales-area-container {
+  display: flex;
+  border-top: 3px solid var(--main-color);
+  padding: 15px;
+}
+
+.sales-area-horizontal-image > img,
+.sales-area-text {
+  margin-left: 50px;
+  width: 600px;
+}
+
+.sales-area-text {
+  margin-top: 40px;
+  padding-left: 20px;
+  font-size: 2.4rem;
+  font-weight: 900;
+}
+
 .related-products-component {
   /* background-color: plum; */
   padding: 15px;
@@ -328,7 +384,7 @@ h3 {
 .image-container {
   position: relative;
   width: 300px;
-  height: 400px;
+  height: 400px !important;
 }
 
 .related-products-compare {
@@ -337,7 +393,7 @@ h3 {
   left: 255px;
   z-index: 2;
   font-size: 1.8rem;
-  color: dodgerblue;
+  color: var(--main-color);
 }
 
 .related-products-compare:hover {
@@ -347,8 +403,12 @@ h3 {
 .arrow {
   height: 85px;
   margin: auto;
-  border: 1px solid black;
+  color: var(--main-color);
   background-color: #fff;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }
 
 .rp-carousel {
@@ -361,7 +421,7 @@ h3 {
   border: 1px solid black;
   margin-right: 15px;
   height: 527px;
-  background-color: #fff;
+  background-color: var(--main-color);
 }
 
 .add-to-outfit-card {
@@ -379,12 +439,18 @@ h3 {
 }
 
 .add-to-outfit {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  text-align: center;
   width: 125px !important;
+}
+
+.add-icon {
+  color: var(--main-color);
 }
 
 .add-icon:hover {
   cursor: pointer;
+  color:var(--main-color);
 }
 
 .card-container {
@@ -394,7 +460,7 @@ h3 {
 }
 
 .modal-overlay {
-  background-color: rgba(0, 0, 0, 0.561);
+  background-color: rgba(0, 0, 0, 0.794);
   left: 0;
   position: fixed;
   right: 0;
@@ -408,7 +474,6 @@ h3 {
 .modal {
   width: 960px;
   background-color: #ffffff;
-  /* z-index: 10; */
   margin: 250px auto 0;
   padding: 25px;
   height: 500px;
@@ -416,15 +481,8 @@ h3 {
 
 .prod-compare-titles {
   display: flex;
-  justify-content: space-between;
-}
-
-.modal-current-prod {
-  padding-left: 75px;
-}
-
-.modal-compare-prod {
-  padding-right: 75px;
+  justify-content: space-around;
+  text-decoration: underline;
 }
 
 .comparison-area {
@@ -438,10 +496,16 @@ h3 {
   margin-bottom: 15px;
 }
 
+.comparison-wrapper > div,
+.prod-compare-titles > h3 {
+  width: 120px;
+  text-align: center;
+}
+
 .modal-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .modal-header > div:nth-child(2) {
@@ -450,7 +514,13 @@ h3 {
 
 .related-product-image {
   width: 300px;
-  height: 400px;
+  height: 400px !important;
+  background-color: #fff;
+  border: none;
+}
+
+.related-product-image:hover {
+  cursor: pointer;
 }
 
 .original-price-related-product {
