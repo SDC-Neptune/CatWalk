@@ -23,14 +23,22 @@ class AddToCart extends React.Component {
 
     if (currentValueInDropdown === '') {
 
-      // alert('Please select size');
-      var element = document.getElementById('select');
-      var test = document.createElement('h1');
-      test.innerHTML = 'testing';
-      document.body.appendChild(test);
+      if (document.getElementById('no-selected-size-message') === null) {
+        var message = document.createElement('h4');
+        message.innerHTML = 'Please select size!';
+        message.id = 'no-selected-size-message';
+        document.getElementById('checkout-cart').append(message);
+      }
       //Unable to determine how to dynamically open size dropdown.
     } else if (currentValueInDropdown !== '' && currentSize !== '' && selectedQuantity > 0) {
-      console.log('we will submit a post request');
+
+      if (document.getElementById('no-selected-size-message') !== null) {
+        document.getElementById('no-selected-size-message').remove();
+      }
+
+      // submit post request to cart
+      console.log('I will now submit a post request');
+
     }
 
   }
@@ -92,7 +100,7 @@ class AddToCart extends React.Component {
     }
 
     return (
-      <div className="cart">
+      <div className="cart" id="checkout-cart">
         <select className="select-size" id="select" onChange={this.updateSize}>
           {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).length !== 0 &&
             <option value="">Select Size</option>}
