@@ -662,6 +662,11 @@ progress::-webkit-progress-value {
   text-align: right;
 }
 
+.allSingleReviews {
+  height: 500px;
+  overflow-y: scroll;
+}
+
 .helpful {
   padding-right: 10px;
   border-right: solid rgba(0, 128, 0, 0.521);
