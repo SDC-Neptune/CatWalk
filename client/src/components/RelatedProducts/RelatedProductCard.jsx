@@ -2,18 +2,24 @@ import React, { useState } from 'react';
 
 const RelatedProductCard = ({
   item,
+  featureData,
   setProductId,
   setModalOpen,
+  setCompareProd,
+  setFeatureData,
   setAllRelatedProductsDetails
 }) => {
 
   const compareClickHandler = (e) => {
     e.stopPropagation();
+    setCompareProd(e.target.title);
     setModalOpen(true);
   };
 
   const newProductClickHandler = (e) => {
     setAllRelatedProductsDetails([]);
+    setFeatureData([]);
+    setCompareProd('');
     setProductId(item.id);
   };
 
@@ -25,7 +31,7 @@ const RelatedProductCard = ({
           alt={item.name}
           src={item.img ? item.img : ''}
         />
-        <i className="fas fa-star related-products-compare" onClick={compareClickHandler} ></i>
+        <i className="fas fa-star related-products-compare" title={item.id} onClick={compareClickHandler} ></i>
       </div>
       <div className="product-info">
         <h5 className="product-category">{item.category}</h5>
