@@ -5,6 +5,8 @@ import Recommend from './Recommend.jsx';
 const IndivReview = ({detail}) => {
   const [recommend, setRecommend] = useState(detail.recommend ? true : false);
   const [isResponse, setIsResponse] = useState(detail.response ? true : false);
+  const [helpful, setHelpful] = useState(Number(detail.helpfulness));
+  const [disabled, setDisabled] = useState(false);
   const dateTimeFormat = new Date(detail.date);
 
 
@@ -28,7 +30,7 @@ const IndivReview = ({detail}) => {
         {detail.response}
       </div>)}
       <br></br>
-      <span className='helpful'>Helpful? <u>Yes</u> ({detail.helpfulness}) </span> <span className='report'>Report</span>
+      <span className='helpful'>Helpful? <u onClick={() => { !disabled ? setHelpful(helpful + 1) : null; setDisabled(true); }}>Yes</u> ({helpful}) </span> <span className='report'>Report</span>
     </div>
   );
 
