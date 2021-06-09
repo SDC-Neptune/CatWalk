@@ -26,11 +26,10 @@ body {
   border-bottom: solid lightgray;
   display: grid;
   grid-template-columns: 4fr 3fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 4fr 6fr 2fr;
   grid-column-gap: 60px;
   grid-row-gap: 10px;
   margin-bottom: 10px;
-  max-height: 700px;
   padding-top: 80px;
 }
 
@@ -108,7 +107,7 @@ body {
 
 .main-image {
   max-width: 95%;
-  max-height: 95%;
+  max-height: 600px;
   height: auto;
   width: auto;
   grid-column-start: 3;
@@ -138,16 +137,16 @@ body {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-right: 10px;
   max-width: 120px;
-  max-height: 500px;
   margin-left: 10px;
   justify-self: center;
   justify-content: center;
+  align-self: center;
 }
 
 .thumbnail {
   margin-top: 10px;
   max-width: 100px;
-  max-height: 40px;
+  max-height: 70px;
   justify-self: center;
   width: auto;
   height: auto;
