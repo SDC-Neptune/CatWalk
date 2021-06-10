@@ -22,7 +22,7 @@ const RatingsReviews = ({productId}) => {
         'body': 'Comfortable and practical.',
         'date': '2021-04-21T00:00:00.000Z',
         'reviewer_name': 'debugger',
-        'helpfulness': 8,
+        'helpfulness': 2,
         'photos': [
           {
             'id': 614222,
@@ -64,7 +64,7 @@ const RatingsReviews = ({productId}) => {
         'body': '',
         'date': '2021-04-21T00:00:00.000Z',
         'reviewer_name': 'debugger',
-        'helpfulness': 0,
+        'helpfulness': 8,
         'photos': [
           {
             'id': 614216,
@@ -81,7 +81,7 @@ const RatingsReviews = ({productId}) => {
         'rating': 3,
         'summary': 'nice',
         'recommend': true,
-        'response': null,
+        'response': 'I am SO glad you love your shades',
         'body': 'ver nice',
         'date': '2021-06-07T00:00:00.000Z',
         'reviewer_name': 'bob',
@@ -119,8 +119,8 @@ const RatingsReviews = ({productId}) => {
 
 
   return (
-    <div className='ratings_reviews'>
-      <h3>RATINGS & REVIEWS</h3>
+    <div className='ratings_reviews' id='ratings-reviews'>
+      <h2>RATINGS & REVIEWS</h2>
       <div className='parentReview'>
         <ReviewSummary data={data}/>
         <ReviewDetail detail={reviewDetailData}/>
