@@ -166,14 +166,13 @@ class ImageGallery extends React.Component {
       <div className="image-gallery">
         <div className="thumbnails">
           {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible" onClick={this.previousThumbnailClick}></i>}
-          {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible"></i>}
           {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
             if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex && index !== this.state.mainImageThumbnailIndex) {
               return <img className="thumbnail" src={urlObj.thumbnail_url} key={index} onClick={this.clickOnThumbnail.bind(this, index)}></img>;
             } else if (index >= this.state.firstThumbnailIndex && index <= this.state.lastThumbnailIndex && index === this.state.mainImageThumbnailIndex) {
               return <img className="thumbnail current-tn" src={urlObj.thumbnail_url} key={index} onClick={this.clickOnThumbnail.bind(this, index)}></img>;
             } else if (index > this.state.lastThumbnailIndex && index === array.length - 1) {
-              return <i className="thumbnail-arrows down-is-visible t9" onClick={this.nextThumbnailClick} key={index}></i>;
+              return <i className="thumbnail-arrows down-is-visible" onClick={this.nextThumbnailClick} key={index}></i>;
             }
           })}
         </div>
@@ -181,7 +180,7 @@ class ImageGallery extends React.Component {
         <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image" onClick={this.toggleModal}></img>
         {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="main-image-arrows right" onClick={this.nextMainClick}></i>}
         {this.state.modal &&
-            <ExpandedViewModal toggleModal={this.toggleModal} styleIndex={this.props.styleIndex} productStyles={this.props.productStyles} mainImageThumbnailIndex={this.state.mainImageThumbnailIndex} clickOnThumbnailHandler={this.clickOnThumbnail} previousMainClickHandler={this.previousMainClick} nextMainClickHandler={this.nextMainClick} firstThumbnailIndex={this.state.firstThumbnailIndex} lastThumbnailIndex={this.state.lastThumbnailIndex} numberOfThumbnails={this.state.numberOfThumbnails}/>
+            <ExpandedViewModal toggleModal={this.toggleModal} styleIndex={this.props.styleIndex} productStyles={this.props.productStyles} mainImageThumbnailIndex={this.state.mainImageThumbnailIndex} clickOnThumbnailHandler={this.clickOnThumbnail} previousMainClickHandler={this.previousMainClick} nextMainClickHandler={this.nextMainClick} firstThumbnailIndex={this.state.firstThumbnailIndex} lastThumbnailIndex={this.state.lastThumbnailIndex} numberOfThumbnails={this.state.numberOfThumbnails} nextThumbnailClickHandler={this.nextThumbnailClick} previousThumbnailClickHandler={this.previousThumbnailClick} firstThumbnailVisible={this.state.firstThumbnailVisible} lastThumbnailVisible={this.state.lastThumbnailVisible}/>
         }
       </div>
     );
