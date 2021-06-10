@@ -112,23 +112,23 @@ class ExpandedViewModal extends React.Component {
           <button type="button" className="expanded-view-modal-button" onClick={this.props.toggleModal}>Close</button>
           <div className="expanded-view-thumbnails">
             {!this.props.firstThumbnailVisible && !this.state.zoomMode && <i className="expanded-view-up-is-visible expanded-view-arrow-thumbnail" onClick={this.props.previousThumbnailClickHandler} ></i>}
-            {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
-              if (index >= this.props.firstThumbnailIndex && index <= this.props.lastThumbnailIndex && index !== this.props.mainImageThumbnailIndex && !this.state.zoomMode) {
+            {!this.state.zoomMode && this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
+              if (index >= this.props.firstThumbnailIndex && index <= this.props.lastThumbnailIndex && index !== this.props.mainImageThumbnailIndex) {
                 return <i className="expanded-view-thumbnail far fa-images" onClick={this.handleClickOnThumbnail.bind(this, index)} key={index}></i>;
-              } else if (index >= this.props.firstThumbnailIndex && index <= this.props.lastThumbnailIndex && index === this.props.mainImageThumbnailIndex && !this.state.zoomMode) {
+              } else if (index >= this.props.firstThumbnailIndex && index <= this.props.lastThumbnailIndex && index === this.props.mainImageThumbnailIndex) {
                 return <i className="expanded-view-thumbnail far fa-images expanded-view-selected" onClick={this.handleClickOnThumbnail.bind(this, index)} key={index}></i>;
-              } else if (index > this.props.lastThumbnailIndex && index === array.length - 1 && !this.state.zoomMode) {
+              } else if (index > this.props.lastThumbnailIndex && index === array.length - 1) {
                 return <i className="expanded-view-down-is-visible expanded-view-arrow-thumbnail" onClick={this.props.nextThumbnailClickHandler} key={index}></i>;
               }
             })}
           </div>
-          {this.props.mainImageThumbnailIndex !== 0 && <i className="main-image-arrows left expanded-main-arrow-left" onClick={this.props.previousMainClickHandler}></i>}
+          {!this.state.zoomMode && this.props.mainImageThumbnailIndex !== 0 && <i className="main-image-arrows left expanded-main-arrow-left" onClick={this.props.previousMainClickHandler}></i>}
           <div className="expanded-view-main-image-container">
-            {this.state.zoomMode && <div className="img-zoom-lens" id="lens"></div>}
+            {this.state.zoomMode && <div className="img-zoom-lens" id="lens" onClick={this.toggleZoom}></div>}
             <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.props.mainImageThumbnailIndex].url} className="expanded-view-main-image" id="expanded-view-non-zoomed-image" onClick={this.toggleZoom}></img>
             {this.state.zoomMode && <div className="img-zoom-result" id="expanded-view-zoomed-image" onClick={this.toggleZoom}></div>}
           </div>
-          {this.props.numberOfThumbnails !== (this.props.mainImageThumbnailIndex + 1) && <i className="main-image-arrows right expanded-main-arrow-right" onClick={this.props.nextMainClickHandler}></i>}
+          {!this.state.zoomMode && this.props.numberOfThumbnails !== (this.props.mainImageThumbnailIndex + 1) && <i className="main-image-arrows right expanded-main-arrow-right" onClick={this.props.nextMainClickHandler}></i>}
         </div>
       </div>);
   }
