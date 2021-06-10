@@ -38,8 +38,44 @@ const RatingsReviews = ({detail}) => {
   useEffect(() => {
     setMoreReview(detail.results.length === count.length ? false : true);
     setNoReview(detail.results.length > 0 ? false : true);
-
   }, [count]);
+
+  const sortBySelect = (value) => {
+    let newSort = [...count];
+
+    if (value === 'helpful') {
+      newSort.sort((a, b) => {
+        return b.props.detail.helpfulness - a.props.detail.helpfulness;
+      });
+      setCount(newSort);
+    }
+    if (value === 'newest') {
+      newSort.sort((a, b) => {
+        a = new Date(a.props.detail.date.slice(0, 10));
+        b = new Date(b.props.detail.date.slice(0, 10));
+        return b - a;
+      });
+      setCount(newSort);
+    }
+    if (value === 'relevance') {
+      newSort.sort((a, b) => {
+        let aDate = new Date(a.props.detail.date.slice(0, 10));
+        let bDate = new Date(b.props.detail.date.slice(0, 10));
+
+        if (JSON.stringify(bDate) === JSON.stringify(aDate)) {
+          return b.props.detail.helpfulness - a.props.detail.helpfulness;
+        }
+        return bDate - aDate;
+      });
+      setCount(newSort);
+    }
+  };
+
+  const changeSort = (e) => {
+    setSorted(e.target.outerText);
+    let temp = e.target.outerText;
+    sortBySelect(temp);
+  };
 
   return (
     <div className='reviewDetail'>
@@ -48,10 +84,10 @@ const RatingsReviews = ({detail}) => {
           <button className='dropdownbtn'>
             <u>{sorted}</u>
           </button>
-          <div className='dropdown-content'>
-            <div>relevance</div>
-            <div>helpful</div>
-            <div>newest</div>
+          <div className='dropdown-content' >
+            <div onClick={changeSort}>relevance</div>
+            <div onClick={changeSort}>helpful</div>
+            <div onClick={changeSort}>newest</div>
           </div>
            ⇓
         </div>

@@ -22,7 +22,7 @@ const RatingsReviews = ({productId}) => {
         'body': 'Comfortable and practical.',
         'date': '2021-04-21T00:00:00.000Z',
         'reviewer_name': 'debugger',
-        'helpfulness': 8,
+        'helpfulness': 2,
         'photos': [
           {
             'id': 614222,
@@ -64,7 +64,7 @@ const RatingsReviews = ({productId}) => {
         'body': '',
         'date': '2021-04-21T00:00:00.000Z',
         'reviewer_name': 'debugger',
-        'helpfulness': 0,
+        'helpfulness': 8,
         'photos': [
           {
             'id': 614216,
