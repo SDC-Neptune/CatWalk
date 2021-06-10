@@ -10,12 +10,13 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19091');
+  const [productId, setProductId] = useState('19089');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
+  const [productReviews, setProductReviews] = useState(null);
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -46,10 +47,12 @@ const App = () => {
   //     .then(({data}) => console.log(data));
   // };
 
-  // const getAllReviewsMeta = (id) => {
-  //   axios.get(`/reviews/meta/?product_id=${id}`)
-  //     .then(({data}) => console.log(data));
-  // };
+  const getAllReviewsMeta = (id) => {
+    axios.get(`/reviews/meta/?product_id=${id}`)
+      .then(({data}) => {
+        setProductReviews(data);
+      });
+  };
 
   const [questionData, setQuestions] = useState([]);
 
@@ -59,8 +62,6 @@ const App = () => {
         setQuestions(data.results)
       );
   };
-
-
 
   // const getCart = () => {
   //   axios.get('/cart')
@@ -85,9 +86,8 @@ const App = () => {
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
-
     // getAllReviews(productId);
-    // getAllReviewsMeta(productId);
+    getAllReviewsMeta(productId);
     //getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
     // getCart(); //empty list
@@ -97,7 +97,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
+      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}

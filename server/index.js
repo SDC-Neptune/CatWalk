@@ -14,7 +14,7 @@ app.all('/*', (req, res, next) => {
     headers: {
       Authorization: config.TOKEN
     },
-    body: req.body
+    data: req.body
   }).then((response) => res.send(response.data)).catch(err => console.log(err));
 });
 
