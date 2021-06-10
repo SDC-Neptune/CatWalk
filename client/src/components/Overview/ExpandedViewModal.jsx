@@ -3,11 +3,12 @@ import React, { forwardRef } from 'react';
 const ExpandedViewModal = forwardRef((props, ref) => {
   return (
     //This line below sets the reference.
-    <div className="test-modal" ref={ref}>
-      <p>This is an info modal</p>
-      <button type="button" onClick={() => props.toggleModal()}>
-        Close Modal
-      </button>
+    <div className="expanded-view-overlay" ref={ref}>
+      <div className="expanded-view-modal">
+        <div className="expanded-view-modal-header">
+          <button type="button" onClick={props.toggleModal}>Close</button>
+        </div>
+      </div>
     </div>
   );
 });

@@ -21,7 +21,6 @@ class ImageGallery extends React.Component {
     this.previousMainClick = this.previousMainClick.bind(this);
     this.nextMainClick = this.nextMainClick.bind(this);
     this.clickOnThumbnail = this.clickOnThumbnail.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
   }
@@ -35,15 +34,6 @@ class ImageGallery extends React.Component {
     this.setState({
       modal: toggledValue
     });
-  }
-
-  handleOutsideClick(e) {
-    //if modal is currently open && click is not inside reference
-    if (this.divRef.current && !this.divRef.current.contains(e.target)) {
-      this.setState({
-        modal: false
-      });
-    }
   }
 
   clickOnThumbnail(index) {
@@ -178,7 +168,7 @@ class ImageGallery extends React.Component {
     }
 
     return (
-      <div className="image-gallery" onClick={this.handleOutsideClick}>
+      <div className="image-gallery">
         <div className="thumbnails">
           {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible" onClick={this.previousThumbnailClick}></i>}
           {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible"></i>}

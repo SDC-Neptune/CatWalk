@@ -48,6 +48,7 @@ body {
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 1;
+  margin-top: 30px;
 }
 
 .style-selector {
@@ -352,6 +353,39 @@ h3 {
 
 .no-sale-message {
   color: white;
+}
+
+.expanded-view-overlay {
+  background-color: rgba(0, 0, 0, 0.794);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom:0;
+  height: auto;
+  width: 100%;
+  z-index: 5;
+}
+
+.expanded-view-modal {
+  position: fixed;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  width: 90%;
+  height: 90%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 5px solid #ccc;
+}
+
+.expanded-view-modal-header {
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
 
 
