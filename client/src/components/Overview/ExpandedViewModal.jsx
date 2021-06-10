@@ -111,7 +111,7 @@ class ExpandedViewModal extends React.Component {
         <div className="expanded-view-modal">
           <button type="button" className="expanded-view-modal-button" onClick={this.props.toggleModal}>Close</button>
           <div className="expanded-view-thumbnails">
-            {!this.props.firstThumbnailVisible && <i className="expanded-view-up-is-visible expanded-view-arrow-thumbnail" onClick={this.props.previousThumbnailClickHandler}></i>}
+            {!this.props.firstThumbnailVisible && !this.state.zoomMode && <i className="expanded-view-up-is-visible expanded-view-arrow-thumbnail" onClick={this.props.previousThumbnailClickHandler} ></i>}
             {this.props.productStyles.results[this.props.styleIndex].photos.map((urlObj, index, array) => {
               if (index >= this.props.firstThumbnailIndex && index <= this.props.lastThumbnailIndex && index !== this.props.mainImageThumbnailIndex && !this.state.zoomMode) {
                 return <i className="expanded-view-thumbnail far fa-images" onClick={this.handleClickOnThumbnail.bind(this, index)} key={index}></i>;
