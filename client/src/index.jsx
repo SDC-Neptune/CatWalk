@@ -82,14 +82,14 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    // getAllProducts();
+    getAllProducts();
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
     // getAllReviews(productId);
     getAllReviewsMeta(productId);
-    // getQuestionsList(productId);
-    // getAnswersList(productId); // empty list
+    //getQuestionsList(productId);
+    // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);
 

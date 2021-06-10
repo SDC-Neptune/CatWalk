@@ -72,7 +72,7 @@ class Parent extends React.Component {
           Open Modal
         </button>
         {this.state.modal &&
-          <ChildModal ref={this.divRef} toggleModal={this.toggleModal}/>
+          <ExpandedViewModal ref={this.divRef} toggleModal={this.toggleModal}/>
         }
       </div>
     );

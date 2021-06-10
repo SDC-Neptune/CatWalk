@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ExpandedViewModal from './ExpandedViewModal.jsx';
 
 class ImageGallery extends React.Component {
 
@@ -11,7 +12,8 @@ class ImageGallery extends React.Component {
       lastThumbnailIndex: 6,
       firstThumbnailVisible: true,
       lastThumbnailVisible: true,
-      numberOfThumbnails: undefined
+      numberOfThumbnails: undefined,
+      modal: false
     };
 
     this.previousThumbnailClick = this.previousThumbnailClick.bind(this);
@@ -19,6 +21,29 @@ class ImageGallery extends React.Component {
     this.previousMainClick = this.previousMainClick.bind(this);
     this.nextMainClick = this.nextMainClick.bind(this);
     this.clickOnThumbnail = this.clickOnThumbnail.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  componentDidMount() {
+    this.divRef = React.createRef();
+  }
+
+  toggleModal() {
+    var toggledValue = !this.state.modal;
+    this.setState({
+      modal: toggledValue
+    });
+  }
+
+  handleOutsideClick(e) {
+    //if modal is currently open && click is not inside reference
+    if (this.divRef.current && !this.divRef.current.contains(e.target)) {
+      this.setState({
+        modal: false
+      });
+    }
   }
 
   clickOnThumbnail(index) {
@@ -153,7 +178,7 @@ class ImageGallery extends React.Component {
     }
 
     return (
-      <div className="image-gallery">
+      <div className="image-gallery" onClick={this.handleOutsideClick}>
         <div className="thumbnails">
           {!this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-visible" onClick={this.previousThumbnailClick}></i>}
           {this.state.firstThumbnailVisible && <i className="thumbnail-arrows up-is-not-visible"></i>}
@@ -168,8 +193,11 @@ class ImageGallery extends React.Component {
           })}
         </div>
         {this.state.mainImageThumbnailIndex !== 0 && <i className="main-image-arrows left" onClick={this.previousMainClick}></i>}
-        <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image"></img>
+        <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image" onClick={this.toggleModal}></img>
         {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="main-image-arrows right" onClick={this.nextMainClick}></i>}
+        {this.state.modal &&
+            <ExpandedViewModal ref={this.divRef} toggleModal={this.toggleModal}/>
+        }
       </div>
     );
   }

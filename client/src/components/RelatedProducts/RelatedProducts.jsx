@@ -15,11 +15,15 @@ const RelatedProducts = ({
   const [modalOpen, setModalOpen] = useState(false);
   const [finalData, setFinalData] = useState([]);
   const [curData, setCurData] = useState([]);
+  const [featureData, setFeatureData] = useState([]);
+  const [compareProd, setCompareProd] = useState('');
+
 
   useEffect(() => {
     let obj = {};
     axios.get(`/products/${productId}`)
       .then(({data}) => {
+        setFeatureData(previous => [...previous, data]);
         obj.id = data.id;
         obj.name = data.name;
         obj.category = data.category;
@@ -40,6 +44,7 @@ const RelatedProducts = ({
       let obj = {};
       axios.get(`/products/${item}`)
         .then(({data}) => {
+          setFeatureData(previous => [...previous, data]);
           obj.id = data.id;
           obj.name = data.name;
           obj.category = data.category;
@@ -60,7 +65,13 @@ const RelatedProducts = ({
 
   return (
     <div className="related-products-component">
-      <RPModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <RPModal
+        featureData={featureData}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        compareProd={compareProd}
+        productId={productId}
+      />
       <RelatedProductsCarousel
         title='RELATED PRODUCTS'
         setModalOpen={setModalOpen}
@@ -69,6 +80,9 @@ const RelatedProducts = ({
         curData={curData}
         allRelatedProductsDetails={allRelatedProductsDetails}
         setAllRelatedProductsDetails={setAllRelatedProductsDetails}
+        featureData={featureData}
+        setFeatureData={setFeatureData}
+        setCompareProd={setCompareProd}
       />
       <RelatedProductsCarousel
         title='YOUR OUTFIT'
