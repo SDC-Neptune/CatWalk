@@ -403,15 +403,26 @@ h3 {
 
 .img-zoom-lens {
   position: absolute;
-  border: 1px solid #d4d4d4;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
 }
 
 .img-zoom-result {
   border: 1px solid #d4d4d4;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+}
+
+#expanded-view-zoomed-image:hover {
+  cursor: url('https://www.svgimages.com/svg-image/s8/minus-symbol-256x256.png'), zoom-out;
+}
+
+#expanded-view-non-zoomed-image:hover {
+  cursor: cell;
 }
 
 .expanded-view-main-image-container:hover {
