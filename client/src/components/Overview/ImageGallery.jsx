@@ -21,12 +21,7 @@ class ImageGallery extends React.Component {
     this.previousMainClick = this.previousMainClick.bind(this);
     this.nextMainClick = this.nextMainClick.bind(this);
     this.clickOnThumbnail = this.clickOnThumbnail.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-  }
-
-  componentDidMount() {
-    this.divRef = React.createRef();
   }
 
   toggleModal() {
@@ -186,7 +181,7 @@ class ImageGallery extends React.Component {
         <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image" onClick={this.toggleModal}></img>
         {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="main-image-arrows right" onClick={this.nextMainClick}></i>}
         {this.state.modal &&
-            <ExpandedViewModal ref={this.divRef} toggleModal={this.toggleModal}/>
+            <ExpandedViewModal toggleModal={this.toggleModal}/>
         }
       </div>
     );
