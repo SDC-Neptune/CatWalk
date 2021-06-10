@@ -370,7 +370,8 @@ h3 {
 .expanded-view-modal {
   position: fixed;
   display: grid;
-  grid-template-rows: 1fr 10fr;
+  grid-template-rows: 1fr 15fr;
+  grid-template-columns: 1fr 6fr 1fr;
   width: 90%;
   height: 90%;
   margin-top: 20px;
@@ -383,11 +384,40 @@ h3 {
   border: 5px solid #ccc;
 }
 
-.expanded-view-modal-header {
+.expanded-view-modal-button {
   grid-row-start: 1;
   grid-row-end: 1;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: auto;
 }
 
+.expanded-view-main-image {
+  max-width: 100%;
+  max-height: 600px;
+  justify-self: center;
+  align-self: center;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+.expanded-main-arrow-left {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.expanded-main-arrow-right {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
 
 /* Related Products */
 

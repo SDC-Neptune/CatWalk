@@ -181,7 +181,7 @@ class ImageGallery extends React.Component {
         <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.state.mainImageThumbnailIndex].url} className="main-image" onClick={this.toggleModal}></img>
         {(this.state.numberOfThumbnails !== (this.state.mainImageThumbnailIndex + 1)) && <i className="main-image-arrows right" onClick={this.nextMainClick}></i>}
         {this.state.modal &&
-            <ExpandedViewModal toggleModal={this.toggleModal}/>
+            <ExpandedViewModal toggleModal={this.toggleModal} styleIndex={this.props.styleIndex} productStyles={this.props.productStyles} mainImageThumbnailIndex={this.state.mainImageThumbnailIndex} clickOnThumbnailHandler={this.clickOnThumbnail} previousMainClickHandler={this.previousMainClick} nextMainClickHandler={this.nextMainClick} firstThumbnailIndex={this.state.firstThumbnailIndex} lastThumbnailIndex={this.state.lastThumbnailIndex} numberOfThumbnails={this.state.numberOfThumbnails}/>
         }
       </div>
     );
