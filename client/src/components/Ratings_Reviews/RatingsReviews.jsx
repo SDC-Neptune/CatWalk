@@ -120,7 +120,7 @@ const RatingsReviews = ({productId}) => {
 
 
   return (
-    <div className='ratings_reviews'>
+    <div className='ratings_reviews' id='ratings-reviews'>
       <h3>RATINGS & REVIEWS</h3>
       <div className='parentReview'>
         <ReviewSummary data={data}/>

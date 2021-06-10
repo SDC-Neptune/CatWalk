@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Overview from './components/Overview/Overview.jsx';
-import QuestionsAnswers from './components/QuestionsAnswers.jsx';
+import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
 import SalesArea from './components/SalesArea.jsx';
 import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
@@ -48,7 +48,7 @@ const App = () => {
   // };
 
   const getAllReviewsMeta = (id) => {
-    axios.get(`${id}`)
+    axios.get(`/reviews/meta/?product_id=${id}`)
       .then(({data}) => {
         setProductReviews(data);
       });
@@ -63,10 +63,10 @@ const App = () => {
       );
   };
 
-  const getCart = () => {
-    axios.get('/cart')
-      .then(({data}) => console.log('cart:', data));
-  };
+  // const getCart = () => {
+  //   axios.get('/cart')
+  //     .then(({data}) => console.log('cart:', data));
+  // };
 
   // Add a Review
   // Mark Review as Helpful

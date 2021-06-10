@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Stars from '../Ratings_Reviews/Stars.jsx';
-
 
 const BasicProductInfo = (props) => {
 
   if (!props.productInfo || !props.productReviews) {
-    return <div>Page still loading...</div>;
+    return <div></div>;
   }
 
   const [totalStars, setTotalStars] = useState(null);
   const [rating, setRating] = useState(null);
-
   const redirectToReviews = (e) => {
     e.preventDefault();
+    var element = document.getElementById('ratings-reviews');
+    element.scrollIntoView({behavior: 'smooth'});
   };
 
   useEffect(() => {
@@ -21,10 +21,6 @@ const BasicProductInfo = (props) => {
 
     setTotalStars(Number(props.productReviews.ratings['5'] || null) + Number(props.productReviews.ratings['4'] || null) + Number(props.productReviews.ratings['3'] || null) + Number(props.productReviews.ratings['2'] || null) + Number(props.productReviews.ratings['1'] || null));
   });
-
-  console.log('totalstars: ', totalStars);
-  console.log('rating: ', rating);
-  console.log('props.productReviews: ', props.productReviews);
 
   return (
     <div className="basic-info">
