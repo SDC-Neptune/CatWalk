@@ -81,14 +81,14 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    // getAllProducts();
-    // getProduct(productId);
-    // getProductStyles(productId);
-    // getRelatedProducts(productId);
+    getAllProducts();
+    getProduct(productId);
+    getProductStyles(productId);
+    getRelatedProducts(productId);
 
     // getAllReviews(productId);
     // getAllReviewsMeta(productId);
-    getQuestionsList(productId);
+    //getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);
