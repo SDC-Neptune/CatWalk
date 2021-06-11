@@ -24,24 +24,13 @@ const RatingsReviews = ({detail}) => {
     }
   });
 
-  const addReviews = () => {
-    let toAdd = count.length;
-    setCount(() => {
-      return [...count, ...detail.results.slice(toAdd, (toAdd + 2)).map((item) => {
-        return (
-          <IndivReview key={item.review_id} detail={item}/>
-        );
-      })];
-    });
-  };
-
   useEffect(() => {
     setMoreReview(detail.results.length === count.length ? false : true);
     setNoReview(detail.results.length > 0 ? false : true);
   }, [count]);
 
-  const sortBySelect = (value) => {
-    let newSort = [...count];
+  const sortBySelect = (tempCount = count, value = sorted) => {
+    let newSort = [...tempCount];
 
     if (value === 'helpful') {
       newSort.sort((a, b) => {
@@ -71,10 +60,28 @@ const RatingsReviews = ({detail}) => {
     }
   };
 
+  useEffect(() => {
+    sortBySelect();
+  }, []);
+
+  const addReviews = () => {
+    let tempCount;
+    let toAdd = count.length;
+    setCount(() => {
+      tempCount = [...count, ...detail.results.slice(toAdd, (toAdd + 2)).map((item) => {
+        return (
+          <IndivReview key={item.review_id} detail={item}/>
+        );
+      })];
+      return tempCount;
+    });
+    sortBySelect(tempCount);
+  };
+
   const changeSort = (e) => {
     setSorted(e.target.outerText);
     let temp = e.target.outerText;
-    sortBySelect(temp);
+    sortBySelect(count, temp);
   };
 
   return (
@@ -96,7 +103,7 @@ const RatingsReviews = ({detail}) => {
         {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
         {count}
       </div>
-      {moreReview && <button className='reviewButton' onClick={addReviews}>MORE REVIEWS</button>}
+      {moreReview && <button className='reviewButton' onClick={addReviews} >MORE REVIEWS</button>}
       {isReview && <button className='reviewButton'>ADD A REVIEW + </button>}
     </div>
   );
