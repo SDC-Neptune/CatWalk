@@ -9,8 +9,11 @@ const RelatedProductsCarousel = ({
   title,
   curData,
   finalData,
+  featureData,
   setModalOpen,
   setProductId,
+  setCompareProd,
+  setFeatureData,
   allRelatedProductsDetails,
   setAllRelatedProductsDetails
 }) => {
@@ -63,8 +66,11 @@ const RelatedProductsCarousel = ({
               <RelatedProductCard
                 key={index}
                 item={item}
+                featureData={featureData}
                 setProductId={setProductId}
                 setModalOpen={setModalOpen}
+                setCompareProd={setCompareProd}
+                setFeatureData={setFeatureData}
                 setAllRelatedProductsDetails={setAllRelatedProductsDetails}
               />
             ))}

@@ -16,6 +16,7 @@ const App = () => {
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
+  const [productReviews, setProductReviews] = useState(null);
 
   const getAllProducts = () => {
     axios.get('/products')
@@ -46,10 +47,12 @@ const App = () => {
   //     .then(({data}) => console.log(data));
   // };
 
-  // const getAllReviewsMeta = (id) => {
-  //   axios.get(`/reviews/meta/?product_id=${id}`)
-  //     .then(({data}) => console.log(data));
-  // };
+  const getAllReviewsMeta = (id) => {
+    axios.get(`/reviews/meta/?product_id=${id}`)
+      .then(({data}) => {
+        setProductReviews(data);
+      });
+  };
 
   const [questionData, setQuestions] = useState([]);
 
@@ -59,8 +62,6 @@ const App = () => {
         setQuestions(data.results)
       );
   };
-
-
 
   // const getCart = () => {
   //   axios.get('/cart')
@@ -81,14 +82,13 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    // getAllProducts();
-    // getProduct(productId);
-    // getProductStyles(productId);
-    // getRelatedProducts(productId);
-
+    getAllProducts();
+    getProduct(productId);
+    getProductStyles(productId);
+    getRelatedProducts(productId);
     // getAllReviews(productId);
-    // getAllReviewsMeta(productId);
-    getQuestionsList(productId);
+    getAllReviewsMeta(productId);
+    //getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);
@@ -97,7 +97,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles}/>
+      <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}
@@ -109,7 +109,6 @@ const App = () => {
       />
       <SalesArea />
       <QuestionsAnswers questionData={questionData}/>
-      <br></br>
       <RatingsReviews productId={productId}/>
     </div>);
 };
