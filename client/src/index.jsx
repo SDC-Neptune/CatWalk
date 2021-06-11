@@ -10,7 +10,7 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19091');
+  const [productId, setProductId] = useState('19096');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);

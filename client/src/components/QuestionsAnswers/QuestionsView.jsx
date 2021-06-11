@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import Question from './Question.jsx';
 import AddQuestionModal from './AddQuestionModal.jsx';
 import AddAnswerModal from './AddAnswerModal.jsx';
-const QuestionsView = ({questionData}) => {
+
+const QuestionsView = ({productId, productName, questionData}) => {
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
+  const [questionCount, setQuestionCount] = useState(4);
 
   const questionModalHandler = (e) => {
-    e.stopPropagation();
     setQuestionModalOpen(true);
+  };
+
+  const answerModalHandler = (e) => {
+    setAnswerModalOpen(true);
   };
 
   const sortQuestionsList = () => {
@@ -26,16 +31,25 @@ const QuestionsView = ({questionData}) => {
 
   return (
     <div className="qa-question">
-      <AddQuestionModal questionModalOpen={questionModalOpen} setQuestionModalOpen={setQuestionModalOpen} />
-      <AddAnswerModal answerModalOpen={answerModalOpen} setAnswerModalOpen={setAnswerModalOpen} />
+      <AddQuestionModal questionModalOpen={questionModalOpen}
+        setQuestionModalOpen={setQuestionModalOpen}
+        productId={productId}
+        productName={productName} />
+      <AddAnswerModal answerModalOpen={answerModalOpen}
+        setAnswerModalOpen={setAnswerModalOpen}
+        questionData={questionData}
+        productName={productName}/>
       { sortQuestionsList(),
-      questionData.map((item) => {
+      questionData.slice(0, questionCount).map((item) => {
         return <Question
+          productId={productId}
           key={item.question_id}
           item={item}
-        />
+          answerModalHandler={answerModalHandler}
+          setAnswerModalOpen={setAnswerModalOpen}
+        />;
       })}
-      <button className="qa-more-questions-btn">See more answered questions</button>
+      <button className="qa-more-questions-btn" onClick={ () => setQuestionCount(questionCount + 4)}>See more answered questions</button>
       <button className="qa-add-question-btn" onClick={questionModalHandler}>Add a question</button>
     </div>
   );

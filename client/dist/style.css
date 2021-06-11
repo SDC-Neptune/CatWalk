@@ -691,3 +691,65 @@ progress::-webkit-progress-value {
   color:black;
   border-color:#BBBBBB;
 }
+
+/* QUESTIONS AND ANSWERS */
+.answer-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.qa-answer.container {
+  margin-bottom: 1%;
+
+}
+
+.qa-question-body {
+  font-size: 26px;
+  text-align: left;
+}
+
+.qa-question {
+  margin-bottom: 2%;
+}
+.qa-report {
+  padding-left: 5px;
+}
+.qa-border {
+  padding-right: 8px;
+  border-right: solid rgba(0, 128, 0, 0.521);
+  border-right-width: 2px;
+}
+
+.qa-span-btn {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+
+}
+.qa-r2 {
+  font-size: 12px;
+}
+
+.modal-question {
+
+}
+
+.modal-question-textarea {
+  width: 500px;
+  height: 150px;
+}
+
+.modal-question-nickname {
+  width: 500px;
+}
+
+.modal-question-email {
+  width: 500px;
+}
+
+.qa-modal-warning {
+  font-style: italic;
+  font-size: 14px;
+  color:rgb(112, 111, 111)
+}
