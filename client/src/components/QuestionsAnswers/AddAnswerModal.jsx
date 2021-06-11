@@ -10,9 +10,9 @@ const AddAnswerModal = ({ answerModalOpen, setAnswerModalOpen, questionData, pro
     setAnswerModalOpen(false);
   };
   const getQuestion = () => {
-    var questionBody = document.getElementById(questionData.)
+    var questionBody = document.getElementById(questionData.question_body);
     console.log(questionBody);
-    var
+
   };
   return (
     <div className="modal-overlay qa-modal">
