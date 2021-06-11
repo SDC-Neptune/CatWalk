@@ -43,7 +43,7 @@ const RatingsReviews = ({productId}) => {
         'body': 'Comfortable and practical.',
         'date': '2021-04-21T00:00:00.000Z',
         'reviewer_name': 'debugger',
-        'helpfulness': 1,
+        'helpfulness': 10,
         'photos': [
           {
             'id': 614218,
