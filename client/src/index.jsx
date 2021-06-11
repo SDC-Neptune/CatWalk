@@ -82,7 +82,7 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    getAllProducts();
+    // getAllProducts();
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
@@ -94,8 +94,18 @@ const App = () => {
   }, [productId]);
 
 
+  const handleAllClicks = (e) => {
+    e.stopPropagation();
+    console.log(e.target);
+    const d = new Date();
+    console.log(d.toString().slice(0, 24));
+    if (e.target.closest('#ratings-reviews')) {
+      console.log(true);
+    }
+  };
+
   return (
-    <div>
+    <div onClick={handleAllClicks}>
       <Navbar />
       <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts

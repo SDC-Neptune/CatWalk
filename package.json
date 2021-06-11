@@ -4,7 +4,7 @@
   "description": "Front End Capstone - Grand Canyon",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --testEnvironment jsdom --coverage",
     "start": "nodemon server/index.js",
     "build": "npx webpack -w",
     "linter": "eslint ."

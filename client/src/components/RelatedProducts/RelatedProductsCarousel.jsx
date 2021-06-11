@@ -60,7 +60,7 @@ const RelatedProductsCarousel = ({
       <>
         <h2>{title}</h2>
         <div className="rp-carousel rp">
-          <ArrowLeft handlePrevClick={handlePrevClick} />
+          <ArrowLeft handlePrevClick={handlePrevClick} currentCard={currentCard} />
           <div className="card-container">
             {finalData.map((item, index) => (
               <RelatedProductCard
@@ -75,7 +75,7 @@ const RelatedProductsCarousel = ({
               />
             ))}
           </div>
-          <ArrowRight handleNextClick={handleNextClick} />
+          <ArrowRight handleNextClick={handleNextClick} currentCard={currentCard} />
         </div>
       </>
     ) : (

@@ -435,7 +435,6 @@ font-size: 1.2rem;
 }
 
 .related-products-component {
-  /* background-color: plum; */
   padding: 15px;
 }
 
@@ -475,6 +474,10 @@ font-size: 1.2rem;
   cursor: pointer;
 }
 
+.arrow-no-show {
+  color: #fff;
+}
+
 .rp-carousel {
   display: flex;
   justify-content: space-evenly;
@@ -482,11 +485,16 @@ font-size: 1.2rem;
 }
 
 .rp-card, .yo-card {
-  border: 1px solid black;
+  border: 1px solid #efefef;
   margin-right: 15px;
   height: 527px;
   background-color: var(--main-color);
 }
+
+.rp-card:hover, .yo-card:hover {
+  border: 1px solid #008000;
+}
+
 
 .add-to-outfit-card {
   flex-basis: 300px;
@@ -498,8 +506,12 @@ font-size: 1.2rem;
   align-items: center;
   justify-content:center;
   height: 527px;
-  border: 1px solid black;
+  border: 1px solid #efefef;
   background-color: #fff;
+}
+
+.add-to-outfit-card:hover {
+  border: 1px solid #008000;
 }
 
 .add-to-outfit {
