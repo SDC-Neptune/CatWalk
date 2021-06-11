@@ -82,7 +82,7 @@ const RelatedProductsCarousel = ({
       <>
         <h2>{title}</h2>
         <div className="rp-carousel yo">
-          <ArrowLeft handlePrevClick={handlePrevClickOutfit} />
+          <ArrowLeft handlePrevClick={handlePrevClickOutfit} currentCardOutfit={currentCardOutfit} />
           <div className="card-container">
             <RelatedProductAddToOutfitCard
               curData={curData}

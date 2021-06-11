@@ -99,8 +99,17 @@ const App = () => {
     console.log(e.target);
     const d = new Date();
     console.log(d.toString().slice(0, 24));
+    if (e.target.closest('#overview')) {
+      console.log('Overview: ', true);
+    }
+    if (e.target.closest('#related-products')) {
+      console.log('Related Products: ', true);
+    }
+    if (e.target.closest('#questions-answers')) {
+      console.log('Questions and Answers: ', true);
+    }
     if (e.target.closest('#ratings-reviews')) {
-      console.log(true);
+      console.log('Ratings: ', true);
     }
   };
 
