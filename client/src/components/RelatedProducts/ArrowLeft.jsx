@@ -1,14 +1,9 @@
 import React from 'react';
 
-const ArrowLeft = ({ handlePrevClick, currentCard, currentCardOutfit }) => {
+const ArrowLeft = ({ handlePrevClick }) => {
   return (
     <div className="arrow" onClick={handlePrevClick} >
-      <i className={
-        currentCard === 1 ||
-        currentCardOutfit === 1
-          ? 'arrow-no-show fa fa-angle-left fa-5x'
-          : 'fa fa-angle-left fa-5x'
-      }></i>
+      <i className='fa fa-angle-left fa-5x'></i>
     </div>
   );
 };
