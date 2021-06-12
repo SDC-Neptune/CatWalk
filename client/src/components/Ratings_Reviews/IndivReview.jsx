@@ -32,11 +32,13 @@ const IndivReview = ({detail}) => {
         <br></br>
         {detail.response}
       </div>)}
-      {detail.photos.map(image => {
-        return (
-          <ReviewPics key={image.id} image={image.url}/>
-        );
-      })}
+      <div className='stackPics'>
+        {detail.photos.map(image => {
+          return (
+            <ReviewPics key={image.id} image={image.url}/>
+          );
+        })}
+      </div>
       <br></br>
       <span className='helpful'> Helpful?
         <span>  <u onClick={() => { !disabled ? setHelpful(helpful + 1) : null; setDisabled(true); }}>Yes</u>({helpful})</span>

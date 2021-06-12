@@ -18,7 +18,7 @@ const ReviewPics = ({image}) => {
   };
 
   return (
-    <div onClick={showModal}>
+    <div onClick={showModal} className='smallThumbs'>
       {showImage && (<PicModal image={image} handleChange={showModal}/>)}
       <img src={image} alt='Product review image' width="60" height="60"/>
     </div>

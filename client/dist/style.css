@@ -854,7 +854,7 @@ progress::-webkit-progress-value {
 }
 
 .allSingleReviews {
-  height: 500px;
+  height: 600px;
   overflow-y: scroll;
 }
 .dropdownbtn {
@@ -894,8 +894,6 @@ progress::-webkit-progress-value {
   display: block;
 }
 
-
-
 .response {
   background-color: rgb(205, 245, 205);
   border: solid rgb(161, 219, 161);
@@ -934,6 +932,7 @@ progress::-webkit-progress-value {
 }
 
 .modal-overlay-reviews {
+  flex: 1 1 auto;
   background-color: rgba(0, 0, 0, 0.794);
   left: 0;
   position: fixed;
@@ -949,6 +948,14 @@ progress::-webkit-progress-value {
   margin: auto;
   padding: 25px;
   height: auto;
+}
+
+.stackPics {
+  display: flex;
+}
+
+.smallThumbs {
+  padding: 10px;
 }
 
 
