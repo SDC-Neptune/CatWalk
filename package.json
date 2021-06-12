@@ -4,7 +4,7 @@
   "description": "Front End Capstone - Grand Canyon",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --testEnvironment jsdom --coverage",
     "start": "nodemon server/index.js",
     "build": "npx webpack -w",
     "linter": "eslint ."
@@ -35,6 +35,9 @@
     "webpack": "^5.38.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
+    "jest": "^27.0.4",
     "webpack-cli": "^4.7.0"
   }
 }
