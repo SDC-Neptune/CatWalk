@@ -26,7 +26,7 @@ const RatingsReviews = ({productId}) => {
         'photos': [
           {
             'id': 614222,
-            'url': 'urlplaceholder/review_5_photo_number_2.jpg'
+            'url': 'https://image.shutterstock.com/image-photo/pair-pink-sport-shoes-on-600w-228691018.jpg'
           },
           {
             'id': 614223,
