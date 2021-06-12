@@ -403,8 +403,8 @@ h3 {
 
 .img-zoom-lens {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
 }
 
 .img-zoom-result {
@@ -418,11 +418,11 @@ h3 {
 }
 
 #expanded-view-zoomed-image:hover {
-  cursor: url('https://www.svgimages.com/svg-image/s8/minus-symbol-256x256.png'), zoom-out;
+  cursor: zoom-out;
 }
 
 #expanded-view-non-zoomed-image:hover {
-  cursor: cell;
+  cursor: crosshair;
 }
 
 .expanded-view-main-image-container:hover {
@@ -931,4 +931,79 @@ progress::-webkit-progress-value {
 .reviewButton:active{
   color:black;
   border-color:#BBBBBB;
+}
+
+/* QUESTIONS AND ANSWERS */
+.answer-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.qa-answer-container {
+  margin-bottom: 1%;
+
+}
+.qa-question-container {
+  padding-bottom: 10px;
+}
+.qa-question-data {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.qa-question {
+  margin-bottom: 2%;
+}
+.qa-report {
+  padding-left: 5px;
+}
+.qa-border {
+  padding-right: 8px;
+  border-right: solid rgba(0, 128, 0, 0.521);
+  border-right-width: 2px;
+}
+
+.qa-span-btn {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+
+}
+.qa-r2 {
+  font-size: 12px;
+}
+
+.modal-question-textarea {
+  width: 500px;
+  height: 150px;
+}
+
+.modal-question-nickname, .modal-question-email {
+  width: 500px;
+}
+
+.qa-modal-warning {
+  font-style: italic;
+  font-size: 14px;
+  color:rgb(112, 111, 111)
+}
+
+.qa-question-container {
+  border-bottom: solid rgba(0, 128, 0, 0.521);
+  margin: 5px;
+  margin-left: 4%;
+  margin-right: 20%;
+  padding: 15px;
+}
+
+.qa-answer-container {
+  padding-left: 2%;
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.required {
+  color: red;
 }
