@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const Search = () => {
+const Search = ({questionData}) => {
+
+  // [searchbar, setSearchbar] = useState('');
+
+  // const handleChange = (e) => {
+  //   let toLower =
+  // };
+
   return (
     <form >
       <label>Have a question? </label>
-      <input placeholder={'Search Questions'}/>
+      <input
+        placeholder={'Search for answers...'}
+        // value={searchbar}
+      />
     </form>
   );
 };

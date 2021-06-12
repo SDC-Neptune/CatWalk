@@ -3,7 +3,7 @@ import Question from './Question.jsx';
 import AddQuestionModal from './AddQuestionModal.jsx';
 import AddAnswerModal from './AddAnswerModal.jsx';
 
-const QuestionsView = ({productId, productName, questionData}) => {
+const QuestionsView = ({productId, questionData}) => {
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
   const [questionCount, setQuestionCount] = useState(4);
@@ -33,12 +33,10 @@ const QuestionsView = ({productId, productName, questionData}) => {
     <div className="qa-question">
       <AddQuestionModal questionModalOpen={questionModalOpen}
         setQuestionModalOpen={setQuestionModalOpen}
-        productId={productId}
-        productName={productName} />
+        productId={productId} />
       <AddAnswerModal answerModalOpen={answerModalOpen}
         setAnswerModalOpen={setAnswerModalOpen}
-        questionData={questionData}
-        productName={productName}/>
+        questionData={questionData}/>
       { sortQuestionsList(),
       questionData.slice(0, questionCount).map((item) => {
         return <Question
@@ -49,8 +47,8 @@ const QuestionsView = ({productId, productName, questionData}) => {
           setAnswerModalOpen={setAnswerModalOpen}
         />;
       })}
-      <button className="qa-more-questions-btn" onClick={ () => setQuestionCount(questionCount + 4)}>See more answered questions</button>
-      <button className="qa-add-question-btn" onClick={questionModalHandler}>Add a question</button>
+      <button className="qa-more-questions-btn reviewButton" onClick={ () => setQuestionCount(questionCount + 4)}>See more answered questions</button>
+      <button className="qa-add-question-btn reviewButton" onClick={questionModalHandler}>Add a question</button>
     </div>
   );
 };

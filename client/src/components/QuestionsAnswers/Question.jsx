@@ -3,7 +3,7 @@ import axios from 'axios';
 import Answer from './Answer.jsx';
 
 
-const Question = ({key, item, answerModalHandler, productId}) => {
+const Question = ({item, answerModalHandler, productId}) => {
   if (item.reported) {
     return null;
   }
@@ -11,7 +11,8 @@ const Question = ({key, item, answerModalHandler, productId}) => {
   const [answerData, setAnswers] = useState([]);
   const [isReported, setIsReported] = useState('Report');
   const [helpful, setHelpful] = useState(item.helpfulness);
-
+  const [showAllAnswers, setShowAllAnswers] = useState(false);
+  const [changeName, setChangeName] = useState('See more answers');
   const getAnswersList = (id) => {
     axios.get(`/qa/questions/${id}/answers`)
       .then(({data}) => setAnswers(data.results));
@@ -39,26 +40,41 @@ const Question = ({key, item, answerModalHandler, productId}) => {
     item = item.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
   };
 
+  const showAnswers = () => {
+    if (answerCount === 2) {
+      setAnswerCount(answerData.length);
+      setChangeName('Collapse answers');
+    } else {
+      setAnswerCount(2);
+      setChangeName('See more Answers');
+    }
+  };
+
   useEffect(() => {
     getAnswersList(item.question_id);
   }, [productId]);
 
+
   return (
     <div id={item.question_id} className="qa-question-container">
-      <span className="qa-question qa-question-body">Q: {item.question_body}</span>
-      <span className="qa-question qa-r2 qa-helpful">Helpful?</span>
-      <button className="qa-span-btn qa-small-span qa-helpful" disabled={helpful > item.helpfulness} onClick={() => markAsHelpful(item.question_id)}> Yes </button>
-      <span className="qa-r2 qa-helpful">({item.question_helpfulness}) </span>
-      <span className="qa-question qa-r2 qa-report" onClick={() => handleReport(item.question_id)}>{isReported}</span>
+      <div className="qa-question qa-question-body">
+        <span className="qa-question qa-question-data">Q: {item.question_body}</span>
+        <span className="qa-question qa-r2 qa-helpful">Helpful?</span>
+        <button className="qa-span-btn qa-small-span qa-helpful" disabled={helpful > item.helpfulness} onClick={() => markAsHelpful(item.question_id)}> Yes </button>
+        <span className="qa-r2 qa-helpful">({item.question_helpfulness}) </span>
+        <span className="qa-question qa-r2 qa-report" onClick={() => handleReport(item.question_id)}>{isReported}</span>
+      </div>
       <div className="qa-answer-container">
-        <span className="qa-answer-body">A:</span>
+        <span className="qa-answer">A:</span>
         {answerData.slice(0, answerCount).map((answer) => {
           return <Answer
             key={answer.answer_id}
             answer={answer}
+            item={item}
             answerModalHandler={answerModalHandler}/>;
         })};
       </div>
+      <button className="qa-span-btn" onClick={showAnswers}>{changeName}</button>
     </div>
   );
 };
