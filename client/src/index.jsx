@@ -11,18 +11,19 @@ import MockComponent from './MockComponent.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19089');
+  const [productId, setProductId] = useState('19096');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [productReviews, setProductReviews] = useState(null);
+  const [questionData, setQuestions] = useState([]);
 
-  const getAllProducts = () => {
-    axios.get('/products')
-      .then(({data}) => console.log(data));
-  };
+  // const getAllProducts = () => {
+  //   axios.get('/products')
+  //     .then(({data}) => console.log(data));
+  // };
 
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
@@ -55,7 +56,6 @@ const App = () => {
       });
   };
 
-  const [questionData, setQuestions] = useState([]);
 
   const getQuestionsList = (id) => {
     axios.get(`/qa/questions?product_id=${id}`)
@@ -90,7 +90,7 @@ const App = () => {
     getRelatedProducts(productId);
     // getAllReviews(productId);
     getAllReviewsMeta(productId);
-    //getQuestionsList(productId);
+    getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);
@@ -137,8 +137,8 @@ const App = () => {
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
       <SalesArea />
-      <QuestionsAnswers questionData={questionData}/>
-      <br></br>
+      <QuestionsAnswers questionData={questionData}
+        productId={productId}/>
       <RatingsReviews productId={productId}/>
       {/* <MockComponent /> */}
     </div>);
