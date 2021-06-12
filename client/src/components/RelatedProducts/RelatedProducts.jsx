@@ -64,7 +64,7 @@ const RelatedProducts = ({
   }, [allRelatedProducts]);
 
   return (
-    <div className="related-products-component">
+    <div className="related-products-component" id="related-products">
       <RPModal
         featureData={featureData}
         modalOpen={modalOpen}

@@ -64,10 +64,11 @@ const App = () => {
       );
   };
 
-  // const getCart = () => {
-  //   axios.get('/cart')
-  //     .then(({data}) => console.log('cart:', data));
-  // };
+  const postInteractions = (data) => {
+    axios.post('/interactions', data)
+      .then((response) => console.log(response))
+      .catch((err) => console.log('Error: ', err));
+  };
 
   // Add a Review
   // Mark Review as Helpful
@@ -83,7 +84,7 @@ const App = () => {
   // Log an Interaction
 
   useEffect(() => {
-    getAllProducts();
+    // getAllProducts();
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
@@ -95,8 +96,35 @@ const App = () => {
   }, [productId]);
 
 
+  const handleAllClicks = (e) => {
+    e.stopPropagation();
+    const el = e.target.localName;
+    const d = new Date();
+    const t = d.toString().slice(0, 24);
+    let w;
+    if (e.target.closest('#overview')) {
+      w = 'Overview';
+    }
+    if (e.target.closest('#related-products')) {
+      w = 'Related Products';
+    }
+    if (e.target.closest('#questions-answers')) {
+      w = 'Questions and Answers';
+    }
+    if (e.target.closest('#ratings-reviews')) {
+      w = 'Ratings';
+    }
+    const interaction = {
+      'element': el,
+      'time': t,
+      'widget': w
+    };
+    postInteractions(interaction);
+
+  };
+
   return (
-    <div>
+    <div onClick={handleAllClicks}>
       <Navbar />
       <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts

@@ -4,7 +4,7 @@ import QuestionsView from './QuestionsView.jsx';
 const QuestionsAnswers = ({questionData}) => {
 
   return (
-    <div className="qa-container">
+    <div className="qa-container" id="questions-answers">
       <h1>Questions & Answers</h1>
       < Search />
       < QuestionsView questionData={questionData}/>

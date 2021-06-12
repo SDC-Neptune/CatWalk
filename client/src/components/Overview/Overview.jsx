@@ -74,7 +74,7 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div className="overview">
+      <div className="overview" id="overview">
         <ImageGallery styleIndex={this.state.styleIndex} productStyles={this.props.productStyles}/>
         <BasicProductInfo productId={this.props.productId} productInfo={this.props.productInfo} productReviews={this.props.productReviews}/>
         <StyleSelector styleHandler={this.updateStyleId} productStyles={this.props.productStyles} styleIndex={this.state.styleIndex} fetchQuantitiesHandler={this.fetchQuantities} quantity={this.state.quantity} quantities={this.state.quantities} size={this.state.size} resetQuantityAndSizeHandler={this.resetQuantityAndSize}/>
