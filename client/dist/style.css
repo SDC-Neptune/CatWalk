@@ -418,11 +418,11 @@ h3 {
 }
 
 #expanded-view-zoomed-image:hover {
-  cursor: url('https://www.svgimages.com/svg-image/s8/minus-symbol-256x256.png'), zoom-out;
+  cursor: zoom-out;
 }
 
 #expanded-view-non-zoomed-image:hover {
-  cursor: cell;
+  cursor: crosshair;
 }
 
 .expanded-view-main-image-container:hover {
