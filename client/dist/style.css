@@ -933,6 +933,24 @@ progress::-webkit-progress-value {
   border-color:#BBBBBB;
 }
 
+.modal-overlay-reviews {
+  background-color: rgba(0, 0, 0, 0.794);
+  left: 0;
+  position: fixed;
+  right: auto;
+  top: 0;
+  bottom:0;
+  height: auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal-reviews {
+  margin: auto;
+  padding: 25px;
+  height: auto;
+}
+
 
 /* QUESTIONS AND ANSWERS */
 .answer-photo {
