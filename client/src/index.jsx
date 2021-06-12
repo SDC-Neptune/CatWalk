@@ -7,6 +7,7 @@ import SalesArea from './components/SalesArea.jsx';
 import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
+import MockComponent from './MockComponent.jsx';
 
 const App = () => {
 
@@ -17,11 +18,12 @@ const App = () => {
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [productReviews, setProductReviews] = useState(null);
+  const [questionData, setQuestions] = useState([]);
 
-  const getAllProducts = () => {
-    axios.get('/products')
-      .then(({data}) => console.log(data));
-  };
+  // const getAllProducts = () => {
+  //   axios.get('/products')
+  //     .then(({data}) => console.log(data));
+  // };
 
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
@@ -54,7 +56,6 @@ const App = () => {
       });
   };
 
-  const [questionData, setQuestions] = useState([]);
 
   const getQuestionsList = (id) => {
     axios.get(`/qa/questions?product_id=${id}`)
@@ -89,7 +90,7 @@ const App = () => {
     getRelatedProducts(productId);
     // getAllReviews(productId);
     getAllReviewsMeta(productId);
-    //getQuestionsList(productId);
+    getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
     // getCart(); //empty list
   }, [productId]);
@@ -136,9 +137,10 @@ const App = () => {
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
       <SalesArea />
-      <QuestionsAnswers questionData={questionData}/>
-      <br></br>
+      <QuestionsAnswers questionData={questionData}
+        productId={productId}/>
       <RatingsReviews productId={productId}/>
+      {/* <MockComponent /> */}
     </div>);
 };
 
