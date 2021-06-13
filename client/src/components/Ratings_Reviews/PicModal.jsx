@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-const PicModal = () => {
+
+const PicModal = ({image, handleChange}) => {
+
   return (
-    <div>Hello</div>
+    <div className='modal-overlay-reviews'>
+      <div className='modal-reviews'>
+        <button className='reviewButton' onClick={handleChange}>Close</button>
+        <img src={image} alt='Product review image' height='700'/>
+      </div>
+    </div>
   );
 };
 

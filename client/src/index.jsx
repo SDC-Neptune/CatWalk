@@ -45,10 +45,6 @@ const App = () => {
       .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
-  // const getAllReviews = (id) => {
-  //   axios.get(`/reviews/?product_id=${id}`)
-  //     .then(({data}) => console.log(data));
-  // };
 
   const getAllReviewsMeta = (id) => {
     axios.get(`/reviews/meta/?product_id=${id}`)

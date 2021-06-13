@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 
 const RatingsReviews = ({detail}) => {
+  if (!detail) {
+    return 'Still loading';
+  }
   const [moreReview, setMoreReview] = useState(detail.results.length > 2 ? true : false);
   const [noReview, setNoReview] = useState(detail.results.length === 0 ? true : false);
   const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
