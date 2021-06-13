@@ -11,7 +11,7 @@ import MockComponent from './MockComponent.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19096');
+  const [productId, setProductId] = useState('19089');
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
