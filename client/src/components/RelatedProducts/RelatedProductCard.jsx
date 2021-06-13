@@ -30,6 +30,8 @@ const RelatedProductCard = ({
           className="related-product-image"
           alt={item.name}
           src={item.img ? item.img : ''}
+          width="300"
+          height="400"
         />
         <i className="fas fa-star related-products-compare" title={item.id} onClick={compareClickHandler} ></i>
       </div>

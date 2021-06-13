@@ -842,7 +842,7 @@ progress::-webkit-progress-value {
 }
 
 .allSingleReviews {
-  height: 500px;
+  height: 600px;
   overflow-y: scroll;
 }
 .dropdownbtn {
@@ -882,8 +882,6 @@ progress::-webkit-progress-value {
   display: block;
 }
 
-
-
 .response {
   background-color: rgb(205, 245, 205);
   border: solid rgb(161, 219, 161);
@@ -920,6 +918,55 @@ progress::-webkit-progress-value {
   color:black;
   border-color:#BBBBBB;
 }
+
+.modal-overlay-reviews {
+  flex: 1 1 auto;
+  background-color: rgba(0, 0, 0, 0.794);
+  left: 0;
+  position: fixed;
+  right: auto;
+  top: 0;
+  bottom:0;
+  height: auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal-reviews {
+  margin: auto;
+  padding: 25px;
+  height: auto;
+}
+
+.modal-overlay-newReview {
+  background-color: rgba(0, 0, 0, 0.794);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom:0;
+  height: auto;
+  width: auto;
+  z-index: 10;
+}
+
+.modal-newReview {
+  width: 960px;
+  background-color: #ffffff;
+  margin: 50px auto 0;
+  border: 10px solid green;
+  padding: 25px;
+  height: 500px;
+}
+
+.stackPics {
+  display: flex;
+}
+
+.smallThumbs {
+  padding: 10px;
+}
+
 
 /* QUESTIONS AND ANSWERS */
 .answer-photo {
@@ -988,7 +1035,10 @@ progress::-webkit-progress-value {
 
 .qa-answer-container {
   padding-left: 2%;
-  height: 100px;
+}
+
+.qa-scrollable {
+  height: calc(50vh - 80px);
   overflow-y: scroll;
 }
 

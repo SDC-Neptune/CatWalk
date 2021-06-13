@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Stars from './Stars.jsx';
 import Recommend from './Recommend.jsx';
+import ReviewPics from './ReviewPics.jsx';
 
 const IndivReview = ({detail}) => {
   const [recommend, setRecommend] = useState(detail.recommend ? true : false);
   const [isResponse, setIsResponse] = useState(detail.response ? true : false);
   const [helpful, setHelpful] = useState(Number(detail.helpfulness));
+  const [noHelpful, setNoHelpful] = useState(0);
   const [disabled, setDisabled] = useState(false);
   const dateTimeFormat = new Date(detail.date);
+
 
 
   return (
@@ -29,8 +32,19 @@ const IndivReview = ({detail}) => {
         <br></br>
         {detail.response}
       </div>)}
+      <div className='stackPics'>
+        {detail.photos.map(image => {
+          return (
+            <ReviewPics key={image.id} image={image.url}/>
+          );
+        })}
+      </div>
       <br></br>
-      <span className='helpful'>Helpful? <u onClick={() => { !disabled ? setHelpful(helpful + 1) : null; setDisabled(true); }}>Yes</u> ({helpful}) </span> <span className='report'>Report</span>
+      <span className='helpful'> Helpful?
+        <span>  <u onClick={() => { !disabled ? setHelpful(helpful + 1) : null; setDisabled(true); }}>Yes</u>({helpful})</span>
+        <span>  <u onClick={() => { !disabled ? setNoHelpful(noHelpful + 1) : null; setDisabled(true); }}>No</u>({noHelpful})</span>
+      </span>
+      <span className='report'>Report</span>
     </div>
   );
 
