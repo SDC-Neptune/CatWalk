@@ -950,6 +950,27 @@ progress::-webkit-progress-value {
   height: auto;
 }
 
+.modal-overlay-newReview {
+  background-color: rgba(0, 0, 0, 0.794);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom:0;
+  height: auto;
+  width: auto;
+  z-index: 10;
+}
+
+.modal-newReview {
+  width: 960px;
+  background-color: #ffffff;
+  margin: 50px auto 0;
+  border: 10px solid green;
+  padding: 25px;
+  height: 500px;
+}
+
 .stackPics {
   display: flex;
 }
