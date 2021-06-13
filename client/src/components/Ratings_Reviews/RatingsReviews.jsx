@@ -4,18 +4,13 @@ import ReviewDetail from './ReviewDetail.jsx';
 import axios from 'axios';
 
 
-const RatingsReviews = ({productId}) => {
-  const [data, setData] = useState();
-  const [id, setProductId] = useState(productId);
-
+const RatingsReviews = ({props}) => {
+  if (!props) {
+    return 'Still Loading';
+  }
+  const [data, setData] = useState(props);
+  const [id, setProductId] = useState(props.product_id);
   const [reviewDetailData, setReviewDetailData] = useState();
-
-  const getAllReviewsMeta = () => {
-    axios.get(`/reviews/meta/?product_id=${id}`)
-      .then(({data}) => {
-        setData(data);
-      });
-  };
 
   const getAllReviews = () => {
     axios.get(`/reviews/?product_id=${id}`)
@@ -23,14 +18,8 @@ const RatingsReviews = ({productId}) => {
   };
 
   useEffect(() => {
-    setProductId(`${productId}`);
-  }, [productId]);
-
-  useEffect(() => {
-    getAllReviewsMeta();
     getAllReviews();
   }, [id]);
-
 
   return (
     <div className='ratings_reviews' id='ratings-reviews'>
