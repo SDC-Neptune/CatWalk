@@ -44,6 +44,8 @@ const Question = ({item, answerModalHandler, productId}) => {
     if (answerCount === 2) {
       setAnswerCount(answerData.length);
       setChangeName('Collapse answers');
+      // let answr = document.getElementById('qa-answer-container');
+      // answr.style.className = 'qa-scrollable';
     } else {
       setAnswerCount(2);
       setChangeName('See more Answers');
@@ -56,7 +58,7 @@ const Question = ({item, answerModalHandler, productId}) => {
 
 
   return (
-    <div id={item.question_id} className="qa-question-container">
+    <div id={item.question_id} className={`qa-question-container ${answerCount > 2 ? 'qa-scrollable' : ''}`}>
       <div className="qa-question qa-question-body">
         <span className="qa-question qa-question-data">Q: {item.question_body}</span>
         <span className="qa-question qa-r2 qa-helpful">Helpful?</span>
@@ -71,8 +73,9 @@ const Question = ({item, answerModalHandler, productId}) => {
             key={answer.answer_id}
             answer={answer}
             item={item}
-            answerModalHandler={answerModalHandler}/>;
-        })};
+            answerModalHandler={answerModalHandler}
+          />;
+        })}
       </div>
       <button className="qa-span-btn" onClick={showAnswers}>{changeName}</button>
     </div>

@@ -11,6 +11,8 @@ import MockComponent from './MockComponent.jsx';
 
 const App = () => {
 
+
+
   const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
@@ -44,10 +46,6 @@ const App = () => {
       .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
-  // const getAllReviews = (id) => {
-  //   axios.get(`/reviews/?product_id=${id}`)
-  //     .then(({data}) => console.log(data));
-  // };
 
   const getAllReviewsMeta = (id) => {
     axios.get(`/reviews/meta/?product_id=${id}`)
@@ -138,8 +136,9 @@ const App = () => {
       />
       <SalesArea />
       <QuestionsAnswers questionData={questionData}
-        productId={productId}/>
-      <RatingsReviews productId={productId}/>
+        productId={productId}
+        productInfo={productInfo} />
+      <RatingsReviews props={productId, productReviews}/>
       {/* <MockComponent /> */}
     </div>);
 };
