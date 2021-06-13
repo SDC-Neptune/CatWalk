@@ -1047,7 +1047,10 @@ progress::-webkit-progress-value {
 
 .qa-answer-container {
   padding-left: 2%;
-  height: 100px;
+}
+
+.qa-scrollable {
+  height: calc(50vh - 80px);
   overflow-y: scroll;
 }
 

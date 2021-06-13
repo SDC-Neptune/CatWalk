@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-const Answer = ({answer, item, answerModalHandler}) => {
+const Answer = (props) => {
+  const {answer, item, answerModalHandler} = props;
+
   const [helpful, setHelpful] = useState(answer.helpfulness);
   const [isReported, setIsReported] = useState('Report');
 
@@ -36,7 +38,7 @@ const Answer = ({answer, item, answerModalHandler}) => {
         <button className="qa-r2 qa-span-btn  qa-border" disabled={helpful > answer.helpfulness} onClick={() => markAsHelpful(answer.answer_id)}> Yes </button>
         <span className="qa-r2 qa-border"> ({helpful}) </span>
         <span className="qa-r2 qa-question qa-r2 qa-report qa-border" onClick={() => handleReport(item.question_id)}> {isReported}</span>
-        <button className="qa-r2 qa-span-btn qa-add-answer-btn " onClick={() => answerModalHandler(item.question_body)}>Add Answer</button>
+        <button className="qa-r2 qa-span-btn qa-add-answer-btn " onClick={() => answerModalHandler(item)}>Add Answer</button>
       </div>
       {
         answer.photos.map((photo) => {
