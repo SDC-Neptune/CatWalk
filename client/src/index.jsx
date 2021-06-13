@@ -136,9 +136,14 @@ const App = () => {
       />
       <SalesArea />
       <QuestionsAnswers questionData={questionData}
+
+  
+      <RatingsReviews props={productId, productReviews}/>
+
         productId={productId}
         productInfo={productInfo} />
-      <RatingsReviews productId={productId}/>
+
+
       {/* <MockComponent /> */}
     </div>);
 };

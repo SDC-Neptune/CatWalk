@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
+import NewReviewPopUp from './NewReviewPopUp.jsx';
 
 const RatingsReviews = ({detail}) => {
   if (!detail) {
@@ -9,6 +10,8 @@ const RatingsReviews = ({detail}) => {
   const [noReview, setNoReview] = useState(detail.results.length === 0 ? true : false);
   const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
   const [sorted, setSorted] = useState('relevance');
+  const [newReview, setNewReview] = useState(false);
+
 
   const [count, setCount] = useState(() => {
     if (detail.results.length <= 2) {
@@ -87,6 +90,14 @@ const RatingsReviews = ({detail}) => {
     sortBySelect(count, temp);
   };
 
+  const addNewReview = (e) => {
+    setNewReview(true);
+  };
+
+  const showModal = (e) => {
+    setNewReview(!newReview);
+  };
+
   return (
     <div className='reviewDetail'>
       <h3>{detail.count} reviews, sorted by
@@ -107,7 +118,8 @@ const RatingsReviews = ({detail}) => {
         {count}
       </div>
       {moreReview && <button className='reviewButton' onClick={addReviews} >MORE REVIEWS</button>}
-      {isReview && <button className='reviewButton'>ADD A REVIEW + </button>}
+      {isReview && <button className='reviewButton' onClick={addNewReview}>ADD A REVIEW + </button>}
+      {newReview && (<NewReviewPopUp props={detail} handleChange={showModal}/>)}
     </div>
   );
 };
