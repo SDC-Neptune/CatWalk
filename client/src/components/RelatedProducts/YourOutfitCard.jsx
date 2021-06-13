@@ -15,6 +15,9 @@ const YourOutfitCard = ({ item, outfitList, setOutfitList }) => {
         <img
           className="related-product-image"
           src={item.img ? item.img : ''}
+          alt={item.name}
+          width="300"
+          height="400"
         />
         <i name={item.name} className="fas fa-ban related-products-compare" onClick={removeClickHandler}></i>
       </div>
@@ -22,9 +25,12 @@ const YourOutfitCard = ({ item, outfitList, setOutfitList }) => {
         <h5 className="product-category">{item.category.toUpperCase()}</h5>
         <h3 className="product-name">{item.name}</h3>
         <p className="product-price">
-          ${item.originalPrice}
+          {item.currentPrice !== null ? '$' + item.currentPrice : '$' + item.originalPrice}
           <span className="original-price-related-product">
-            {item.currentPrice !== null ? '$' + item.currentPrice : ''}
+            {
+              (item.currentPrice === null || parseInt(item.originalPrice) < parseInt(item.currentPrice))
+                ? ''
+                : ' $' + item.originalPrice}
           </span>
         </p>
         <div style={{display: 'flex', marginBottom: '15px'}}>

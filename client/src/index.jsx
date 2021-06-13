@@ -7,10 +7,13 @@ import SalesArea from './components/SalesArea.jsx';
 import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
+import MockComponent from './MockComponent.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19100');
+
+
+  const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
@@ -43,10 +46,6 @@ const App = () => {
       .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
-  // const getAllReviews = (id) => {
-  //   axios.get(`/reviews/?product_id=${id}`)
-  //     .then(({data}) => console.log(data));
-  // };
 
   const getAllReviewsMeta = (id) => {
     axios.get(`/reviews/meta/?product_id=${id}`)
@@ -63,10 +62,11 @@ const App = () => {
       );
   };
 
-  // const getCart = () => {
-  //   axios.get('/cart')
-  //     .then(({data}) => console.log('cart:', data));
-  // };
+  const postInteractions = (data) => {
+    axios.post('/interactions', data)
+      .then((response) => console.log(response))
+      .catch((err) => console.log('Error: ', err));
+  };
 
   // Add a Review
   // Mark Review as Helpful
@@ -94,8 +94,35 @@ const App = () => {
   }, [productId]);
 
 
+  const handleAllClicks = (e) => {
+    e.stopPropagation();
+    const el = e.target.localName;
+    const d = new Date();
+    const t = d.toString().slice(0, 24);
+    let w;
+    if (e.target.closest('#overview')) {
+      w = 'Overview';
+    }
+    if (e.target.closest('#related-products')) {
+      w = 'Related Products';
+    }
+    if (e.target.closest('#questions-answers')) {
+      w = 'Questions and Answers';
+    }
+    if (e.target.closest('#ratings-reviews')) {
+      w = 'Ratings';
+    }
+    const interaction = {
+      'element': el,
+      'time': t,
+      'widget': w
+    };
+    postInteractions(interaction);
+
+  };
+
   return (
-    <div>
+    <div onClick={handleAllClicks}>
       <Navbar />
       <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts
@@ -112,6 +139,7 @@ const App = () => {
         productId={productId}
         productInfo={productInfo} />
       <RatingsReviews productId={productId}/>
+      {/* <MockComponent /> */}
     </div>);
 };
 

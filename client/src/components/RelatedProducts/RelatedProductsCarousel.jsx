@@ -98,7 +98,7 @@ const RelatedProductsCarousel = ({
               />
             ))}
           </div>
-          <ArrowRight handleNextClick={handleNextClickOutfit} />
+          <ArrowRight handleNextClick={handleNextClickOutfit}/>
         </div>
       </>
     );

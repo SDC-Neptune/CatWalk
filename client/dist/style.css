@@ -403,8 +403,8 @@ h3 {
 
 .img-zoom-lens {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
 }
 
 .img-zoom-result {
@@ -418,11 +418,11 @@ h3 {
 }
 
 #expanded-view-zoomed-image:hover {
-  cursor: url('https://www.svgimages.com/svg-image/s8/minus-symbol-256x256.png'), zoom-out;
+  cursor: zoom-out;
 }
 
 #expanded-view-non-zoomed-image:hover {
-  cursor: cell;
+  cursor: crosshair;
 }
 
 .expanded-view-main-image-container:hover {
@@ -509,6 +509,7 @@ h3 {
   position: fixed;
   width: 1200px;
   z-index: 4;
+  border-bottom: solid lightgray;
 }
 
 .logo {
@@ -544,7 +545,6 @@ font-size: 1.2rem;
 }
 
 .related-products-component {
-  /* background-color: plum; */
   padding: 15px;
 }
 
@@ -584,6 +584,10 @@ font-size: 1.2rem;
   cursor: pointer;
 }
 
+.arrow-no-show {
+  color: #fff;
+}
+
 .rp-carousel {
   display: flex;
   justify-content: space-evenly;
@@ -591,11 +595,16 @@ font-size: 1.2rem;
 }
 
 .rp-card, .yo-card {
-  border: 1px solid black;
+  border: 1px solid #efefef;
   margin-right: 15px;
   height: 527px;
   background-color: var(--main-color);
 }
+
+.rp-card:hover, .yo-card:hover {
+  border: 1px solid #008000;
+}
+
 
 .add-to-outfit-card {
   flex-basis: 300px;
@@ -607,8 +616,12 @@ font-size: 1.2rem;
   align-items: center;
   justify-content:center;
   height: 527px;
-  border: 1px solid black;
+  border: 1px solid #efefef;
   background-color: #fff;
+}
+
+.add-to-outfit-card:hover {
+  border: 1px solid #008000;
 }
 
 .add-to-outfit {
@@ -666,7 +679,6 @@ font-size: 1.2rem;
 .comparison-wrapper {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
   height: 2rem;
   align-items: center;
 }
@@ -842,7 +854,7 @@ progress::-webkit-progress-value {
 }
 
 .allSingleReviews {
-  height: 500px;
+  height: 600px;
   overflow-y: scroll;
 }
 .dropdownbtn {
@@ -882,8 +894,6 @@ progress::-webkit-progress-value {
   display: block;
 }
 
-
-
 .response {
   background-color: rgb(205, 245, 205);
   border: solid rgb(161, 219, 161);
@@ -920,6 +930,34 @@ progress::-webkit-progress-value {
   color:black;
   border-color:#BBBBBB;
 }
+
+.modal-overlay-reviews {
+  flex: 1 1 auto;
+  background-color: rgba(0, 0, 0, 0.794);
+  left: 0;
+  position: fixed;
+  right: auto;
+  top: 0;
+  bottom:0;
+  height: auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal-reviews {
+  margin: auto;
+  padding: 25px;
+  height: auto;
+}
+
+.stackPics {
+  display: flex;
+}
+
+.smallThumbs {
+  padding: 10px;
+}
+
 
 /* QUESTIONS AND ANSWERS */
 .answer-photo {

@@ -3,7 +3,9 @@ const app = express();
 const PORT = 4000;
 const config = require('./config.js');
 const axios = require('axios');
+const compression = require('compression');
 
+app.use(compression());
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 

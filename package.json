@@ -4,7 +4,7 @@
   "description": "Front End Capstone - Grand Canyon",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --testEnvironment jsdom --coverage --watchAll",
     "start": "nodemon server/index.js",
     "build": "npx webpack -w",
     "linter": "eslint ."
@@ -25,6 +25,7 @@
     "@babel/preset-react": "^7.13.13",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
+    "compression": "^1.7.4",
     "eslint": "^7.27.0",
     "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor",
     "express": "^4.17.1",
@@ -35,6 +36,9 @@
     "webpack": "^5.38.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "jest": "^27.0.4",
     "webpack-cli": "^4.7.0"
   }
 }
