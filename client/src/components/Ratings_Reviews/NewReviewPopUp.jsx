@@ -31,7 +31,7 @@ const NewReviewPopUp = ({props, handleChange}) => {
 
         {!productReviews ? '' : Object.keys(productReviews.characteristics).map(item => {
           return (
-            <div>
+            <div key={item}>
               <span>{item}</span>
               <input type='radio' name={item} value='1'/>
               <label>1</label>
