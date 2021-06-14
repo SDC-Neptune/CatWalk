@@ -984,22 +984,28 @@ progress::-webkit-progress-value {
 .answer-photo {
   width: 50px;
   height: 50px;
+  padding: 5px;
 }
 
 .qa-answer-container {
   margin-bottom: 1%;
 
 }
+
+.qa-answer {
+  margin-bottom: 2%;
+}
 .qa-question-container {
   padding-bottom: 10px;
 }
 .qa-question-data {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   text-align: left;
 }
 
 .qa-question {
+
   margin-bottom: 2%;
 }
 .qa-report {
@@ -1020,6 +1026,7 @@ progress::-webkit-progress-value {
 }
 .qa-r2 {
   font-size: 12px;
+  text-align: right;
 }
 
 .modal-question-textarea {
@@ -1037,11 +1044,13 @@ progress::-webkit-progress-value {
   color:rgb(112, 111, 111)
 }
 
+.qa-question-body {
+  display: flex;
+  justify-content: space-between;
+}
 .qa-question-container {
   border-bottom: solid rgba(0, 128, 0, 0.521);
-  margin: 5px;
-  margin-left: 4%;
-  margin-right: 20%;
+  margin: 4%;
   padding: 15px;
 }
 

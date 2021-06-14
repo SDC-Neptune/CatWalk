@@ -3,14 +3,16 @@ import axios from 'axios';
 import Answer from './Answer.jsx';
 
 
-const Question = ({item, answerModalHandler, productId}) => {
+const Question = (props) => {
+  const {item, answerModalHandler, productId} = props;
+
   if (item.reported) {
     return null;
   }
   const [answerCount, setAnswerCount] = useState(2);
   const [answerData, setAnswers] = useState([]);
+  const [helpful, setHelpful] = useState(item.question_helpfulness);
   const [isReported, setIsReported] = useState('Report');
-  const [helpful, setHelpful] = useState(item.helpfulness);
   const [showAllAnswers, setShowAllAnswers] = useState(false);
   const [changeName, setChangeName] = useState('See more answers');
   const getAnswersList = (id) => {
@@ -18,6 +20,15 @@ const Question = ({item, answerModalHandler, productId}) => {
       .then(({data}) => setAnswers(data.results));
   };
 
+  const markAsHelpful = (id) => {
+    setHelpful(helpful + 1);
+    axios.put(`/qa/questions/${id}/helpful`, item.question_helpfulness + 1)
+      .then(res => {
+        if (res.status !== 200) {
+          setHelpful(helpful - 1);
+        }
+      });
+  };
 
   const handleReport = (id) => {
     axios.put(`/qa/questions/${id}/report`, true)
@@ -26,15 +37,6 @@ const Question = ({item, answerModalHandler, productId}) => {
       });
   };
 
-  const markAsHelpful = (id) => {
-    setHelpful(helpful + 1);
-    axios.put(`/qa/questions/${id}/helpful`, item.helpfulness + 1)
-      .then(res => {
-        if (res.status !== 200) {
-          setHelpful(helpful - 1);
-        }
-      });
-  };
 
   const sortAnswersList = () => {
     item = item.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
@@ -44,8 +46,6 @@ const Question = ({item, answerModalHandler, productId}) => {
     if (answerCount === 2) {
       setAnswerCount(answerData.length);
       setChangeName('Collapse answers');
-      // let answr = document.getElementById('qa-answer-container');
-      // answr.style.className = 'qa-scrollable';
     } else {
       setAnswerCount(2);
       setChangeName('See more Answers');
@@ -56,15 +56,17 @@ const Question = ({item, answerModalHandler, productId}) => {
     getAnswersList(item.question_id);
   }, [productId]);
 
-
+  console.log(item);
   return (
     <div id={item.question_id} className={`qa-question-container ${answerCount > 2 ? 'qa-scrollable' : ''}`}>
       <div className="qa-question qa-question-body">
         <span className="qa-question qa-question-data">Q: {item.question_body}</span>
-        <span className="qa-question qa-r2 qa-helpful">Helpful?</span>
-        <button className="qa-span-btn qa-small-span qa-helpful" disabled={helpful > item.helpfulness} onClick={() => markAsHelpful(item.question_id)}> Yes </button>
-        <span className="qa-r2 qa-helpful">({item.question_helpfulness}) </span>
-        <span className="qa-question qa-r2 qa-report" onClick={() => handleReport(item.question_id)}>{isReported}</span>
+        <div className='qa-r2'>
+          <span className="qa-question  qa-helpful qa-r2">Helpful?</span>
+          <button className="qa-span-btn qa-small-span qa-helpful" disabled={helpful > item.question_helpfulness} onClick={() => markAsHelpful(item.question_id)}> Yes </button>
+          <span className="qa-r2 qa-helpful qa-border">({item.question_helpfulness}) </span>
+          <span className="qa-question qa-r2 qa-report" onClick={() => handleReport(item.question_id)}>{isReported}</span>
+        </div>
       </div>
       <div className="qa-answer-container">
         <span className="qa-answer">A:</span>
