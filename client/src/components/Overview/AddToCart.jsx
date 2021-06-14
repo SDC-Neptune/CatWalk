@@ -136,7 +136,7 @@ class AddToCart extends React.Component {
 
     return (
       <div className="cart" id="checkout-cart">
-        <select className="select-size" id="select" onChange={this.updateSize}>
+        <select className="select-size" role="select-size" id="select" onChange={this.updateSize}>
           {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).length !== 0 &&
             <option value="">Select Size</option>}
           {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).map((sku, index) => {
