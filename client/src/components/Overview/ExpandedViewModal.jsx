@@ -39,9 +39,6 @@ class ExpandedViewModal extends React.Component {
       var cx = result.offsetWidth / lens.offsetWidth; // 420/100 ==> 4.2
       var cy = result.offsetHeight / lens.offsetHeight; // 630/100 ==> 6.3
 
-      console.log('cx: ', cx);
-      console.log('cy: ', cy);
-
       result.style.backgroundImage = "url('" + img.src + "')";
 
       result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
