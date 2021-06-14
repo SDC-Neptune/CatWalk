@@ -117,7 +117,7 @@ const ReviewDetail = ({detail}) => {
 
   return (
     <div className='reviewDetail'>
-      <h3>{detail.count} reviews, sorted by
+      <div className='singleReviewTitle'>{detail.count} reviews, sorted by
         <div className='dropdown'>
           <button className='dropdownbtn'>
             <u>{sorted}</u>
@@ -129,7 +129,7 @@ const ReviewDetail = ({detail}) => {
           </div>
            ⇓
         </div>
-      </h3>
+      </div>
       <div className='allSingleReviews'>
         {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
         {count}
