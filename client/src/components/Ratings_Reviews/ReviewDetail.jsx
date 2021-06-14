@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 import NewReviewPopUp from './NewReviewPopUp.jsx';
 
-const ReviewDetail = ({detail}) => {
+const ReviewDetail = ({detail, filter, isFiltered}) => {
   if (!detail) {
     return 'Still loading';
   }
@@ -11,6 +11,7 @@ const ReviewDetail = ({detail}) => {
   const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
   const [sorted, setSorted] = useState('relevance');
   const [newReview, setNewReview] = useState(false);
+  const [filterReviews, setFilterReviews] = useState();
 
   const loadReviews = () => {
     if (detail.results.length <= 2) {
@@ -39,6 +40,19 @@ const ReviewDetail = ({detail}) => {
     setMoreReview(detail.results.length === count.length ? false : true);
     setNoReview(detail.results.length > 0 ? false : true);
   }, [count]);
+
+  useEffect(() => {
+    setFilterReviews(() => {
+      if (isFiltered) {
+        return count.map((item) => {
+          if (filter.includes(item.props.detail.rating)) {
+            return item;
+          }
+          return null;
+        });
+      }
+    });
+  }, [filter, count]);
 
   const sortBySelect = (tempCount = count, value = sorted) => {
     let newSort = [...tempCount];
@@ -120,7 +134,8 @@ const ReviewDetail = ({detail}) => {
       </div>
       <div className='allSingleReviews'>
         {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
-        {count}
+        {!isFiltered && count}
+        {isFiltered && filterReviews}
       </div>
       {moreReview && <button className='reviewButton' onClick={addReviews} >MORE REVIEWS</button>}
       {isReview && <button className='reviewButton' onClick={addNewReview}>ADD A REVIEW + </button>}
