@@ -8,7 +8,7 @@ import Fit from './Fit.jsx';
 import Width from './Width.jsx';
 
 
-const RatingsReviews = ({data}) => {
+const ReviewSummary = ({data}) => {
   if (!data) {
     return 'Still Loading';
   }
@@ -46,27 +46,43 @@ const RatingsReviews = ({data}) => {
         {Math.round(Number(data.recommended.true) / (Number(data.recommended.true) + Number(data.recommended.false)) * 100, 0) || '0'}% of reviews recommend this product
       </div>
       <br></br>
-      <div className='test'>
-        <span className='reviewBarText'>5 stars</span> <progress value={(Number(data.ratings['5']) / totalStars) || '0'} max='1'></progress><span>{data.ratings['5'] || '0'}</span>
+      <div className='ratingBars'>
+        <div className='reviewBarText'>
+          <span className='reviewText'>5 stars </span>
+          <progress className='reviewBarFill' value={(Number(data.ratings['5']) / totalStars) || '0'} max='1'></progress>
+          <span className='reviewCount'>{data.ratings['5'] || '0'}</span>
+        </div>
         <br/>
-        <span className='reviewBarText'>4 stars</span> <progress value={(Number(data.ratings['4']) / totalStars) || '0'} max='1'></progress><span>{data.ratings['4'] || '0'}</span>
+        <div className='reviewBarText'>
+          <span className='reviewText'>4 stars </span>
+          <progress className='reviewBarFill' value={(Number(data.ratings['4']) / totalStars) || '0'} max='1'></progress>
+          <span className='reviewCount'>{data.ratings['4'] || '0'}</span>
+        </div>
         <br/>
-        <span className='reviewBarText'>3 stars</span> <progress value={(Number(data.ratings['3']) / totalStars) || '0'} max='1'></progress><span>{data.ratings['3'] || '0'}</span>
+        <div className='reviewBarText'>
+          <span className='reviewText'>3 stars </span>
+          <progress value={(Number(data.ratings['3']) / totalStars) || '0'} max='1'></progress>
+          <span>{data.ratings['3'] || '0'}</span>
+        </div>
         <br/>
-        <span className='reviewBarText'>2 stars</span> <progress value={(Number(data.ratings['2']) / totalStars) || '0'} max='1'></progress><span>{data.ratings['2'] || '0'}</span>
+        <div className='reviewBarText'>
+          <span className='reviewText'>2 stars </span>
+          <progress value={(Number(data.ratings['2']) / totalStars) || '0'} max='1'></progress>
+          <span>{data.ratings['2'] || '0'}</span>
+        </div>
         <br/>
-        <span className='reviewBarText'>1 stars</span> <progress value={(Number(data.ratings['1']) / totalStars) || '0'} max='1'></progress><span>{data.ratings['1'] || '0'}</span>
+        <div className='reviewBarText'>
+          <span className='reviewText'>1 stars </span>
+          <progress value={(Number(data.ratings['1']) / totalStars) || '0'} max='1'></progress>
+          <span>{data.ratings['1'] || '0'}</span>
+        </div>
       </div>
       <br></br>
-      <div >
+      <div>
         {comfort && <Comfort chars={data}/>}
-        <br></br>
         {width && <Width chars={data}/>}
-        <br></br>
         {quality && <Quality chars={data}/>}
-        <br></br>
         {fit && <Fit chars={data}/>}
-        <br></br>
         {length && <Length chars={data}/>}
       </div>
     </div>
@@ -75,4 +91,4 @@ const RatingsReviews = ({data}) => {
 
 };
 
-export default RatingsReviews;
+export default ReviewSummary;

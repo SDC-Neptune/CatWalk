@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Width = ({chars}) => (
-  <div>
+  <div className='charStyle'>
     <b>Width</b>
     <div>
       <input className='feedbackChars'readOnly type="range" min="1" max="5" value={chars.characteristics.Width ? chars.characteristics.Width.value : '2.5'} name="width"></input>

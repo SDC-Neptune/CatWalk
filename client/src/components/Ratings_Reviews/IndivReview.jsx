@@ -20,7 +20,7 @@ const IndivReview = ({detail}) => {
         <div className='user'>☑️ {detail.reviewer_name}, {dateTimeFormat.toDateString().slice(4)}</div>
       </div>
 
-      <h2>{detail.summary}</h2>
+      <div className='indivReviewTitle'>{detail.summary}</div>
       <p>
         {detail.body}
       </p>

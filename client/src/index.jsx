@@ -11,10 +11,9 @@ import MockComponent from './MockComponent.jsx';
 
 const App = () => {
 
-
-
   const [productId, setProductId] = useState('19089');
   // const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
+
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);

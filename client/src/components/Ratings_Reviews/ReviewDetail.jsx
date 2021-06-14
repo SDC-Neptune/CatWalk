@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 import NewReviewPopUp from './NewReviewPopUp.jsx';
 
-const RatingsReviews = ({detail}) => {
+const ReviewDetail = ({detail}) => {
   if (!detail) {
     return 'Still loading';
   }
@@ -12,8 +12,7 @@ const RatingsReviews = ({detail}) => {
   const [sorted, setSorted] = useState('relevance');
   const [newReview, setNewReview] = useState(false);
 
-
-  const [count, setCount] = useState(() => {
+  const loadReviews = () => {
     if (detail.results.length <= 2) {
       return detail.results.map((item) => {
         return (
@@ -28,7 +27,13 @@ const RatingsReviews = ({detail}) => {
         );
       });
     }
-  });
+  };
+
+  const [count, setCount] = useState(loadReviews());
+
+  useEffect(() => {
+    setCount(loadReviews());
+  }, [detail]);
 
   useEffect(() => {
     setMoreReview(detail.results.length === count.length ? false : true);
@@ -100,7 +105,7 @@ const RatingsReviews = ({detail}) => {
 
   return (
     <div className='reviewDetail'>
-      <h3>{detail.count} reviews, sorted by
+      <div className='singleReviewTitle'>{detail.count} reviews, sorted by
         <div className='dropdown'>
           <button className='dropdownbtn'>
             <u>{sorted}</u>
@@ -112,7 +117,7 @@ const RatingsReviews = ({detail}) => {
           </div>
            ⇓
         </div>
-      </h3>
+      </div>
       <div className='allSingleReviews'>
         {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
         {count}
@@ -124,4 +129,4 @@ const RatingsReviews = ({detail}) => {
   );
 };
 
-export default RatingsReviews;
+export default ReviewDetail;

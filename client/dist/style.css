@@ -276,7 +276,6 @@ body {
 }
 
 .slogan {
-  font-family: cursive;
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px;
@@ -287,7 +286,6 @@ body {
 }
 
 .description {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
   position: relative;
   left: 50px;
@@ -304,18 +302,6 @@ body {
   padding: 5px;
 }
 
-.fa-facebook {
-  color: #3B5998;
-}
-
-.fa-twitter {
-  color: #00ACEE
-}
-
-.fa-pinterest {
-  color: #E60023
-}
-
 .social:hover {
   cursor: pointer;
 }
@@ -327,6 +313,10 @@ h3 {
 
 .overviewStar {
   margin-bottom: 5px;
+}
+
+.redirect-to-reviews {
+  color: var(--main-color);
 }
 
 .original-price-strikethrough {
@@ -748,8 +738,25 @@ font-size: 1.2rem;
 }
 
 .reviewBarText {
+  display: inline-flex;
   font-size: 13pt;
+  justify-content: center;
+  align-items: center;
+}
+.reviewText {
+  flex: 0 0 auto;
+  width: 60px;
   text-decoration: underline;
+}
+.reviewBarFill {
+  flex: 0 1 auto;
+}
+.reviewCount {
+  flex: 0 1 auto;
+}
+
+.charStyle {
+  padding-bottom: 25px;
 }
 
 progress {
@@ -842,6 +849,17 @@ progress::-webkit-progress-value {
 .srHeader {
   display: flex;
   margin-bottom: 10px;
+}
+
+.singleReviewTitle {
+  font-size: 20px;
+}
+
+.indivReviewTitle {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .indivStar {
@@ -984,22 +1002,28 @@ progress::-webkit-progress-value {
 .answer-photo {
   width: 50px;
   height: 50px;
+  padding: 5px;
 }
 
 .qa-answer-container {
   margin-bottom: 1%;
 
 }
+
+.qa-answer {
+  margin-bottom: 2%;
+}
 .qa-question-container {
   padding-bottom: 10px;
 }
 .qa-question-data {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   text-align: left;
 }
 
 .qa-question {
+
   margin-bottom: 2%;
 }
 .qa-report {
@@ -1020,6 +1044,7 @@ progress::-webkit-progress-value {
 }
 .qa-r2 {
   font-size: 12px;
+  text-align: right;
 }
 
 .modal-question-textarea {
@@ -1037,11 +1062,13 @@ progress::-webkit-progress-value {
   color:rgb(112, 111, 111)
 }
 
+.qa-question-body {
+  display: flex;
+  justify-content: space-between;
+}
 .qa-question-container {
   border-bottom: solid rgba(0, 128, 0, 0.521);
-  margin: 5px;
-  margin-left: 4%;
-  margin-right: 20%;
+  margin: 4%;
   padding: 15px;
 }
 
