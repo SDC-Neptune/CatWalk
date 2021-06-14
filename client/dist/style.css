@@ -276,7 +276,6 @@ body {
 }
 
 .slogan {
-  font-family: cursive;
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px;
@@ -287,7 +286,6 @@ body {
 }
 
 .description {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
   position: relative;
   left: 50px;
@@ -304,18 +302,6 @@ body {
   padding: 5px;
 }
 
-.fa-facebook {
-  color: #3B5998;
-}
-
-.fa-twitter {
-  color: #00ACEE
-}
-
-.fa-pinterest {
-  color: #E60023
-}
-
 .social:hover {
   cursor: pointer;
 }
@@ -327,6 +313,10 @@ h3 {
 
 .overviewStar {
   margin-bottom: 5px;
+}
+
+.redirect-to-reviews {
+  color: var(--main-color);
 }
 
 .original-price-strikethrough {

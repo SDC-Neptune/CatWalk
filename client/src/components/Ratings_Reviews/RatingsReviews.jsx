@@ -14,8 +14,16 @@ const RatingsReviews = ({props}) => {
 
   const getAllReviews = () => {
     axios.get(`/reviews/?product_id=${id}`)
-      .then(({data}) => setReviewDetailData(data));
+      .then(({data}) => {
+        setReviewDetailData(data);
+        console.log(data);
+      });
   };
+
+  useEffect(() => {
+    setProductId(props.product_id);
+    setData(props);
+  }, [props]);
 
   useEffect(() => {
     getAllReviews();
