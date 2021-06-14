@@ -158,9 +158,6 @@ class ImageGallery extends React.Component {
 
   render() {
 
-    //Using functional components, you can delay the first render until all props have been received. TBD if can be done with class components?
-    console.log('this.id: ', (this.props.productStyles.product_id || 'not there yet'));
-
     if (!this.props.productStyles.results) {
       return <div></div>;
     }
