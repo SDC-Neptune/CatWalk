@@ -4,7 +4,7 @@ const QuestionsAnswers = ({productId, questionData, productInfo}) => {
 
   return (
     <div className="qa-container" id="questions-answers">
-      <h1>Questions & Answers</h1>
+      <h2>QUESTIONS & ANSWERS</h2>
       < QuestionsView
         productId={productId}
         questionData={questionData}

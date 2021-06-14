@@ -44,7 +44,7 @@ const QuestionsView = ({productId, questionData, productInfo }) => {
 
   return (
     <div className="qa-question">
-      <form >
+      <form className="">
         <label>Have a question? </label>
         <input
           placeholder={'Search for answers...'}

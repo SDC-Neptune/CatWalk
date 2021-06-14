@@ -30,7 +30,7 @@ const Answer = (props) => {
   };
 
   return (
-    <div className="qa-answer-body">
+    <div className="qa-answer-container">
       <span className="qa-body">{answer.body}</span>
       <div className="qa-answer-body">
         <span className="qa-r2  qa-border">By {isSeller()} on {answer.date.slice(0, 10)}</span>
