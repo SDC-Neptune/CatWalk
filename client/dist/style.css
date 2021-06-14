@@ -834,6 +834,15 @@ progress::-webkit-progress-value {
   margin-bottom: 10px;
 }
 
+.singleReviewTitle {
+  font-size: 20px;
+}
+
+.indivReviewTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .indivStar {
   flex: 1 1 auto;
 }
