@@ -317,6 +317,10 @@ h3 {
   margin-bottom: 5px;
 }
 
+.redirect-to-reviews {
+  color: var(--main-color);
+}
+
 .original-price-strikethrough {
   text-decoration: line-through;
 }

@@ -27,7 +27,7 @@ const BasicProductInfo = (props) => {
       {Object.keys(props.productReviews.ratings).length > 0 &&
       <div>
         <div className='overviewStar'><Stars number={(rating) * 20}/></div>
-        <a href="" onClick={redirectToReviews}> Read all reviews</a>
+        <a href="" className="redirect-to-reviews" onClick={redirectToReviews}> Read all reviews</a>
       </div>}
       <h2>{`${props.productInfo.category}`.toUpperCase()}</h2>
       <h1>{props.productInfo.name}</h1>

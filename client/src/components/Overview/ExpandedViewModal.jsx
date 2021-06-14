@@ -36,12 +36,13 @@ class ExpandedViewModal extends React.Component {
       var result = document.getElementById('expanded-view-zoomed-image');
       var lens = document.getElementById('lens');
 
-      var cx = result.offsetWidth / lens.offsetWidth; // 420/70
-      var cy = result.offsetHeight / lens.offsetHeight; // 630/70
+      var cx = result.offsetWidth / lens.offsetWidth; // 420/100 ==> 4.2
+      var cy = result.offsetHeight / lens.offsetHeight; // 630/100 ==> 6.3
+
+      console.log('cx: ', cx);
+      console.log('cy: ', cy);
 
       result.style.backgroundImage = "url('" + img.src + "')";
-      console.log('img width: ', img.width);
-      console.log('img height: ', img.height);
 
       result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
 
@@ -128,7 +129,7 @@ class ExpandedViewModal extends React.Component {
             <img src={this.props.productStyles.results[this.props.styleIndex].photos[this.props.mainImageThumbnailIndex].url} className="expanded-view-main-image" id="expanded-view-non-zoomed-image" onClick={this.toggleZoom}></img>
             {this.state.zoomMode && <div className="img-zoom-result" id="expanded-view-zoomed-image" onClick={this.toggleZoom}></div>}
           </div>
-          {!this.state.zoomMode && this.props.numberOfThumbnails !== (this.props.mainImageThumbnailIndex + 1) && <i className="main-image-arrows right expanded-main-arrow-right" onClick={this.props.nextMainClickHandler}></i>}
+          {!this.state.zoomMode && this.props.numberOfThumbnails !== (this.props.mainImageThumbnailIndex + 1) && this.props.productStyles.results[this.props.styleIndex].photos.length > 1 && <i className="main-image-arrows right expanded-main-arrow-right" onClick={this.props.nextMainClickHandler}></i>}
         </div>
       </div>);
   }
