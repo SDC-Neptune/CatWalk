@@ -8,7 +8,7 @@ import Fit from './Fit.jsx';
 import Width from './Width.jsx';
 
 
-const RatingsReviews = ({data}) => {
+const ReviewSummary = ({data}) => {
   if (!data) {
     return 'Still Loading';
   }
@@ -75,4 +75,4 @@ const RatingsReviews = ({data}) => {
 
 };
 
-export default RatingsReviews;
+export default ReviewSummary;

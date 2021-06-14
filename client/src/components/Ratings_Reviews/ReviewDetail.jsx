@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 import NewReviewPopUp from './NewReviewPopUp.jsx';
 
-const RatingsReviews = ({detail}) => {
+const ReviewDetail = ({detail}) => {
   if (!detail) {
     return 'Still loading';
   }
@@ -11,8 +11,6 @@ const RatingsReviews = ({detail}) => {
   const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
   const [sorted, setSorted] = useState('relevance');
   const [newReview, setNewReview] = useState(false);
-
-
   const [count, setCount] = useState(() => {
     if (detail.results.length <= 2) {
       return detail.results.map((item) => {
@@ -29,6 +27,25 @@ const RatingsReviews = ({detail}) => {
       });
     }
   });
+
+  useEffect(() => {
+    setCount(() => {
+      if (detail.results.length <= 2) {
+        return detail.results.map((item) => {
+          return (
+            <IndivReview key={item.review_id} detail={item}/>
+          );
+        });
+      }
+      if (detail.results.length > 2) {
+        return detail.results.slice(0, 2).map((item) => {
+          return (
+            <IndivReview key={item.review_id} detail={item}/>
+          );
+        });
+      }
+    });
+  }, [detail]);
 
   useEffect(() => {
     setMoreReview(detail.results.length === count.length ? false : true);
@@ -124,4 +141,4 @@ const RatingsReviews = ({detail}) => {
   );
 };
 
-export default RatingsReviews;
+export default ReviewDetail;
