@@ -276,7 +276,6 @@ body {
 }
 
 .slogan {
-  font-family: cursive;
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px;
@@ -287,7 +286,6 @@ body {
 }
 
 .description {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
   position: relative;
   left: 50px;
