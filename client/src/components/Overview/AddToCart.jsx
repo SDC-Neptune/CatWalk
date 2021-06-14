@@ -136,20 +136,20 @@ class AddToCart extends React.Component {
 
     return (
       <div className="cart" id="checkout-cart">
-        <select className="select-size" role="select-size" id="select" onChange={this.updateSize}>
+        <select className="select-size" role="select-size" data-testid="select-size" id="select" onChange={this.updateSize}>
           {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).length !== 0 &&
             <option value="">Select Size</option>}
           {this.removeDuplicateSizes(Object.values(this.props.productStyles.results[this.props.styleIndex].skus).slice(0)).map((sku, index) => {
             return <option key={index} value={sku.size}>{sku.size}</option>;
           })}
         </select>
-        <select className="choose-quantity" id="select-quantity" onChange={this.updateSelectedQuantity}>
+        <select className="choose-quantity" id="select-quantity" role="choose-quantity" onChange={this.updateSelectedQuantity}>
           <option disabled value="">-</option>
           {this.props.quantity > 0 && this.props.quantities.map((quantity) => {
             return <option key={quantity} value={quantity}>{quantity}</option>;
           })}
         </select>
-        <button className="add-to-bag-button" onClick={this.addToBag}>Add To Bag</button>
+        <button className="add-to-bag-button" onClick={this.addToBag} role="add-to-bag">Add To Bag</button>
       </div>
     );
   }

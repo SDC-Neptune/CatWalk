@@ -383,3 +383,36 @@ module.exports.productStyles = {
 };
 
 module.exports.styleIndex = 0;
+
+module.exports.productReviews = {
+  "product_id": "19089",
+  "ratings": {
+    "1": "12",
+    "2": "5",
+    "3": "11",
+    "4": "10",
+    "5": "32"
+  },
+  "recommended": {
+    "false": "25",
+    "true": "45"
+  },
+  "characteristics": {
+    "Fit": {
+      "id": 64059,
+      "value": "2.8409090909090909"
+    },
+    "Length": {
+      "id": 64060,
+      "value": "2.7272727272727273"
+    },
+    "Comfort": {
+      "id": 64061,
+      "value": "3.2727272727272727"
+    },
+    "Quality": {
+      "id": 64062,
+      "value": "3.0000000000000000"
+    }
+  }
+};
