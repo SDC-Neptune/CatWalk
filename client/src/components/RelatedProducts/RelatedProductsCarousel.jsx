@@ -14,8 +14,6 @@ const RelatedProductsCarousel = ({
   setProductId,
   setCompareProd,
   setFeatureData,
-  allRelatedProductsDetails,
-  setAllRelatedProductsDetails
 }) => {
   const [currentCard, setCurrentCard] = useState(1);
   const [currentCardOutfit, setCurrentCardOutfit] = useState(1);
@@ -71,7 +69,6 @@ const RelatedProductsCarousel = ({
                 setModalOpen={setModalOpen}
                 setCompareProd={setCompareProd}
                 setFeatureData={setFeatureData}
-                setAllRelatedProductsDetails={setAllRelatedProductsDetails}
               />
             ))}
           </div>
