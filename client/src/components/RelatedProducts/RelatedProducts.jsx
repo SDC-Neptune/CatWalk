@@ -69,10 +69,10 @@ const RelatedProducts = ({
               obj.currentPrice = data.results[0].sale_price;
               obj.img = data.results[0].photos[0].url;
               setAllRelatedProductsStylesDetails(previous => [...previous, data]);
-              axios.get(`/reviews/meta/?product_id=${item}`)
-                .then(({data}) => {
-                  obj.ratings = starCalc(data.ratings);
-                });
+            });
+          axios.get(`/reviews/meta/?product_id=${item}`)
+            .then(({data}) => {
+              obj.ratings = starCalc(data.ratings);
             });
         });
       tempRelatedData.push(obj);
