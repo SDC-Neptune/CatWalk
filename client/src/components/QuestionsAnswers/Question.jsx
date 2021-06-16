@@ -56,7 +56,7 @@ const Question = (props) => {
     getAnswersList(item.question_id);
   }, [productId]);
 
-  console.log(item);
+  //console.log(item);
   return (
     <div id={item.question_id} className={`qa-question-container ${answerCount > 2 ? 'qa-scrollable' : ''}`}>
       <div className="qa-question qa-question-body">

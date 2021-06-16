@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import { requests } from './requests.js';
 
-const CartList = ({productId}) => {
+const CartList = () => {
 
   const [cartItems, setCartItems] = useState([]);
 
-  const getCart = async () => {
-    try {
-      const results = await (axios.get('/cart'));
-      setCartItems(results.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // useEffect(() => {
+  //   requests.getCart()
+  //     .then((results) => {
+  //       setCartItems(results.data);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    getCart();
+  useEffect( async () => {
+    const results = await requests.getCart();
+    setCartItems(results.data);
   }, []);
 
   if (!cartItems.length) {
@@ -27,7 +27,7 @@ const CartList = ({productId}) => {
 
   return (
     <div>
-      <h1 className="test-async" role="test-async">{cartItems[0].count}</h1>
+      <h1 className="test-async" role="test-async">{cartItems[1].count}</h1>
     </div>
   );
 

@@ -10,7 +10,6 @@ import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 import MockComponent from './MockComponent.jsx';
 import CartList from './components/Overview/CartList.jsx';
 
-
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
@@ -137,8 +136,10 @@ const App = () => {
       <QuestionsAnswers questionData={questionData}
         productId={productId}
         productInfo={productInfo} />
-      <RatingsReviews props={productId, productReviews}/>
-      <CartList productId={productId}/>
+      <RatingsReviews props={productReviews}
+        productInfo={productInfo}
+      />
+      <CartList />
     </div>);
 };
 

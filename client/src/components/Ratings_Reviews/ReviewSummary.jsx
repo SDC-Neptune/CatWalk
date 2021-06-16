@@ -8,7 +8,7 @@ import Fit from './Fit.jsx';
 import Width from './Width.jsx';
 
 
-const ReviewSummary = ({data}) => {
+const ReviewSummary = ({data, filter, isFiltered, triggerFilter, removeFilter}) => {
   if (!data) {
     return 'Still Loading';
   }
@@ -35,6 +35,7 @@ const ReviewSummary = ({data}) => {
     setTotalStars(Number(data.ratings['5'] || null) + Number(data.ratings['4'] || null) + Number(data.ratings['3'] || null) + Number(data.ratings['2'] || null) + Number(data.ratings['1'] || null));
   });
 
+
   return (
     <div className='reviewSummary'>
       <div className='reviewTest'>
@@ -46,33 +47,36 @@ const ReviewSummary = ({data}) => {
         {Math.round(Number(data.recommended.true) / (Number(data.recommended.true) + Number(data.recommended.false)) * 100, 0) || '0'}% of reviews recommend this product
       </div>
       <br></br>
+      <span><b>Rating Breakdown</b></span>
+      { isFiltered && (<div>{filter.join(',')} star reviews are being shown</div>)}
+      { isFiltered && (<div><button className='reviewButton' onClick={removeFilter}>Remove all filters</button></div>)}
       <div className='ratingBars'>
         <div className='reviewBarText'>
-          <span className='reviewText'>5 stars </span>
+          <span className='reviewText' onClick={triggerFilter}>5 stars </span>
           <progress className='reviewBarFill' value={(Number(data.ratings['5']) / totalStars) || '0'} max='1'></progress>
           <span className='reviewCount'>{data.ratings['5'] || '0'}</span>
         </div>
         <br/>
         <div className='reviewBarText'>
-          <span className='reviewText'>4 stars </span>
+          <span className='reviewText' onClick={triggerFilter}>4 stars </span>
           <progress className='reviewBarFill' value={(Number(data.ratings['4']) / totalStars) || '0'} max='1'></progress>
           <span className='reviewCount'>{data.ratings['4'] || '0'}</span>
         </div>
         <br/>
         <div className='reviewBarText'>
-          <span className='reviewText'>3 stars </span>
+          <span className='reviewText' onClick={triggerFilter}>3 stars </span>
           <progress value={(Number(data.ratings['3']) / totalStars) || '0'} max='1'></progress>
           <span>{data.ratings['3'] || '0'}</span>
         </div>
         <br/>
         <div className='reviewBarText'>
-          <span className='reviewText'>2 stars </span>
+          <span className='reviewText' onClick={triggerFilter}>2 stars </span>
           <progress value={(Number(data.ratings['2']) / totalStars) || '0'} max='1'></progress>
           <span>{data.ratings['2'] || '0'}</span>
         </div>
         <br/>
         <div className='reviewBarText'>
-          <span className='reviewText'>1 stars </span>
+          <span className='reviewText' onClick={triggerFilter}>1 stars </span>
           <progress value={(Number(data.ratings['1']) / totalStars) || '0'} max='1'></progress>
           <span>{data.ratings['1'] || '0'}</span>
         </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import DescriptiveProductInfo from './DescriptiveProductInfo.jsx';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { toHaveTextContent, toHaveStyle } from '@testing-library/jest-dom';
