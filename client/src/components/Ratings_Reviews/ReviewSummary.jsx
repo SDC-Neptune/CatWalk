@@ -49,7 +49,7 @@ const ReviewSummary = ({data, filter, isFiltered, triggerFilter, removeFilter}) 
       <br></br>
       <span><b>Rating Breakdown</b></span>
       { isFiltered && (<div>{filter.join(',')} star reviews are being shown</div>)}
-      { isFiltered && (<div><button className='reviewButton' onClick={removeFilter}>Remove current filter</button></div>)}
+      { isFiltered && (<div><button className='reviewButton' onClick={removeFilter}>Remove all filters</button></div>)}
       <div className='ratingBars'>
         <div className='reviewBarText'>
           <span className='reviewText' onClick={triggerFilter}>5 stars </span>
