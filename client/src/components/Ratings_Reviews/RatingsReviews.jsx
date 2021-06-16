@@ -13,9 +13,12 @@ const RatingsReviews = ({props, productInfo}) => {
   const [reviewDetailData, setReviewDetailData] = useState();
   const [filter, setFilter] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [allRatings, setAllRatings] = useState('');
+
+  console.log(allRatings);
 
   const getAllReviews = () => {
-    axios.get(`/reviews/?product_id=${id}`)
+    axios.get(`/reviews/?product_id=${id}&count=75`)
       .then(({data}) => {
         setReviewDetailData(data);
       });
@@ -24,6 +27,9 @@ const RatingsReviews = ({props, productInfo}) => {
   useEffect(() => {
     setProductId(props.product_id);
     setData(props);
+    setAllRatings(() => {
+      return Number(props.ratings['1']) + Number(props.ratings['2']) + Number(props.ratings['3']) + Number(props.ratings['4']) + Number(props.ratings['5']);
+    });
   }, [props]);
 
   useEffect(() => {
@@ -72,6 +78,7 @@ const RatingsReviews = ({props, productInfo}) => {
           isFiltered={isFiltered}
           summaryData={data}
           productInfo={productInfo}
+          allRatings={allRatings}
         />
       </div>
     </div>

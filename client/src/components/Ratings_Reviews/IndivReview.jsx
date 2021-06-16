@@ -15,7 +15,7 @@ const IndivReview = ({detail}) => {
   const dateTimeFormat = new Date(detail.date);
 
   const handleHelpfulClick = () => {
-    setNoHelpful(noHelpful + 1);
+    setHelpful(helpful + 1);
     axios.put(`/reviews/${detail.review_id}/helpful`)
       .then(res => {
         console.log('SUCCESS', res);
@@ -65,7 +65,7 @@ const IndivReview = ({detail}) => {
       <br></br>
       <span className='helpful'> Helpful?
         <span>  <u onClick={() => { !disabled ? handleHelpfulClick() : null; setDisabled(true); }}>Yes</u>({helpful})</span>
-        <span>  <u onClick={() => { !disabled ? handleReportClick() : null; setDisabled(true); }}>No</u>({noHelpful})</span>
+        <span>  <u onClick={() => { !disabled ? setNoHelpful(noHelpful + 1) : null; setDisabled(true); }}>No</u>({noHelpful})</span>
       </span>
       <span className='report' onClick={() => { !repDisabled ? handleReportClick() : null; setRepDisabled(true); }}>Report</span>
     </div>
