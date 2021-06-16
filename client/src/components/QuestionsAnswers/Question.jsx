@@ -27,6 +27,9 @@ const Question = (props) => {
         if (res.status !== 200) {
           setHelpful(helpful - 1);
         }
+      })
+      .catch(err => {
+        console.error(err);
       });
   };
 
@@ -56,7 +59,6 @@ const Question = (props) => {
     getAnswersList(item.question_id);
   }, [productId]);
 
-  //console.log(item);
   return (
     <div id={item.question_id} className={`qa-question-container ${answerCount > 2 ? 'qa-scrollable' : ''}`}>
       <div className="qa-question qa-question-body">
@@ -64,8 +66,8 @@ const Question = (props) => {
         <div className='qa-r2'>
           <span className="qa-question  qa-helpful qa-r2">Helpful?</span>
           <button className="qa-span-btn qa-small-span qa-helpful" disabled={helpful > item.question_helpfulness} onClick={() => markAsHelpful(item.question_id)}> Yes </button>
-          <span className="qa-r2 qa-helpful qa-border">({item.question_helpfulness}) </span>
-          <span className="qa-question qa-r2 qa-report" onClick={() => handleReport(item.question_id)}>{isReported}</span>
+          <span className="qa-r2 qa-helpful qa-border">({helpful}) </span>
+          <button className="qa-r2 qa-span-btn qa-add-answer-btn " onClick={() => answerModalHandler(item)}>Add Answer</button>
         </div>
       </div>
       <div className="qa-answer-container">

@@ -1045,7 +1045,7 @@ progress::-webkit-progress-value {
 }
 .qa-border {
   padding-right: 8px;
-  border-right: solid rgba(0, 128, 0, 0.521);
+  border-right: solid var(--main-color);
   border-right-width: 2px;
 }
 
@@ -1081,7 +1081,7 @@ progress::-webkit-progress-value {
   justify-content: space-between;
 }
 .qa-question-container {
-  border-bottom: solid rgba(0, 128, 0, 0.521);
+  border-bottom: solid var(--main-color);
   margin: 4%;
   padding: 15px;
 }
