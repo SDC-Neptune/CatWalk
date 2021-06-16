@@ -139,7 +139,6 @@ const App = () => {
       <RatingsReviews props={productReviews}
         productInfo={productInfo}
       />
-      <CartList />
     </div>);
 };
 
