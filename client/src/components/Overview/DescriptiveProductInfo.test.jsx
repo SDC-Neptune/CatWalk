@@ -1,33 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import DescriptiveProductInfo from './DescriptiveProductInfo.jsx';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { toHaveTextContent, toHaveStyle } from '@testing-library/jest-dom';
+import { productId, productInfo } from './OverviewSampleTestData.js';
 //explore @testing-library/user-event for simulating user events
-
-const productId = 19089;
-const productInfo =
-{
-  'id': 19089,
-  'campus': 'hr-rfe',
-  'name': 'Camo Onesie',
-  'slogan': 'Blend in to your crowd',
-  'description': 'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.',
-  'category': 'Jackets',
-  'default_price': '140.00',
-  'created_at': '2021-02-23T19:24:34.450Z',
-  'updated_at': '2021-02-23T19:24:34.450Z',
-  'features': [
-    {
-      'feature': 'Fabric',
-      'value': 'Canvas'
-    },
-    {
-      'feature': 'Buttons',
-      'value': 'Brass'
-    }
-  ]
-};
 
 describe('descriptive product info tests', () => {
 
