@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 import NewReviewPopUp from './NewReviewPopUp.jsx';
 
-const ReviewDetail = ({detail, filter, isFiltered, summaryData, productInfo}) => {
+const ReviewDetail = ({detail, filter, isFiltered, summaryData, productInfo, allRatings}) => {
   if (!detail) {
     return 'Still loading';
   }
@@ -119,7 +119,7 @@ const ReviewDetail = ({detail, filter, isFiltered, summaryData, productInfo}) =>
 
   return (
     <div className='reviewDetail'>
-      <div className='singleReviewTitle'>{detail.count} reviews, sorted by
+      <div className='singleReviewTitle'>{allRatings || 0} reviews, sorted by
         <div className='dropdown'>
           <button className='dropdownbtn'>
             <u>{sorted}</u>
@@ -133,7 +133,12 @@ const ReviewDetail = ({detail, filter, isFiltered, summaryData, productInfo}) =>
         </div>
       </div>
       <div className='allSingleReviews'>
-        {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
+        {newReview && (<NewReviewPopUp
+          props={detail}
+          handleChange={showModal}
+          summaryData={summaryData}
+          productInfo={productInfo}
+        />)}
         {!isFiltered && count}
         {isFiltered && filterReviews}
       </div>

@@ -7,8 +7,6 @@ const RelatedProducts = ({
   productId,
   setProductId,
   allRelatedProducts,
-  allRelatedProductsDetails,
-  setAllRelatedProductsDetails,
   allRelatedProductsStylesDetails,
   setAllRelatedProductsStylesDetails
 }) => {
@@ -54,7 +52,6 @@ const RelatedProducts = ({
     setCurData(obj);
   }, [productId]);
 
-
   useEffect(() => {
     const tempRelatedData = [];
     allRelatedProducts.forEach((item) => {
@@ -66,17 +63,16 @@ const RelatedProducts = ({
           obj.name = data.name;
           obj.category = data.category;
 
-          setAllRelatedProductsDetails(previous => [...previous, data]);
           axios.get(`/products/${item}/styles`)
             .then(({data}) => {
               obj.originalPrice = data.results[0].original_price;
               obj.currentPrice = data.results[0].sale_price;
               obj.img = data.results[0].photos[0].url;
               setAllRelatedProductsStylesDetails(previous => [...previous, data]);
-              axios.get(`/reviews/meta/?product_id=${item}`)
-                .then(({data}) => {
-                  obj.ratings = starCalc(data.ratings);
-                });
+            });
+          axios.get(`/reviews/meta/?product_id=${item}`)
+            .then(({data}) => {
+              obj.ratings = starCalc(data.ratings);
             });
         });
       tempRelatedData.push(obj);
@@ -99,8 +95,6 @@ const RelatedProducts = ({
         setProductId={setProductId}
         finalData={finalData}
         curData={curData}
-        allRelatedProductsDetails={allRelatedProductsDetails}
-        setAllRelatedProductsDetails={setAllRelatedProductsDetails}
         featureData={featureData}
         setFeatureData={setFeatureData}
         setCompareProd={setCompareProd}

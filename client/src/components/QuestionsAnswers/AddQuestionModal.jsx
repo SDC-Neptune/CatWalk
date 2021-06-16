@@ -7,6 +7,8 @@ const AddQuestionModal = ({ questionModalOpen, setQuestionModalOpen, productId, 
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState('Submit');
+
   if (!questionModalOpen) {
     return null;
   }
@@ -18,7 +20,7 @@ const AddQuestionModal = ({ questionModalOpen, setQuestionModalOpen, productId, 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //I 100% took this from stackoverflow
+    //I 100% took this regex from stackoverflow
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const invalidEmail = !email || !emailRegex.test(email.toLowerCase());
     if (!question || !nickname || invalidEmail) {
@@ -43,8 +45,10 @@ const AddQuestionModal = ({ questionModalOpen, setQuestionModalOpen, productId, 
         product_id: Number(productId)
       }).then((res) => {
         console.log(res.data);
+        setIsSubmitted('Submitted');
       }).catch(err => {
         console.error(err);
+        setIsSubmitted('ERROR');
       });
     }
 
@@ -96,7 +100,7 @@ const AddQuestionModal = ({ questionModalOpen, setQuestionModalOpen, productId, 
               }}></input><br></br>
             <label className="qa-modal-warning">For authentication reasons. You will not be emailed.</label> <br></br>
           </div>
-          <button className="qa-modal-submit reviewButton" type="submit" value="Submit">Submit</button>
+          <button className="qa-modal-submit reviewButton" type="submit" value="Submit">{isSubmitted}</button>
           {errorMsg && <div className="required">{errorMsg}</div>}
         </form>
       </div>

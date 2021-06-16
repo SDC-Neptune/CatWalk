@@ -7,6 +7,7 @@ const AddAnswerModal = ({ answerModalOpen, setAnswerModalOpen, questionData, pro
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState('Submit');
 
   if (!answerModalOpen) {
     return null;
@@ -39,11 +40,14 @@ const AddAnswerModal = ({ answerModalOpen, setAnswerModalOpen, questionData, pro
         email: email,
       }).then((res) => {
         console.log(res.data);
+        setIsSubmitted('Submitted');
       }).catch(err => {
         console.error(err);
+        setIsSubmitted('ERROR');
       });
     }
   };
+
   return (
     <div className="modal-overlay qa-modal">
       <div className="modal qa-modal">
@@ -91,7 +95,7 @@ const AddAnswerModal = ({ answerModalOpen, setAnswerModalOpen, questionData, pro
               }}></input><br></br>
             <label className="qa-modal-warning">For authentication reasons. You will not be emailed.</label> <br></br>
           </div>
-          <button className="qa-modal-submit reviewButton" type="submit" value="Submit">Submit</button>
+          <button className="qa-modal-submit reviewButton" type="submit" value="Submit">{isSubmitted}</button>
           {errorMsg && <div className="required">{errorMsg}</div>}
         </form>
       </div>

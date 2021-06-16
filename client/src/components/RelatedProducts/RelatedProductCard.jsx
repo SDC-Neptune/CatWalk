@@ -8,7 +8,6 @@ const RelatedProductCard = ({
   setModalOpen,
   setCompareProd,
   setFeatureData,
-  setAllRelatedProductsDetails
 }) => {
 
   const compareClickHandler = (e) => {
@@ -18,7 +17,6 @@ const RelatedProductCard = ({
   };
 
   const newProductClickHandler = (e) => {
-    setAllRelatedProductsDetails([]);
     setFeatureData([]);
     setCompareProd('');
     setProductId(item.id);
