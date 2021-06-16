@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ReviewPics from './ReviewPics.jsx';
 
 const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
   const [rating, setRating] = useState(0);
@@ -11,7 +12,8 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
   const [body, setBody] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
-  const [currentSelect, setCurrentSelect] = useState('None Selected')
+  const [currentSelect, setCurrentSelect] = useState('None Selected');
+  const [pics, setPics] = useState([]);
 
   const key = {
     Fit: {
@@ -57,7 +59,7 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
       5: 'Too wide',
     }
   }
-
+console.log(pics);
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -137,7 +139,6 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
         </div>
         <div>{currentSelect}</div>
         {!summaryData ? '' : Object.keys(summaryData.characteristics).map(item => {
-          console.log(Object.keys(summaryData.characteristics))
           return (
             <div key={item}>
               <span>{item}</span>
@@ -199,10 +200,22 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
           </div>
           <div>
             <span>Review Body</span>
-            <input name='body' type='text' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={e => {
+            <textarea name='body' type='text' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={e => {
                 setBody(e.target.value);
                 setErrorMsg('');
-              }}></input>
+              }}></textarea>
+          </div>
+          <div>
+          <input type="image" onChange={(e) => {
+            setPics([...pics, e.target.value])
+          }} />
+          <div className='stackPics'>
+            {pics.map(image => {
+              return (
+                <ReviewPics key={image} image={image}/>
+              );
+            })}
+          </div>
           </div>
           <div>
             <span>Nickname</span>
