@@ -80,20 +80,8 @@ body {
   transform: rotate(45deg);
   height: 30px;
   width: 12px;
-  border-bottom: 7px solid rgb(48, 175, 48);
-  border-right: 7px solid rgb(48, 175, 48);
-  position: absolute;
-  top: 2px;
-  left: 65px;
-}
-
-.selected-style-unchecked {
-  display: inline-block;
-  transform: rotate(45deg);
-  height: 30px;
-  width: 12px;
-  border-bottom: 7px solid transparent;
-  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--main-color);
+  border-right: 7px solid var(--main-color);
   position: absolute;
   top: 2px;
   left: 65px;
@@ -241,13 +229,13 @@ body {
 
 .select-size, .choose-quantity, .add-to-bag-button {
   padding:0.5em 3em;
-  border:0.16em solid rgba(0, 128, 0, 0.39);
-  color:rgba(0, 128, 0, 0.521);
+  border:0.16em solid var(--main-color);
+  color:var(--main-color);
   text-align:center;
 }
 
 .select-size:hover, .choose-quantity:hover, .add-to-bag-button:hover {
-  color:rgba(0, 128, 0);
+  color:var(--main-color);
   font-weight: bolder;
   border-color:black;
 }
@@ -269,7 +257,7 @@ body {
 }
 
 #added-to-cart-success-message {
-  color: green;
+  color: var(--main-color);
   width: 150px;
   position: absolute;
   margin-top: 120px;
