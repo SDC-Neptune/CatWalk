@@ -9,7 +9,6 @@ class ExpandedViewModal extends React.Component {
     };
     this.handleClickOnThumbnail = this.handleClickOnThumbnail.bind(this);
     this.toggleZoom = this.toggleZoom.bind(this);
-    this.imageZoom = this.imageZoom.bind(this);
     this.moveLens = this.moveLens.bind(this);
     this.getCursorPos = this.getCursorPos.bind(this);
   }
