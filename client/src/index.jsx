@@ -8,11 +8,14 @@ import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
 import MockComponent from './MockComponent.jsx';
+import CartList from './components/Overview/CartList.jsx';
+
 
 const App = () => {
 
+  const [productId, setProductId] = useState('19089');
   // const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
-  const [productId , setProductId] = useState('19089');
+
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
@@ -45,14 +48,12 @@ const App = () => {
       .then(({data}) => setAllRelatedProducts([...new Set(data)]));
   };
 
-
   const getAllReviewsMeta = (id) => {
     axios.get(`/reviews/meta/?product_id=${id}`)
       .then(({data}) => {
         setProductReviews(data);
       });
   };
-
 
   const getQuestionsList = (id) => {
     axios.get(`/qa/questions?product_id=${id}`)
@@ -89,7 +90,6 @@ const App = () => {
     getAllReviewsMeta(productId);
     getQuestionsList(productId);
     // getAnswersList(questionData.question_id);
-    // getCart(); //empty list
   }, [productId]);
 
 
@@ -138,7 +138,7 @@ const App = () => {
         productId={productId}
         productInfo={productInfo} />
       <RatingsReviews props={productId, productReviews}/>
-      {/* <MockComponent /> */}
+      <CartList productId={productId}/>
     </div>);
 };
 

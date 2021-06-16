@@ -143,7 +143,7 @@ class AddToCart extends React.Component {
             return <option key={index} value={sku.size}>{sku.size}</option>;
           })}
         </select>
-        <select className="choose-quantity" id="select-quantity" role="choose-quantity" onChange={this.updateSelectedQuantity}>
+        <select className="choose-quantity" id="select-quantity" role="choose-quantity" data-testid="choose-quantity" onChange={this.updateSelectedQuantity}>
           <option disabled value="">-</option>
           {this.props.quantity > 0 && this.props.quantities.map((quantity) => {
             return <option key={quantity} value={quantity}>{quantity}</option>;

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Stars from '../Ratings_Reviews/Stars.jsx';
 
 const RelatedProductCard = ({
   item,
@@ -48,11 +49,7 @@ const RelatedProductCard = ({
           </span>
         </p>
         <div style={{display: 'flex', marginBottom: '15px'}}>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
+          <Stars number={(item.ratings) * 20}/>
         </div>
       </div>
     </div>

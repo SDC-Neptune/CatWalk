@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Stars = ({number}) => {
+const Stars = ({number, name}) => {
   const [percentage, setPercent] = useState(85);
 
   useEffect(() => {

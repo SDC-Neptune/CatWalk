@@ -276,6 +276,7 @@ body {
 }
 
 .slogan {
+  font-family: cursive;
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px;
@@ -738,8 +739,25 @@ font-size: 1.2rem;
 }
 
 .reviewBarText {
+  display: inline-flex;
   font-size: 13pt;
+  justify-content: center;
+  align-items: center;
+}
+.reviewText {
+  flex: 0 0 auto;
+  width: 60px;
   text-decoration: underline;
+}
+.reviewBarFill {
+  flex: 0 1 auto;
+}
+.reviewCount {
+  flex: 0 1 auto;
+}
+
+.charStyle {
+  padding-bottom: 25px;
 }
 
 progress {
@@ -841,6 +859,8 @@ progress::-webkit-progress-value {
 .indivReviewTitle {
   font-size: 24px;
   font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .indivStar {

@@ -11,7 +11,8 @@ const ReviewDetail = ({detail}) => {
   const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
   const [sorted, setSorted] = useState('relevance');
   const [newReview, setNewReview] = useState(false);
-  const [count, setCount] = useState(() => {
+
+  const loadReviews = () => {
     if (detail.results.length <= 2) {
       return detail.results.map((item) => {
         return (
@@ -26,25 +27,12 @@ const ReviewDetail = ({detail}) => {
         );
       });
     }
-  });
+  };
+
+  const [count, setCount] = useState(loadReviews());
 
   useEffect(() => {
-    setCount(() => {
-      if (detail.results.length <= 2) {
-        return detail.results.map((item) => {
-          return (
-            <IndivReview key={item.review_id} detail={item}/>
-          );
-        });
-      }
-      if (detail.results.length > 2) {
-        return detail.results.slice(0, 2).map((item) => {
-          return (
-            <IndivReview key={item.review_id} detail={item}/>
-          );
-        });
-      }
-    });
+    setCount(loadReviews());
   }, [detail]);
 
   useEffect(() => {

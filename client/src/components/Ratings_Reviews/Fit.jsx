@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Fit = ({chars}) => (
-  <div>
+  <div className='charStyle'>
     <b>Fit</b>
     <div>
       <input className='feedbackChars' readOnly type="range" min="1" max="5" value={chars.characteristics.Fit ? chars.characteristics.Fit.value : '2.5'} name="fit"></input>
