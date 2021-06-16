@@ -4,7 +4,7 @@ import ReviewDetail from './ReviewDetail.jsx';
 import axios from 'axios';
 
 
-const RatingsReviews = ({props}) => {
+const RatingsReviews = ({props, productInfo}) => {
   if (!props) {
     return 'Still Loading';
   }
@@ -18,7 +18,6 @@ const RatingsReviews = ({props}) => {
     axios.get(`/reviews/?product_id=${id}`)
       .then(({data}) => {
         setReviewDetailData(data);
-        console.log(data);
       });
   };
 
@@ -71,6 +70,8 @@ const RatingsReviews = ({props}) => {
         <ReviewDetail detail={reviewDetailData}
           filter={filter}
           isFiltered={isFiltered}
+          summaryData={data}
+          productInfo={productInfo}
         />
       </div>
     </div>

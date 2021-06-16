@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 import NewReviewPopUp from './NewReviewPopUp.jsx';
 
-const ReviewDetail = ({detail, filter, isFiltered}) => {
+const ReviewDetail = ({detail, filter, isFiltered, summaryData, productInfo}) => {
   if (!detail) {
     return 'Still loading';
   }
@@ -139,7 +139,12 @@ const ReviewDetail = ({detail, filter, isFiltered}) => {
       </div>
       {moreReview && <button className='reviewButton' onClick={addReviews} >MORE REVIEWS</button>}
       {isReview && <button className='reviewButton' onClick={addNewReview}>ADD A REVIEW + </button>}
-      {newReview && (<NewReviewPopUp props={detail} handleChange={showModal}/>)}
+      {newReview && (<NewReviewPopUp
+        props={detail}
+        handleChange={showModal}
+        summaryData={summaryData}
+        productInfo={productInfo}
+      />)}
     </div>
   );
 };

@@ -138,7 +138,9 @@ const App = () => {
       <QuestionsAnswers questionData={questionData}
         productId={productId}
         productInfo={productInfo} />
-      <RatingsReviews props={productReviews}/>
+      <RatingsReviews props={productReviews}
+        productInfo={productInfo}
+      />
       {/* <MockComponent /> */}
     </div>);
 };

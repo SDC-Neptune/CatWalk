@@ -997,6 +997,20 @@ progress::-webkit-progress-value {
   padding: 10px;
 }
 
+#ratingNew {
+  font-size: 30pt;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
+
 
 /* QUESTIONS AND ANSWERS */
 .answer-photo {
