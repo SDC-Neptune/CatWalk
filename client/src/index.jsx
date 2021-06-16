@@ -15,7 +15,6 @@ const App = () => {
   // const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
 
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
-  const [allRelatedProductsDetails, setAllRelatedProductsDetails] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
@@ -68,18 +67,6 @@ const App = () => {
       .catch((err) => console.log('Error: ', err));
   };
 
-  // Add a Review
-  // Mark Review as Helpful
-  // Report Review
-  // Add a Question
-  // Add an Answer
-  // Mark Question as Helpful
-  // Report Question
-  // Mark Answer as Helpful
-  // Report Answer
-  // Add to Cart
-  // Report Answer
-  // Log an Interaction
 
   useEffect(() => {
     // getAllProducts();
@@ -123,14 +110,12 @@ const App = () => {
 
   return (
     <div onClick={handleAllClicks}>
-      <Navbar />
+      <Navbar setProductId={setProductId} />
       <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts
         productId={productId}
         setProductId={setProductId}
         allRelatedProducts={allRelatedProducts}
-        allRelatedProductsDetails={allRelatedProductsDetails}
-        setAllRelatedProductsDetails={setAllRelatedProductsDetails}
         allRelatedProductsStylesDetails={allRelatedProductsStylesDetails}
         setAllRelatedProductsStylesDetails={setAllRelatedProductsStylesDetails}
       />
