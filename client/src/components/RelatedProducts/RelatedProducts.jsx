@@ -17,7 +17,20 @@ const RelatedProducts = ({
   const [curData, setCurData] = useState([]);
   const [featureData, setFeatureData] = useState([]);
   const [compareProd, setCompareProd] = useState('');
+  const [totalStars, setTotalStars] = useState(null);
+  const [rating, setRating] = useState(null);
 
+  const starCalc = (obj) => {
+    let totalRating = 0;
+    if (Object.keys(obj).length === 0) {
+      return totalRating;
+    }
+    for (let key in obj) {
+      totalRating += Number(key) * Number(obj[key]);
+    }
+    let totalReviews = Object.values(obj).reduce((acc, val) => Number(acc) + Number(val));
+    return Math.round(totalRating / totalReviews * 10) / 10;
+  };
 
   useEffect(() => {
     let obj = {};
@@ -32,6 +45,10 @@ const RelatedProducts = ({
             obj.originalPrice = data.results[0].original_price;
             obj.currentPrice = data.results[0].sale_price;
             obj.img = data.results[0].photos[0].url;
+            axios.get(`/reviews/meta/?product_id=${productId}`)
+              .then(({data}) => {
+                obj.ratings = starCalc(data.ratings);
+              });
           });
       });
     setCurData(obj);
@@ -56,6 +73,10 @@ const RelatedProducts = ({
               obj.currentPrice = data.results[0].sale_price;
               obj.img = data.results[0].photos[0].url;
               setAllRelatedProductsStylesDetails(previous => [...previous, data]);
+              axios.get(`/reviews/meta/?product_id=${item}`)
+                .then(({data}) => {
+                  obj.ratings = starCalc(data.ratings);
+                });
             });
         });
       tempRelatedData.push(obj);

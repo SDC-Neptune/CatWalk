@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IndivReview from './IndivReview.jsx';
 import NewReviewPopUp from './NewReviewPopUp.jsx';
 
-const ReviewDetail = ({detail}) => {
+const ReviewDetail = ({detail, filter, isFiltered, summaryData, productInfo}) => {
   if (!detail) {
     return 'Still loading';
   }
@@ -11,7 +11,9 @@ const ReviewDetail = ({detail}) => {
   const [isReview, setIsReview] = useState(detail.results.length > 0 ? true : false);
   const [sorted, setSorted] = useState('relevance');
   const [newReview, setNewReview] = useState(false);
-  const [count, setCount] = useState(() => {
+  const [filterReviews, setFilterReviews] = useState();
+
+  const loadReviews = () => {
     if (detail.results.length <= 2) {
       return detail.results.map((item) => {
         return (
@@ -26,31 +28,31 @@ const ReviewDetail = ({detail}) => {
         );
       });
     }
-  });
+  };
+
+  const [count, setCount] = useState(loadReviews());
 
   useEffect(() => {
-    setCount(() => {
-      if (detail.results.length <= 2) {
-        return detail.results.map((item) => {
-          return (
-            <IndivReview key={item.review_id} detail={item}/>
-          );
-        });
-      }
-      if (detail.results.length > 2) {
-        return detail.results.slice(0, 2).map((item) => {
-          return (
-            <IndivReview key={item.review_id} detail={item}/>
-          );
-        });
-      }
-    });
+    setCount(loadReviews());
   }, [detail]);
 
   useEffect(() => {
     setMoreReview(detail.results.length === count.length ? false : true);
     setNoReview(detail.results.length > 0 ? false : true);
   }, [count]);
+
+  useEffect(() => {
+    setFilterReviews(() => {
+      if (isFiltered) {
+        return count.map((item) => {
+          if (filter.includes(item.props.detail.rating)) {
+            return item;
+          }
+          return null;
+        });
+      }
+    });
+  }, [filter, count]);
 
   const sortBySelect = (tempCount = count, value = sorted) => {
     let newSort = [...tempCount];
@@ -117,7 +119,7 @@ const ReviewDetail = ({detail}) => {
 
   return (
     <div className='reviewDetail'>
-      <h3>{detail.count} reviews, sorted by
+      <div className='singleReviewTitle'>{detail.count} reviews, sorted by
         <div className='dropdown'>
           <button className='dropdownbtn'>
             <u>{sorted}</u>
@@ -129,14 +131,20 @@ const ReviewDetail = ({detail}) => {
           </div>
            ⇓
         </div>
-      </h3>
+      </div>
       <div className='allSingleReviews'>
         {noReview && <button className='reviewButton'>ADD A REVIEW + </button>}
-        {count}
+        {!isFiltered && count}
+        {isFiltered && filterReviews}
       </div>
       {moreReview && <button className='reviewButton' onClick={addReviews} >MORE REVIEWS</button>}
       {isReview && <button className='reviewButton' onClick={addNewReview}>ADD A REVIEW + </button>}
-      {newReview && (<NewReviewPopUp props={detail} handleChange={showModal}/>)}
+      {newReview && (<NewReviewPopUp
+        props={detail}
+        handleChange={showModal}
+        summaryData={summaryData}
+        productInfo={productInfo}
+      />)}
     </div>
   );
 };

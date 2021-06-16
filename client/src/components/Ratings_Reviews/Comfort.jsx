@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Comfort = ({chars}) => {
 
   return (
-
-    <div>
+    <div className='charStyle'>
       <b>Comfort</b>
       <div>
         <input className='feedbackChars' readOnly type="range" min="1" max="5" value={chars.characteristics.Comfort ? chars.characteristics.Comfort.value : '2.5'} name="comfort"></input>
