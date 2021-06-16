@@ -110,7 +110,7 @@ const App = () => {
 
   return (
     <div onClick={handleAllClicks}>
-      <Navbar />
+      <Navbar setProductId={setProductId} />
       <Overview productId={productId} productInfo={productInfo} productStyles={productStyles} productReviews={productReviews}/>
       <RelatedProducts
         productId={productId}
