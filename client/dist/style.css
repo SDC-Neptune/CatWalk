@@ -23,7 +23,7 @@ body {
 /* OVERVIEW */
 
 .overview {
-  border-bottom: solid lightgray;
+  border-bottom: solid var(--main-color);
   display: grid;
   grid-template-columns: 4fr 3fr;
   grid-template-rows: 2fr 3fr 2fr;
