@@ -1,8 +1,6 @@
 :root {
-  /* --main-color: rgba(0, 34, 128, 0.678); */
-  /* --main-color: rgba(0, 81, 128, 0.521);
-  --main-color: rgba(128, 0, 11, 0.521); */
-  --main-color: rgb(123, 212, 123);
+  --main-color: rgb(116, 209, 116);
+  /* --main-color: rgb(167, 241, 167); */
   /* --secondary-color: rgb(58, 54, 54); */
 }
 
