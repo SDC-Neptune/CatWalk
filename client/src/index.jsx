@@ -75,7 +75,6 @@ const App = () => {
     // getAllReviews(productId);
     getAllReviewsMeta(productId);
     getQuestionsList(productId);
-    // getAnswersList(questionData.question_id);
   }, [productId]);
 
 
