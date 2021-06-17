@@ -35,8 +35,8 @@ class ExpandedViewModal extends React.Component {
       var result = document.getElementById('expanded-view-zoomed-image');
       var lens = document.getElementById('lens');
 
-      var cx = result.offsetWidth / lens.offsetWidth; // 420/100 ==> 4.2
-      var cy = result.offsetHeight / lens.offsetHeight; // 630/100 ==> 6.3
+      var cx = result.offsetWidth / lens.offsetWidth;
+      var cy = result.offsetHeight / lens.offsetHeight;
 
       result.style.backgroundImage = "url('" + img.src + "')";
 
@@ -44,11 +44,7 @@ class ExpandedViewModal extends React.Component {
 
       lens.addEventListener("mousemove", this.moveLens.bind(this, cx, cy));
       result.addEventListener("mousemove", this.moveLens.bind(this, cx, cy));
-
-    } else {
-      return;
     }
-
   }
 
   moveLens (cx, cy, e) {
@@ -60,24 +56,18 @@ class ExpandedViewModal extends React.Component {
 
       e.preventDefault();
 
-      /* Get the cursor's x and y positions: */
       var pos = this.getCursorPos(e);
 
-      /* Calculate the position of the lens: */
       var x = pos.x - (lens.offsetWidth / 2);
       var y = pos.y - (lens.offsetHeight / 2);
 
-      /* Prevent the lens from being positioned outside the image: */
       if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
       if (x < 0) {x = 0;}
       if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
       if (y < 0) {y = 0;}
 
-      /* Display what the lens "sees": */
       result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
 
-    } else {
-      return;
     }
   }
 

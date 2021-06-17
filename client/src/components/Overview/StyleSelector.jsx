@@ -80,7 +80,6 @@ class StyleSelector extends React.Component {
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '0'), row[0].style_id, row[0].original_price, row[0].sale_price, row[0].name, row[0].photos[0].thumbnail_url)}>
                     <img className="style-image" src={row[0].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '0') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '0') && <div className="selected-style-unchecked"></div>}
                 </div>
               </div>
             )
@@ -90,12 +89,10 @@ class StyleSelector extends React.Component {
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '0'), row[0].style_id, row[0].original_price, row[0].sale_price, row[0].name)}>
                     <img className="style-image" src={row[0].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '0') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '0') && <div className="selected-style-unchecked"></div>}
                 </div>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '1'), row[1].style_id, row[1].original_price, row[1].sale_price, row[1].name)}>
                     <img className="style-image" src={row[1].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '1') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '1') && <div className="selected-style-unchecked"></div>}
                 </div>
               </div>
             )
@@ -105,17 +102,14 @@ class StyleSelector extends React.Component {
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '0'), row[0].style_id, row[0].original_price, row[0].sale_price, row[0].name)}>
                     <img className="style-image" src={row[0].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '0') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '0') && <div className="selected-style-unchecked"></div>}
                 </div>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '1'), row[1].style_id, row[1].original_price, row[1].sale_price, row[1].name)}>
                     <img className="style-image" src={row[1].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '1') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '1') && <div className="selected-style-unchecked"></div>}
                 </div>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '2'), row[2].style_id, row[2].original_price, row[2].sale_price, row[2].name)}>
                     <img className="style-image" src={row[2].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '2') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '2') && <div className="selected-style-unchecked"></div>}
                 </div>
               </div>
             )
@@ -125,22 +119,18 @@ class StyleSelector extends React.Component {
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '0'), row[0].style_id, row[0].original_price, row[0].sale_price, row[0].name)}>
                     <img className="style-image" src={row[0].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '0') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '0') && <div className="selected-style-unchecked"></div>}
                 </div>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '1'), row[1].style_id, row[1].original_price, row[1].sale_price, row[1].name)}>
                     <img className="style-image" src={row[1].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '1') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '1') && <div className="selected-style-unchecked"></div>}
                 </div>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '2'), row[2].style_id, row[2].original_price, row[2].sale_price, row[2].name)}>
                     <img className="style-image" src={row[2].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '2') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '2') && <div className="selected-style-unchecked"></div>}
                 </div>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '3'), row[3].style_id, row[3].original_price, row[3].sale_price, row[3].name)}>
                     <img className="style-image" src={row[3].photos[0].thumbnail_url}></img>
                     {this.state.selectedStyle === (index + '3') && <div className="selected-style-checked"></div>}
-                    {this.state.selectedStyle !== (index + '3') && <div className="selected-style-unchecked"></div>}
                 </div>
               </div>
             )
