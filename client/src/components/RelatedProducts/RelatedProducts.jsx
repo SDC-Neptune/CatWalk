@@ -7,7 +7,6 @@ const RelatedProducts = ({
   productId,
   setProductId,
   allRelatedProducts,
-  allRelatedProductsStylesDetails,
   setAllRelatedProductsStylesDetails
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,8 +14,6 @@ const RelatedProducts = ({
   const [curData, setCurData] = useState([]);
   const [featureData, setFeatureData] = useState([]);
   const [compareProd, setCompareProd] = useState('');
-  const [totalStars, setTotalStars] = useState(null);
-  const [rating, setRating] = useState(null);
 
   const starCalc = (obj) => {
     let totalRating = 0;
