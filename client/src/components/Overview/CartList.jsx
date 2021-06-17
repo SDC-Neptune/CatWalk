@@ -7,13 +7,6 @@ const CartList = () => {
 
   const [cartItems, setCartItems] = useState([]);
 
-  useEffect(() => {
-    requests.getCart()
-      .then((results) => {
-        setCartItems(results.data);
-      });
-  }, []);
-
   useEffect( async () => {
     const results = await requests.getCart();
     setCartItems(results.data);
@@ -21,7 +14,7 @@ const CartList = () => {
 
   if (!cartItems.length) {
     return (
-      <p>Hello</p>
+      <div></div>
     );
   }
 
