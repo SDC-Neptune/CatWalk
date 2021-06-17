@@ -19,7 +19,6 @@ const App = () => {
   const [productStyles, setProductStyles] = useState([]);
   const [productReviews, setProductReviews] = useState(null);
   const [questionData, setQuestions] = useState([]);
-
   // const getAllProducts = () => {
   //   axios.get('/products')
   //     .then(({data}) => console.log(data));
@@ -51,8 +50,8 @@ const App = () => {
       });
   };
 
-  const getQuestionsList = (id) => {
-    axios.get(`/qa/questions?product_id=${id}`)
+  const getQuestionsList = (id, count = 75) => {
+    axios.get(`/qa/questions?product_id=${id}&count=${count}`)
       .then(({data}) =>
         setQuestions(data.results)
       );
