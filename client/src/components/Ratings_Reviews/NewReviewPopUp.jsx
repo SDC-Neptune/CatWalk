@@ -60,10 +60,9 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
     }
   }
 
-
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setPics([...pics, URL.createObjectURL(event.target.files[0])]);
+      //setPics([...pics, URL.createObjectURL(event.target.files[0])]);
     }
    }
 
@@ -240,9 +239,7 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
               }}></input><br/>
             <span className='auth'>For authentication reasons, you will not be emailed</span>
           </div>
-
           <br></br>
-
        </form>
        </div>
       </div>
