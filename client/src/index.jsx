@@ -12,7 +12,7 @@ import CartList from './components/Overview/CartList.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState('19089');
+  const [productId, setProductId] = useState('19200');
   // const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
 
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
@@ -21,7 +21,6 @@ const App = () => {
   const [productStyles, setProductStyles] = useState([]);
   const [productReviews, setProductReviews] = useState(null);
   const [questionData, setQuestions] = useState([]);
-
   // const getAllProducts = () => {
   //   axios.get('/products')
   //     .then(({data}) => console.log(data));
@@ -53,8 +52,8 @@ const App = () => {
       });
   };
 
-  const getQuestionsList = (id) => {
-    axios.get(`/qa/questions?product_id=${id}`)
+  const getQuestionsList = (id, count = 75) => {
+    axios.get(`/qa/questions?product_id=${id}&count=${count}`)
       .then(({data}) =>
         setQuestions(data.results)
       );
