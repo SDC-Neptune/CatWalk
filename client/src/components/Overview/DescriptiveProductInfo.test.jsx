@@ -3,7 +3,6 @@ import DescriptiveProductInfo from './DescriptiveProductInfo.jsx';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { toHaveTextContent, toHaveStyle } from '@testing-library/jest-dom';
 import { productId, productInfo } from './OverviewSampleTestData.js';
-//explore @testing-library/user-event for simulating user events
 
 describe('descriptive product info tests', () => {
 

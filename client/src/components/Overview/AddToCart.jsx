@@ -30,7 +30,6 @@ class AddToCart extends React.Component {
         message.id = 'no-selected-size-message';
         document.getElementById('checkout-cart').append(message);
       }
-      //Unable to determine how to dynamically open size dropdown.
     } else if (currentValueInDropdown !== '' && currentSize !== '' && selectedQuantity > 0) {
 
       if (document.getElementById('no-selected-size-message') !== null) {

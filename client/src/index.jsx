@@ -7,25 +7,16 @@ import SalesArea from './components/SalesArea.jsx';
 import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
-import MockComponent from './MockComponent.jsx';
-import CartList from './components/Overview/CartList.jsx';
 
 const App = () => {
 
   const [productId, setProductId] = useState('19089');
-  // const [productId, setProductId] = useState((Math.floor(Math.random() * (20000 - 19089 + 1)) + 19089).toString());
-
   const [allRelatedProducts, setAllRelatedProducts] = useState([]);
   const [allRelatedProductsStylesDetails, setAllRelatedProductsStylesDetails] = useState([]);
   const [productInfo, setProductInfo] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [productReviews, setProductReviews] = useState(null);
   const [questionData, setQuestions] = useState([]);
-
-  // const getAllProducts = () => {
-  //   axios.get('/products')
-  //     .then(({data}) => console.log(data));
-  // };
 
   const getProduct = (id) => {
     axios.get(`/products/${id}`)
@@ -53,8 +44,8 @@ const App = () => {
       });
   };
 
-  const getQuestionsList = (id) => {
-    axios.get(`/qa/questions?product_id=${id}`)
+  const getQuestionsList = (id, count = 75) => {
+    axios.get(`/qa/questions?product_id=${id}&count=${count}`)
       .then(({data}) =>
         setQuestions(data.results)
       );
@@ -68,14 +59,11 @@ const App = () => {
 
 
   useEffect(() => {
-    // getAllProducts();
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
-    // getAllReviews(productId);
     getAllReviewsMeta(productId);
     getQuestionsList(productId);
-    // getAnswersList(questionData.question_id);
   }, [productId]);
 
 

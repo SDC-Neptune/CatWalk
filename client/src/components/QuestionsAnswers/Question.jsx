@@ -15,6 +15,7 @@ const Question = (props) => {
   const [isReported, setIsReported] = useState('Report');
   const [showAllAnswers, setShowAllAnswers] = useState(false);
   const [changeName, setChangeName] = useState('See more answers');
+
   const getAnswersList = (id) => {
     axios.get(`/qa/questions/${id}/answers`)
       .then(({data}) => setAnswers(data.results));
@@ -39,7 +40,6 @@ const Question = (props) => {
         setIsReported('Reported');
       });
   };
-
 
   const sortAnswersList = () => {
     item = item.sort((a, b) => b.question_helpfulness - a.question_helpfulness);

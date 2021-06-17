@@ -5,7 +5,6 @@ import ReviewPics from './ReviewPics.jsx';
 import axios from 'axios';
 
 const IndivReview = ({detail}) => {
-  console.log(detail);
   const [recommend, setRecommend] = useState(detail.recommend ? true : false);
   const [isResponse, setIsResponse] = useState(detail.response ? true : false);
   const [helpful, setHelpful] = useState(Number(detail.helpfulness));
@@ -17,9 +16,6 @@ const IndivReview = ({detail}) => {
   const handleHelpfulClick = () => {
     setHelpful(helpful + 1);
     axios.put(`/reviews/${detail.review_id}/helpful`)
-      .then(res => {
-        console.log('SUCCESS', res);
-      })
       .catch(res => {
         console.log('FAILURE', res);
       });
@@ -27,9 +23,6 @@ const IndivReview = ({detail}) => {
 
   const handleReportClick = () => {
     axios.put(`/reviews/${detail.review_id}/report`)
-      .then(res => {
-        console.log('SUCCESS', res);
-      })
       .catch(res => {
         console.log('FAILURE', res);
       });
