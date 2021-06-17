@@ -66,11 +66,9 @@ const App = () => {
 
 
   useEffect(() => {
-    // getAllProducts();
     getProduct(productId);
     getProductStyles(productId);
     getRelatedProducts(productId);
-    // getAllReviews(productId);
     getAllReviewsMeta(productId);
     getQuestionsList(productId);
   }, [productId]);

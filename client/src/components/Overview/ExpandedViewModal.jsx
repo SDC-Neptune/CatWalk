@@ -47,7 +47,7 @@ class ExpandedViewModal extends React.Component {
     }
   }
 
-  moveLens (cx, cy, e) {
+  moveLens(cx, cy, e) {
 
     if (this.state.zoomMode) {
       var img = document.getElementById('expanded-view-non-zoomed-image');
@@ -61,22 +61,22 @@ class ExpandedViewModal extends React.Component {
       var x = pos.x - (lens.offsetWidth / 2);
       var y = pos.y - (lens.offsetHeight / 2);
 
-      if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-      if (x < 0) {x = 0;}
-      if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-      if (y < 0) {y = 0;}
+      if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
+      if (x < 0) { x = 0; }
+      if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
+      if (y < 0) { y = 0; }
 
       result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
 
     }
   }
 
-  getCursorPos (e) {
+  getCursorPos(e) {
     var a, x = 0, y = 0;
     var img = document.getElementById('expanded-view-non-zoomed-image');
 
     e = e || window.event;
-    
+
     a = img.getBoundingClientRect();
 
     x = e.pageX - a.left;
@@ -84,7 +84,7 @@ class ExpandedViewModal extends React.Component {
 
     x = x - window.pageXOffset;
     y = y - window.pageYOffset;
-    return {x : x, y : y};
+    return { x: x, y: y };
   }
 
   render() {
