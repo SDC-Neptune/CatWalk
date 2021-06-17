@@ -20,7 +20,6 @@ const AddQuestionModal = ({ questionModalOpen, setQuestionModalOpen, productId, 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //I 100% took this regex from stackoverflow
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const invalidEmail = !email || !emailRegex.test(email.toLowerCase());
     if (!question || !nickname || invalidEmail) {

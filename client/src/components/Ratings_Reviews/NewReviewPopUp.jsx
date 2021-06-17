@@ -62,7 +62,7 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      //setPics([...pics, URL.createObjectURL(event.target.files[0])]);
+      setPics([...pics, URL.createObjectURL(event.target.files[0])]);
     }
    }
 
@@ -122,14 +122,13 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
         <div className='newAboutTitle'>About the {productInfo.name}</div>
         <div>
           {[...Array(5)].map((star, index) => {
-            index += 1; //start at 1, since array is 0 indexed
+            index += 1;
             return (
               <button
                 id='ratingNew'
                 key={index}
                 className={index <= (hover || rating) ? 'on' : 'off'}
-                //hover is set to current place where mouse is hovering
-                onClick={() => setRating(index)} //rating is not officially set until clicked
+                onClick={() => setRating(index)}
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(rating)}
               > ★ </button>
