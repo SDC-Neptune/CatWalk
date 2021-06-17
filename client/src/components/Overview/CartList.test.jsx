@@ -4,12 +4,6 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { toHaveTextContent, toHaveStyle } from '@testing-library/jest-dom';
 import { requests } from './requests.js';
 
-/* Helpful docs:
-https://jestjs.io/docs/mock-functions
-https://codesandbox.io/s/5-testing-async-code-dfyq4?file=/src/api.ts:0-170
-https://www.youtube.com/watch?v=ZmVBCpefQe8&ab_channel=Headway
-*/
-
 describe ('cartList tests', () => {
 
   it('should correctly render the count from the 2nd id in the cart', async () => {

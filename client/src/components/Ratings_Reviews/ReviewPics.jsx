@@ -13,6 +13,10 @@ const ReviewPics = ({image}) => {
     return null;
   }
 
+  if (image.includes('blob')) {
+    return null;
+  }
+
   const showModal = (e) => {
     setShowImage(!showImage);
   };

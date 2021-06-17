@@ -59,7 +59,13 @@ const NewReviewPopUp = ({props, handleChange, summaryData, productInfo}) => {
       5: 'Too wide',
     }
   }
-console.log(pics);
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setPics([...pics, URL.createObjectURL(event.target.files[0])]);
+    }
+   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -94,14 +100,13 @@ console.log(pics);
         product_id: productInfo.id,
         rating: Number(rating),
         summary: input,
-        // eslint-disable-next-line camelcase
+        photos: pics,
         body: body,
         recommend: rec,
         name: nickname,
         email: email,
         characteristics: chars,
       }).then((res) => {
-        console.log('I SUCCEEDED!!', res);
         handleChange();
       }).catch(err => {
         console.error('I DID NOT WORK', err);
@@ -110,37 +115,41 @@ console.log(pics);
 
   return (
     <div className='modal-overlay-newReview'>
+    <button className='reviewButton' onClick={handleChange}>X</button>
       <div className='modal-newReview'>
-        <button className='reviewButton' onClick={handleChange}>X</button>
-        <div>Write Your Review</div>
-        <div>About the {productInfo.name}</div>
+        <div className='revTitleSection'>
+        <div className='newReviewTitle'>Write Your Review</div>
+        <div className='newAboutTitle'>About the {productInfo.name}</div>
         <div>
           {[...Array(5)].map((star, index) => {
-            index += 1; //start at 1, since array is 0 indexed
+            index += 1;
             return (
               <button
                 id='ratingNew'
                 key={index}
                 className={index <= (hover || rating) ? 'on' : 'off'}
-                //hover is set to current place where mouse is hovering
-                onClick={() => setRating(index)} //rating is not officially set until clicked
+                onClick={() => setRating(index)}
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(rating)}
               > ★ </button>
             );
           })}
         </div>
-        <div>
-          <span>Would you recommend this product?</span>
+        <button className='reviewButton' id='newReviewSubmit' type='submit' onClick={handleSubmit}>Submit</button>
+        {errorMsg && <div className='required'>{errorMsg}</div>}
+        </div>
+        <div className='allNewRev'>
+        <div className='recProduct'>
+          <span>Would you recommend this product?</span> <br/>
           <input type='radio' name='recommend' value='Yes' onClick={() => setRec(true)}/>
           <label>Yes</label>
           <input type='radio' name='recommend' value='No' onClick={() => setRec(false)}/>
           <label>No</label>
-        </div>
-        <div>{currentSelect}</div>
+        </div><br/>
+        <div className='currentSelect'>{currentSelect}</div>
         {!summaryData ? '' : Object.keys(summaryData.characteristics).map(item => {
           return (
-            <div key={item}>
+            <div key={item} className='charList'>
               <span>{item}</span>
               <input type='radio' name={item} value='1' onClick={() => {
                 setChars(() => {
@@ -189,26 +198,23 @@ console.log(pics);
               <label>5</label>
             </div>
           );
-        })}
+        })} <br/>
         <form name='reviewFields'>
-          <div>
-            <span>Review Summary</span>
+          <div className='revSummary'>
+            <span>Title: </span>
             <input name='summary' type='text' maxLength='60' placeholder='Example: Best purchase ever!' required onChange={e => {
                 setInput(e.target.value);
                 setErrorMsg('');
               }}></input>
           </div>
-          <div>
-            <span>Review Body</span>
+          <div className='revBody'>
             <textarea name='body' type='text' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={e => {
                 setBody(e.target.value);
                 setErrorMsg('');
               }}></textarea>
           </div>
-          <div>
-          <input type="image" onChange={(e) => {
-            setPics([...pics, e.target.value])
-          }} />
+          <div className='revFile'>
+          {pics.length === 5 ? false : (<input type='file' onChange={onImageChange} className='filetype' multiple/>)}
           <div className='stackPics'>
             {pics.map(image => {
               return (
@@ -217,25 +223,24 @@ console.log(pics);
             })}
           </div>
           </div>
-          <div>
-            <span>Nickname</span>
+          <div className='revNickname'>
+            <span>Nickname: </span>
             <input name='nickname' type='text' maxLength='60' placeholder='Example: jackson11!' required onChange={e => {
                 setNickname(e.target.value);
                 setErrorMsg('');
               }}></input>
           </div>
-          <div>
-            <span>Email</span>
+          <div className='revEmail'>
+            <span>Email: </span>
             <input name='email' type='email' maxLength='60' placeholder='Example: jackson11@email.com' required onChange={e => {
                 setEmail(e.target.value);
                 setErrorMsg('');
-              }}></input>
-            <span>For authentication reasons, you will not be emailed</span>
+              }}></input><br/>
+            <span className='auth'>For authentication reasons, you will not be emailed</span>
           </div>
           <br></br>
-          <button className='reviewButton' type='submit' onClick={handleSubmit}>Submit</button>
-          {errorMsg && <div className='required'>{errorMsg}</div>}
        </form>
+       </div>
       </div>
     </div>
   );
