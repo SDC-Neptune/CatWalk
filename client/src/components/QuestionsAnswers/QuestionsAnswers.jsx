@@ -66,7 +66,7 @@ const QuestionsAnswers = ({productId, questionData, productInfo }) => {
         { sortQuestionsList(),
         questionData
           .filter((item) => {
-            if (!searchItem && searchItem.length < 3) {
+            if (searchItem.length < 3) {
               return true;
             } else {
               return item.question_body.toLowerCase().includes(searchItem.toLowerCase());
