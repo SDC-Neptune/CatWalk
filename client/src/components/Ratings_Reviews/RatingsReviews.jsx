@@ -15,8 +15,6 @@ const RatingsReviews = ({props, productInfo}) => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [allRatings, setAllRatings] = useState('');
 
-  console.log(allRatings);
-
   const getAllReviews = () => {
     axios.get(`/reviews/?product_id=${id}&count=75`)
       .then(({data}) => {
