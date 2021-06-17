@@ -1,8 +1,7 @@
 :root {
-  /* --main-color: rgba(0, 34, 128, 0.678); */
-  /* --main-color: rgba(0, 81, 128, 0.521);
-  --main-color: rgba(128, 0, 11, 0.521); */
-  --main-color: rgba(128, 0, 64, 0.521);
+  --main-color: rgb(116, 209, 116);
+  /* --main-color: rgb(167, 241, 167); */
+  /* --secondary-color: rgb(58, 54, 54); */
 }
 
 body {
@@ -22,7 +21,7 @@ body {
 /* OVERVIEW */
 
 .overview {
-  border-bottom: solid lightgray;
+  border-bottom: solid var(--main-color);
   display: grid;
   grid-template-columns: 4fr 3fr;
   grid-template-rows: 2fr 3fr 2fr;
@@ -480,7 +479,7 @@ h3 {
 /* Related Products */
 
 .navbar {
-  background-color: rgb(125, 185, 125);
+  background-color: var(--main-color);
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -581,7 +580,7 @@ font-size: 1.2rem;
 }
 
 .rp-card:hover, .yo-card:hover {
-  border: 1px solid #008000;
+  border: 1px solid var(--main-color);
 }
 
 
@@ -765,9 +764,9 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: rgba(0, 128, 0, 0.521);
-    border-radius: 2px;
-    background-size: 35px 20px, 100% 100%, 100% 100%;
+  background: var(--main-color);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
 .feedbackChars {
