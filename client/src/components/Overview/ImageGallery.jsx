@@ -90,13 +90,11 @@ class ImageGallery extends React.Component {
         mainImageThumbnailIndex: mainImageIndex - 1,
         numberOfThumbnails: countOfThumbnails
       });
-    // if previous main image is in thumbnail list currently
     } else if (this.state.mainImageThumbnailIndex - 1 >= this.state.firstThumbnailIndex && this.state.mainImageThumbnailIndex - 1 <= this.state.lastThumbnailIndex) {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex - 1,
         numberOfThumbnails: countOfThumbnails
       });
-    // if previous main image is still behind first thumbnail
     } else if (this.state.mainImageThumbnailIndex - 1 < this.state.firstThumbnailIndex) {
       var distance = this.state.firstThumbnailIndex - (this.state.mainImageThumbnailIndex - 1);
       this.setState({
@@ -105,7 +103,6 @@ class ImageGallery extends React.Component {
         lastThumbnailIndex: currentLast - distance,
         numberOfThumbnails: countOfThumbnails
       });
-    //if previous main image is in front of last thumbnail
     } else if (this.state.mainImageThumbnailIndex - 1 > this.state.lastThumbnailIndex) {
       var distance = (this.state.mainImageThumbnailIndex - 1) - this.state.lastThumbnailIndex;
       this.setState({
@@ -123,19 +120,16 @@ class ImageGallery extends React.Component {
     var currentLast = this.state.lastThumbnailIndex;
     var countOfThumbnails = this.props.productStyles.results[this.props.styleIndex].photos.length || 0;
 
-    // if less than 7 thumbnails on screen
     if (this.state.lastThumbnailIndex - this.state.firstThumbnailIndex < 6) {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex + 1,
         numberOfThumbnails: countOfThumbnails
       });
-    // if next main image is in thumbnail list currently
     } else if (this.state.mainImageThumbnailIndex + 1 >= this.state.firstThumbnailIndex && this.state.mainImageThumbnailIndex + 1 <= this.state.lastThumbnailIndex) {
       this.setState({
         mainImageThumbnailIndex: mainImageIndex + 1,
         numberOfThumbnails: countOfThumbnails
       });
-    // if next main image is still behind first thumbnail
     } else if (this.state.mainImageThumbnailIndex + 1 < this.state.firstThumbnailIndex) {
       var distance = this.state.firstThumbnailIndex - (this.state.mainImageThumbnailIndex + 1);
       this.setState({
@@ -143,7 +137,7 @@ class ImageGallery extends React.Component {
         firstThumbnailIndex: mainImageIndex + 1,
         lastThumbnailIndex: currentLast - distance,
         numberOfThumbnails: countOfThumbnails
-      }); //if next main image is in front of last thumbnail
+      });
     } else if (this.state.mainImageThumbnailIndex + 1 > this.state.lastThumbnailIndex) {
       var distance = (this.state.mainImageThumbnailIndex + 1) - this.state.lastThumbnailIndex;
       this.setState({

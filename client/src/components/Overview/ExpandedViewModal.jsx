@@ -76,8 +76,7 @@ class ExpandedViewModal extends React.Component {
     var img = document.getElementById('expanded-view-non-zoomed-image');
 
     e = e || window.event;
-
-    /* Get the x and y positions of the image: */
+    
     a = img.getBoundingClientRect();
 
     x = e.pageX - a.left;

@@ -7,8 +7,6 @@ import SalesArea from './components/SalesArea.jsx';
 import Navbar from './components/Navbar.jsx';
 import RatingsReviews from './components/Ratings_Reviews/RatingsReviews.jsx';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts.jsx';
-import MockComponent from './MockComponent.jsx';
-import CartList from './components/Overview/CartList.jsx';
 
 const App = () => {
 
