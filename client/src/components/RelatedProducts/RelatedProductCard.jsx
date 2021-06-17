@@ -14,6 +14,11 @@ const RelatedProductCard = ({
     e.stopPropagation();
     setCompareProd(e.target.title);
     setModalOpen(true);
+    if (getComputedStyle(document.documentElement).getPropertyValue('--main-color') === 'rgb(58, 54, 54)') {
+      setTimeout(() => {
+        document.querySelectorAll('.comparison-wrapper:nth-child(odd)').forEach(item => item.style.color = 'rgb(255, 255, 255)');
+      }, 100);
+    }
   };
 
   const newProductClickHandler = (e) => {
