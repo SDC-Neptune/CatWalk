@@ -764,9 +764,9 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: rgba(0, 128, 0, 0.521);
-    border-radius: 2px;
-    background-size: 35px 20px, 100% 100%, 100% 100%;
+  background: var(--main-color);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
 .feedbackChars {
