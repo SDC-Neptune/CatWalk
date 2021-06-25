@@ -55,6 +55,8 @@ class StyleSelector extends React.Component {
       return <div></div>;
     }
 
+    // console.log(this.props.productStyles.results);
+
     return (
       <div className="style-selector">
         {this.state.salePrice &&
@@ -71,10 +73,12 @@ class StyleSelector extends React.Component {
         }
         <h3>STYLE > {this.props.productStyles.results[this.props.styleIndex].name}</h3>
         {this.stylesToRows(this.props.productStyles.results).map((row, index) => {
+          // console.log('row', row);
           if (row[0].photos[0].thumbnail_url === null) {
             return null;
           }
           if (row.length === 1) {
+            // console.log(row);
             return (
               <div key={index}>
                 <div className="style-option-inline" onClick={this.updateStyleState.bind(this, (index + '0'), row[0].style_id, row[0].original_price, row[0].sale_price, row[0].name, row[0].photos[0].thumbnail_url)}>
