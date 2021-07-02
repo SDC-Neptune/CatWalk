@@ -9,37 +9,37 @@ app.use(compression());
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 
-app.all('/products', (req, res, next) => {
+app.all('/reviews', (req, res, next) => {
   console.log(req.url);
   axios({
-    url: 'http://localhost:3005' + req.url,
+    url: 'http://localhost:3000' + req.url,
     method: req.method,
     data: req.body
   }).then((response) => res.send(response.data)).catch(err => console.log('err'));
 });
 
-app.all('/products/:productid', (req, res, next) => {
+app.all('/reviews/meta', (req, res, next) => {
   console.log(req.url);
   axios({
-    url: 'http://localhost:3005' + req.url,
+    url: 'http://localhost:3000' + req.url,
     method: req.method,
     data: req.body
   }).then((response) => res.send(response.data)).catch(err => console.log('err'));
 });
 
-app.all('/products/:productid/styles', (req, res, next) => {
+app.all('/reviews/:review_id/helpful', (req, res, next) => {
   console.log(req.url);
   axios({
-    url: 'http://localhost:3005' + req.url,
+    url: 'http://localhost:3000' + req.url,
     method: req.method,
     data: req.body
   }).then((response) => res.send(response.data)).catch(err => console.log('err'));
 });
 
-app.all('/products/:productid/related', (req, res, next) => {
+app.all('/reviews/:review_id/report', (req, res, next) => {
   console.log(req.url);
   axios({
-    url: 'http://localhost:3005' + req.url,
+    url: 'http://localhost:3000' + req.url,
     method: req.method,
     data: req.body
   }).then((response) => res.send(response.data)).catch(err => console.log('err'));
